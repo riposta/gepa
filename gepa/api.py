@@ -1,25 +1,30 @@
+import uuid
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import dspy
 from gepa.graph.workflow import create_graph
 from gepa.config.settings import settings
+from gepa.memory.graphiti_client import GraphitiClient
 
 
 _graph = None
+_graphiti_client = None
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    global _graph
+    global _graph, _graphiti_client
     lm = dspy.LM(
         model=settings.llm_model,
         api_base=settings.llm_api_base or None,
         api_key=settings.llm_api_key.get_secret_value() or None,
     )
     dspy.configure(lm=lm)
-    _graph = create_graph()
+    _graphiti_client = GraphitiClient()
+    _graph = create_graph(graphiti_client=_graphiti_client)
     yield
+    await _graphiti_client.close()
 
 
 app = FastAPI(title="GEPA Estimation API", lifespan=lifespan)
@@ -41,9 +46,10 @@ class ApproveRequest(BaseModel):
 async def estimate(req: EstimateRequest):
     if _graph is None:
         raise HTTPException(status_code=503, detail="Graph not initialized")
-    config = {"configurable": {"thread_id": req.klient}}
+    thread_id = str(uuid.uuid4())
+    config = {"configurable": {"thread_id": thread_id}}
     initial_state = {
-        "session_id": "",
+        "session_id": thread_id,
         "klient": req.klient,
         "opis_projektu": req.opis_projektu,
         "historia_klienta": "",
@@ -57,7 +63,7 @@ async def estimate(req: EstimateRequest):
     }
     result = await _graph.ainvoke(initial_state, config)
     return {
-        "session_id": result["session_id"],
+        "session_id": thread_id,
         "szacunek_godzin": result["szacunek_godzin"],
         "uzasadnienie": result["uzasadnienie"],
         "pewnosc": result["pewnosc"],

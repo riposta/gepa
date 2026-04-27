@@ -7,8 +7,8 @@ from gepa.memory.graphiti_client import GraphitiClient
 from gepa.dspy_modules.estimator import create_estimator
 
 
-def create_graph(checkpointer=None):
-    graphiti = GraphitiClient()
+def create_graph(checkpointer=None, graphiti_client=None):
+    graphiti = graphiti_client or GraphitiClient()
     estimator = create_estimator()
 
     async def intake_node(state: EstimationState) -> dict:

@@ -20,4 +20,4 @@ def load_trainset(training_dir: str) -> list[dspy.Example]:
 
 
 def count_examples(training_dir: str) -> int:
-    return len(list(Path(training_dir).glob("*.json")))
+    return len(load_trainset(training_dir))
