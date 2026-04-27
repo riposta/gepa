@@ -4,8 +4,8 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 @pytest.mark.asyncio
 async def test_workflow_has_required_nodes():
-    with patch("gepa.memory.graphiti_client.GraphitiClient") as mock_gc, \
-         patch("gepa.dspy_modules.estimator.create_estimator") as mock_est:
+    with patch("gepa.graph.workflow.GraphitiClient") as mock_gc, \
+         patch("gepa.graph.workflow.create_estimator") as mock_est:
         mock_gc.return_value = AsyncMock()
         mock_est.return_value = MagicMock()
 
