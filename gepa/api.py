@@ -90,3 +90,34 @@ async def approve(req: ApproveRequest):
     await _graph.aupdate_state(config, update)
     await _graph.ainvoke(None, config)
     return {"status": "saved", "session_id": req.session_id}
+
+
+from gepa.optimization.optimizer import OptimizerRunner
+
+
+@app.get("/model/info")
+async def model_info():
+    runner = OptimizerRunner()
+    latest = runner.get_latest_program()
+    return {
+        "program_version": latest.stem if latest else "baseline",
+        "program_path": str(latest) if latest else None,
+    }
+
+
+@app.post("/model/reload")
+async def model_reload():
+    global _graph, _graphiti_client
+    runner = OptimizerRunner()
+    latest = runner.get_latest_program()
+    if latest is None:
+        return {"status": "no_program", "message": "Brak zoptymalizowanego programu."}
+
+    from gepa.dspy_modules.estimator import create_estimator
+    new_estimator = create_estimator()
+    new_estimator.load(str(latest))
+    _graph = create_graph(
+        graphiti_client=_graphiti_client,
+        estimator=new_estimator,
+    )
+    return {"status": "reloaded", "program": latest.stem}

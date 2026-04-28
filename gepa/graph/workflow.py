@@ -7,9 +7,9 @@ from gepa.memory.graphiti_client import GraphitiClient
 from gepa.dspy_modules.estimator import create_estimator
 
 
-def create_graph(checkpointer=None, graphiti_client=None):
+def create_graph(checkpointer=None, graphiti_client=None, estimator=None):
     graphiti = graphiti_client or GraphitiClient()
-    estimator = create_estimator()
+    est = estimator or create_estimator()
 
     async def intake_node(state: EstimationState) -> dict:
         if not state.get("session_id"):
@@ -24,7 +24,7 @@ def create_graph(checkpointer=None, graphiti_client=None):
         return {"historia_klienta": historia, "wzorce_ryzyk": wzorce}
 
     async def estimation_node(state: EstimationState) -> dict:
-        result = estimator(
+        result = est(
             opis_projektu=state["opis_projektu"],
             historia_klienta=state["historia_klienta"],
             wzorce_ryzyk=state["wzorce_ryzyk"],
