@@ -1,7 +1,9 @@
 import streamlit as st
 import httpx
 
-API_BASE = "http://localhost:8000"
+from gepa.config.settings import settings
+
+API_BASE = f"http://localhost:{settings.api_port}"
 
 st.set_page_config(page_title="GEPA — IT Estimation", layout="wide")
 

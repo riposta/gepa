@@ -22,6 +22,7 @@ class Settings(BaseSettings):
     langfuse_secret_key: SecretStr = SecretStr("")
     mlflow_tracking_uri: str = "mlruns"
     api_key: SecretStr = SecretStr("")
+    api_port: int = 9100
 
 
 settings = Settings()
