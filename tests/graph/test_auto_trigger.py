@@ -38,6 +38,7 @@ async def test_store_node_does_not_trigger_below_threshold():
         with patch("gepa.graph.workflow.TRAINING_DIR", tmpdir), \
              patch("gepa.graph.workflow.GraphitiClient") as mock_gc, \
              patch("gepa.graph.workflow.create_estimator") as mock_est, \
+             patch("gepa.graph.workflow.create_classifier") as mock_clf, \
              patch("gepa.graph.workflow.OptimizerRunner") as mock_runner_cls:
 
             mock_gc.return_value = AsyncMock()
@@ -45,6 +46,7 @@ async def test_store_node_does_not_trigger_below_threshold():
             mock_gc.return_value.get_risk_patterns = AsyncMock(return_value="")
             mock_gc.return_value.add_episode = AsyncMock()
             mock_est.return_value = MagicMock()
+            mock_clf.return_value = MagicMock()
             mock_runner = MagicMock()
             mock_runner.should_trigger.return_value = False
             mock_runner_cls.return_value = mock_runner
@@ -59,10 +61,12 @@ def test_store_node_triggers_optimization_at_threshold():
     """Weryfikuje że store_node wywołuje runner.run gdy próg jest przekroczony."""
     with patch("gepa.graph.workflow.GraphitiClient") as mock_gc, \
          patch("gepa.graph.workflow.create_estimator") as mock_est, \
+         patch("gepa.graph.workflow.create_classifier") as mock_clf, \
          patch("gepa.graph.workflow.OptimizerRunner") as mock_runner_cls:
 
         mock_gc.return_value = MagicMock()
         mock_est.return_value = MagicMock()
+        mock_clf.return_value = MagicMock()
 
         mock_runner = MagicMock()
         mock_runner.should_trigger.return_value = True
