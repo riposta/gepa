@@ -2,6 +2,7 @@ from datetime import datetime, timezone
 
 import openai
 from graphiti_core import Graphiti
+from graphiti_core.cross_encoder.openai_reranker_client import OpenAIRerankerClient
 from graphiti_core.embedder.azure_openai import AzureOpenAIEmbedderClient
 from graphiti_core.embedder.openai import OpenAIEmbedder, OpenAIEmbedderConfig
 from graphiti_core.llm_client import LLMConfig
@@ -18,7 +19,7 @@ def _build_graphiti_clients(
     base_url: str | None,
     api_version: str | None,
 ) -> tuple:
-    """Returns (llm_client, embedder) matched to the model provider."""
+    """Returns (llm_client, embedder, cross_encoder) matched to the model provider."""
     provider = model.split("/")[0].lower() if "/" in model else "openai"
     bare_model = model.split("/", 1)[1] if "/" in model else model
 
@@ -32,22 +33,25 @@ def _build_graphiti_clients(
         return (
             AzureOpenAILLMClient(azure_client=azure_openai, config=llm_config),
             AzureOpenAIEmbedderClient(azure_client=azure_openai),
+            OpenAIRerankerClient(config=llm_config),
         )
 
+    llm_config = LLMConfig(api_key=api_key, model=bare_model, base_url=base_url)
+    embedder_config = OpenAIEmbedderConfig(api_key=api_key, base_url=base_url)
+    cross_encoder = OpenAIRerankerClient(config=llm_config)
+
     if provider == "openai":
-        llm_config = LLMConfig(api_key=api_key, model=bare_model, base_url=base_url)
-        embedder_config = OpenAIEmbedderConfig(api_key=api_key, base_url=base_url)
         return (
             OpenAIClient(config=llm_config),
             OpenAIEmbedder(config=embedder_config),
+            cross_encoder,
         )
 
     # OpenAI-compatible: Ollama, Groq, Together, local servers, etc.
-    llm_config = LLMConfig(api_key=api_key, model=bare_model, base_url=base_url)
-    embedder_config = OpenAIEmbedderConfig(api_key=api_key, base_url=base_url)
     return (
         OpenAIGenericClient(config=llm_config),
         OpenAIEmbedder(config=embedder_config),
+        cross_encoder,
     )
 
 
@@ -57,7 +61,7 @@ class GraphitiClient:
         base_url = settings.llm_api_base or None
         api_version = settings.llm_api_version or None
 
-        llm_client, embedder = _build_graphiti_clients(
+        llm_client, embedder, cross_encoder = _build_graphiti_clients(
             api_key=api_key,
             model=settings.llm_model,
             base_url=base_url,
@@ -69,6 +73,7 @@ class GraphitiClient:
             settings.graphiti_neo4j_password.get_secret_value(),
             llm_client=llm_client,
             embedder=embedder,
+            cross_encoder=cross_encoder,
         )
 
     async def get_context(self, client: str, project_description: str, project_type: str = "new") -> str:
