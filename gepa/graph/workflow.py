@@ -1,10 +1,30 @@
 import uuid
+import json as _json
+import os
+from pathlib import Path
 import dspy
 from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.memory import MemorySaver
 from gepa.graph.state import EstimationState
 from gepa.memory.graphiti_client import GraphitiClient
 from gepa.dspy_modules.estimator import create_estimator
+from gepa.optimization.optimizer import OptimizerRunner
+
+TRAINING_DIR = os.environ.get("TRAINING_DIR", "gepa/data/training")
+
+
+def _save_to_trainset(state, rzeczywiste_godziny: int) -> None:
+    entry = {
+        "opis_projektu": state["opis_projektu"],
+        "rzeczywiste_godziny": rzeczywiste_godziny,
+        "historia_klienta": state.get("historia_klienta", ""),
+        "wzorce_ryzyk": state.get("wzorce_ryzyk", ""),
+        "komentarz_pm": state.get("komentarz_pm", ""),
+        "zrodlo": "hitl",
+    }
+    path = Path(TRAINING_DIR) / f"hitl_{uuid.uuid4().hex[:8]}.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(_json.dumps(entry, ensure_ascii=False, indent=2))
 
 
 def create_graph(checkpointer=None, graphiti_client=None, estimator=None):
@@ -45,6 +65,17 @@ def create_graph(checkpointer=None, graphiti_client=None, estimator=None):
             f"Komentarz PM: {state.get('komentarz_pm', '')}"
         )
         await graphiti.add_episode(state["session_id"], content)
+
+        if state.get("korekta_pm"):
+            _save_to_trainset(state, godziny)
+
+        runner = OptimizerRunner()
+        if runner.should_trigger(TRAINING_DIR):
+            try:
+                runner.run(student=est, training_dir=TRAINING_DIR)
+            except Exception as e:
+                print(f"[GEPA] Optymalizacja nie powiodła się: {e}")
+
         return {"zatwierdzone": True}
 
     builder = StateGraph(EstimationState)
