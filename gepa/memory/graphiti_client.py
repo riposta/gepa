@@ -13,9 +13,9 @@ class GraphitiClient:
             settings.graphiti_neo4j_password.get_secret_value(),
         )
 
-    async def get_context(self, klient: str, opis_projektu: str) -> str:
+    async def get_context(self, klient: str, opis_projektu: str, typ_projektu: str = "nowy") -> str:
         results = await self.graphiti.search(
-            f"historia projektów klienta {klient}: {opis_projektu}"
+            f"historia projektów {typ_projektu} klienta {klient}: {opis_projektu}"
         )
         if not results:
             return "Brak historii klienta w bazie wiedzy."
