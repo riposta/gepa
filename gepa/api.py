@@ -1,6 +1,7 @@
 import uuid
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends
+from gepa.api_auth import verify_api_key
 from pydantic import BaseModel
 import dspy
 from gepa.graph.workflow import create_graph
@@ -51,7 +52,7 @@ class ApproveRequest(BaseModel):
     komentarz_pm: str | None = None
 
 
-@app.post("/estimate")
+@app.post("/estimate", dependencies=[Depends(verify_api_key)])
 async def estimate(req: EstimateRequest):
     if _graph is None:
         raise HTTPException(status_code=503, detail="Graph not initialized")
@@ -81,7 +82,7 @@ async def estimate(req: EstimateRequest):
     }
 
 
-@app.post("/approve")
+@app.post("/approve", dependencies=[Depends(verify_api_key)])
 async def approve(req: ApproveRequest):
     if _graph is None:
         raise HTTPException(status_code=503, detail="Graph not initialized")
@@ -106,7 +107,7 @@ async def model_info():
     }
 
 
-@app.post("/model/reload")
+@app.post("/model/reload", dependencies=[Depends(verify_api_key)])
 async def model_reload():
     global _graph, _graphiti_client
     runner = OptimizerRunner()
