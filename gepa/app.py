@@ -49,10 +49,11 @@ with tab_wycena:
         r = st.session_state.result
         st.subheader("Wynik wyceny")
 
-        col1, col2, col3 = st.columns(3)
+        col1, col2, col3, col4 = st.columns(4)
         col1.metric("Szacunek (godz.)", r["szacunek_godzin"])
         col2.metric("Pewność", f"{r['pewnosc']:.0%}")
-        col3.metric("Sesja", r["session_id"][:8] + "...")
+        col3.metric("Typ projektu", r.get("typ_projektu", "nowy").upper())
+        col4.metric("Sesja", r["session_id"][:8] + "...")
 
         st.markdown("**Uzasadnienie:**")
         st.info(r["uzasadnienie"])
