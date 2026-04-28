@@ -61,4 +61,13 @@ class OptimizerRunner:
         version = self.next_version()
         output_path = self.programs_dir / f"{version}_miprov2.json"
         optimized.save(str(output_path))
+
+        from gepa.monitoring.mlflow_tracker import OptimizationTracker
+        tracker = OptimizationTracker()
+        tracker.log_run(
+            optimizer_name="MIPROv2",
+            num_examples=len(examples),
+            val_score=0.0,
+            program_path=str(output_path),
+        )
         return output_path
