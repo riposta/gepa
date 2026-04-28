@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Proof of concept: asystent AI dla specjalistów sieci oparty na RAG. Baza wiedzy: dokumentacja techniczna sprzętowa (5000 dokumentów), procedury konfiguracyjne, logi historycznych awarii. LangChain + Claude, interface webowy, ewaluacja odpowiedzi (RAGAS). Cel: PoC w 8 tygodni, 20 użytkowników pilotażowych.",
+  "rzeczywiste_godziny": 320,
+  "typ_projektu": "ai",
+  "historia_klienta": "Pierwszy projekt LLM w organizacji — PoC do oceny wartości przed inwestycją.",
+  "wzorce_ryzyk": "PoC: ograniczony zakres, akceptowalna jakosc 'wystarczajaco dobra' - nie produkcja.",
+  "komentarz_pm": "PoC dostarczony w 7 tygodni. Decyzja o wdrożeniu produkcyjnym podjęta po pozytywnym feedbacku.",
+  "zrodlo": "curated"
+}

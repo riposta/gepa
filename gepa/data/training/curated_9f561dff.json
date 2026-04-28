@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Nowa wersja API bilingowego (REST v3) z zachowaniem kompatybilności wstecznej z v1/v2. 12 nowych endpointów, wersjonowanie API, deprecacja starych endpointów (plan 18 miesięcy), GraphQL gateway opcjonalny, dokumentacja OpenAPI 3.1, SDK Python/Java, testy kontraktowe (consumer-driven contracts).",
+  "rzeczywiste_godziny": 1020,
+  "typ_projektu": "legacy",
+  "historia_klienta": "API v1 i v2 używane przez 40 zewnętrznych partnerów — kompatybilność wsteczna krytyczna.",
+  "wzorce_ryzyk": "Testy kontraktowe z 40 partnerami — każdy ma inną interpretację API contract.",
+  "komentarz_pm": "Koordynacja consumer-driven contracts z 40 partnerami zewnętrznymi trwała 2 miesiące.",
+  "zrodlo": "curated"
+}

@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Refactoring modułu obsługi reklamacji — monolityczna aplikacja PHP 5.6 → PHP 8.2 + Laravel. Przepisanie 80k linii kodu, modernizacja schematu bazy danych (MySQL), dodanie testów jednostkowych (docelowe pokrycie 70%), CI/CD pipeline, zachowanie wszystkich funkcjonalności, zero downtime deployment.",
+  "rzeczywiste_godziny": 1440,
+  "typ_projektu": "legacy",
+  "historia_klienta": "Klient refaktorował już moduł zamówień (PHP 5.6→7.4, 900h). Ten moduł jest bardziej złożony.",
+  "wzorce_ryzyk": "Przepisanie bez testów regresji jest ryzykowne — wiele edge case'ów w logice reklamacji.",
+  "komentarz_pm": "Dodanie testów od zera zajęło 35% czasu projektu — warto było dla redukcji ryzyka.",
+  "zrodlo": "curated"
+}

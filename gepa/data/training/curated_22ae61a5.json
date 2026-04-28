@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Silnik rekomendacji ofert dla klientów indywidualnych. Collaborative filtering + content-based dla rekomendacji upgradów i dodatków. A/B testy w czasie rzeczywistym, personalizacja powiadomień push, integracja z platformą e-commerce i CRM, monitoring metryk biznesowych (CTR, konwersja), MLflow do wersjonowania modeli.",
+  "rzeczywiste_godziny": 1360,
+  "typ_projektu": "ai",
+  "historia_klienta": "Klient prowadził ręczne kampanie marketingowe — pierwsza personalizacja AI.",
+  "wzorce_ryzyk": "Cold start problem dla nowych klientów. Dane o zachowaniu rzadkie dla prepaid.",
+  "komentarz_pm": "Cold start wymagał osobnego podejścia dla 40% bazy — niedoszacowany w planowaniu.",
+  "zrodlo": "curated"
+}

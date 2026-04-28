@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Modernizacja systemu bilingowego napisanego w COBOL (lata 90.). Migracja logiki biznesowej do Java 17 + Spring Boot. Przepisanie 200 programów COBOL, zachowanie kompatybilności z formatami plików wyjściowych, testy regresji porównawcze (stary vs nowy system przez 6 miesięcy równolegle), dokumentacja kodu (brak dokumentacji w oryginale).",
+  "rzeczywiste_godziny": 4800,
+  "typ_projektu": "legacy",
+  "historia_klienta": "System krytyczny, działający bez przerwy od 28 lat. Zero dokumentacji.",
+  "wzorce_ryzyk": "Migracja COBOL bez dokumentacji — odkrywanie ukrytej logiki biznesowej to największe ryzyko. +80%.",
+  "komentarz_pm": "Projekt trwał 2x dłużej niż planowano — odkryliśmy 40 nieudokumentowanych reguł biznesowych.",
+  "zrodlo": "curated"
+}

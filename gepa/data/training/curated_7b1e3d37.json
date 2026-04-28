@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Dynamiczne ustalanie cen (dynamic pricing) dla usług roamingowych. Model optymalizacji cen w czasie rzeczywistym na podstawie popytu, pojemności sieci, cen konkurencji (web scraping), historycznych wzorców. Reinforcement learning (bandit algorithm), A/B testing, integracja z systemem billingowym, dashboard revenue managementu.",
+  "rzeczywiste_godziny": 2100,
+  "typ_projektu": "ai",
+  "historia_klienta": "Klient ma doświadczenie z BI — ale pierwszy projekt RL w środowisku produkcyjnym.",
+  "wzorce_ryzyk": "RL w produkcji — niewłaściwa nagroda może prowadzić do niezamierzonego zachowania systemu.",
+  "komentarz_pm": "Simulation environment przed wdrożeniem produkcyjnym był kluczowy — zajął 3 miesiące.",
+  "zrodlo": "curated"
+}

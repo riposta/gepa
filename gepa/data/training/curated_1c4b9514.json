@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Moduł obsługi zamówień urządzeń końcowych (CPE) dla klientów biznesowych. Konfiguracja urządzeń (router, ONT, set-top box) przez API ZeroTouch Provisioning, śledzenie wysyłki, aktywacja, auto-diagnostyka po instalacji, portal klienta do zarządzania urządzeniami, integracja z systemem magazynowym i logistyką.",
+  "rzeczywiste_godziny": 1460,
+  "typ_projektu": "nowy",
+  "historia_klienta": "Provisioning CPE manualny przez techników — 3 wizyty per klient.",
+  "wzorce_ryzyk": "ZeroTouch Provisioning z urządzeniami różnych vendorów — brak pełnej standaryzacji TR-369.",
+  "komentarz_pm": "TR-369 (USP) wsparcie u jednego z vendorów było niepełne — osobny adapter.",
+  "zrodlo": "curated"
+}

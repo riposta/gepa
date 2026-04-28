@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "System zarządzania siecią dostępową DSL (xDSL management system). DSLAM configuration API, line profiling, troubleshooting tool dla techników, integracja z CRM (podgląd parametrów linii klienta), bulk provisioning, alerty degradacji jakości linii (SNR, attenuation). Stack: Python + Django, PostgreSQL, NETCONF/YANG.",
+  "rzeczywiste_godziny": 1380,
+  "typ_projektu": "nowy",
+  "historia_klienta": "Operator zarządza 500k linii DSL — obecne narzędzia CLI nieefektywne.",
+  "wzorce_ryzyk": "NETCONF/YANG integracja z urządzeniami różnych vendorów — niezgodności YANGmodeli.",
+  "komentarz_pm": "Modele YANG różnych vendorów DSLAMów były niezgodne — osobne adaptery dla każdego.",
+  "zrodlo": "curated"
+}

@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Migracja bazy danych Oracle 12c (3TB) do PostgreSQL 16. Konwersja schematów (ora2pg + ręczne dostosowania), migracja stored procedures (PL/SQL → PL/pgSQL), migracja danych z zachowaniem integralności, testy regresji aplikacji (12 aplikacji używa tej bazy), cutover plan z oknem serwisowym 4h.",
+  "rzeczywiste_godziny": 1640,
+  "typ_projektu": "migracja",
+  "historia_klienta": "Klient realizował mniejszą migrację Oracle→PG (500GB) 2 lata temu — 800h, z małymi problemami.",
+  "wzorce_ryzyk": "PL/SQL → PL/pgSQL: package'y Oracle nie mają odpowiednika — refactoring wymagany.",
+  "komentarz_pm": "280 stored procedures wymagało ręcznej konwersji ze względu na Oracle-specific SQL.",
+  "zrodlo": "curated"
+}

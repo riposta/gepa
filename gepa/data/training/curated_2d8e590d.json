@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Prosty landing page z formularzem rejestracji na usługę internetową. Formularz wieloetapowy (dane osobowe → wybór pakietu → potwierdzenie), walidacja w czasie rzeczywistym, integracja z systemem kolejkowania leadów, A/B testy, Google Analytics. Stack: Next.js, Tailwind CSS.",
+  "rzeczywiste_godziny": 180,
+  "typ_projektu": "nowy",
+  "historia_klienta": "Klient regularnie zleca drobne projekty webowe — dobre doświadczenia.",
+  "wzorce_ryzyk": "Brak ryzyk — prosty zakres.",
+  "komentarz_pm": "Dostarczony terminowo i w budżecie.",
+  "zrodlo": "curated"
+}

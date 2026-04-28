@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "System kolejkowania i zarządzania wizytami w salonach sprzedaży. Kiosk do rejestracji (tablet), wyświetlacz kolejki (TV), powiadomienia SMS o zbliżającej się kolejce, panel doradcy, raporty czasu oczekiwania i obsługi, integracja z systemem CRM. 50 salonów, 200 stanowisk.",
+  "rzeczywiste_godziny": 640,
+  "typ_projektu": "nowy",
+  "historia_klienta": "Klient miał podobny system dla 10 salonów — teraz skalowanie do 50.",
+  "wzorce_ryzyk": "Skalowanie z 10 do 50 salonów — konfiguracja per placówka zawsze czasochłonna.",
+  "komentarz_pm": "Konfiguracja lokalizacyjna per salon pochłonęła 20% więcej czasu niż zakładano.",
+  "zrodlo": "curated"
+}

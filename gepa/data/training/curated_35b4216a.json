@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Migracja on-premise centrum danych do AWS (lift-and-shift + optimize). 150 serwerów wirtualnych → EC2/ECS, migracja baz danych (Oracle → RDS Aurora, MongoDB → DocumentDB), sieć: VPN + Direct Connect, storage: SAN → S3 + EFS, disaster recovery, monitoring CloudWatch, IAM redesign. Zero downtime dla krytycznych systemów.",
+  "rzeczywiste_godziny": 4200,
+  "typ_projektu": "migracja",
+  "historia_klienta": "Klient nie miał wcześniej workloadów w chmurze — pierwsza migracja cloud.",
+  "wzorce_ryzyk": "Pierwsza migracja cloud: curve of learning, zmiany w sieciowaniu, IAM policies — +50%.",
+  "komentarz_pm": "Sieciowanie i IAM redesign zajęły 2x więcej niż planowano — archetypowe problemy.",
+  "zrodlo": "curated"
+}

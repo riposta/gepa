@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Migracja portalu pracowniczego z Liferay 6.2 do Liferay DXP 2024. 25 portletów, 60k użytkowników, integracja z Active Directory, migracja treści, motywu graficznego, 15 niestandardowych portletów do przebudowy. Zachowanie SSO i uprawnień rolowych.",
+  "rzeczywiste_godziny": 1200,
+  "typ_projektu": "legacy",
+  "historia_klienta": "Klient miał poprzednią migrację Liferay (5.x → 6.2) — 700h, dostarczono na czas.",
+  "wzorce_ryzyk": "Niestandardowe portlety Liferay — API znacznie zmieniło się między wersjami.",
+  "komentarz_pm": "7 z 15 portletów wymagało przepisania od nowa ze względu na zmiany API Liferay.",
+  "zrodlo": "curated"
+}

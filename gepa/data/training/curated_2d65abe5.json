@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Optymalizacja wydajności systemu CRM — czas odpowiedzi strony wzrósł z 2s do 45s. Profilowanie SQL (Oracle), optymalizacja 150 wolnych zapytań, indeksy, partycjonowanie tabel, wprowadzenie cache (Redis), archiwizacja danych (5 lat historii do cold storage). Cel: powrót do < 3s dla 95% żądań.",
+  "rzeczywiste_godziny": 520,
+  "typ_projektu": "legacy",
+  "historia_klienta": "CRM działa od 8 lat — problemy wydajnościowe narastały przez 2 lata.",
+  "wzorce_ryzyk": "Optymalizacja istniejącego schematu DB bez przebudowy — trudno przewidzieć efekty przed profilowaniem.",
+  "komentarz_pm": "Zidentyfikowano 3 kluczowe zapytania N+1 odpowiadające za 70% degradacji — trafna diagnoza.",
+  "zrodlo": "curated"
+}

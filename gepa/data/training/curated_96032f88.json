@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "System zarządzania flotą pojazdów serwisowych operatora. Śledzenie GPS (500 pojazdów), planowanie tras i zleceń serwisowych, mobilna aplikacja dla techników (React Native), integracja z systemem zarządzania majątkiem, raporty wydajności i kosztów, alerty o przekroczeniu prędkości i stref.",
+  "rzeczywiste_godziny": 1120,
+  "typ_projektu": "nowy",
+  "historia_klienta": "Klient zarządza flotą manualnie — pierwsze wdrożenie telematyki.",
+  "wzorce_ryzyk": "Integracja z urządzeniami GPS różnych producentów — brak standardu protokołu.",
+  "komentarz_pm": "Protokoły GPS różnych producentów: 4 różne formaty danych wymagające osobnych parserów.",
+  "zrodlo": "curated"
+}

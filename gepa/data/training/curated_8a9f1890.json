@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "System zarządzania konfiguracją sieci (Network Configuration Management). Automatyczne backupy konfiguracji 3000 urządzeń (routery, switche, firewalle), diff konfiguracji, rollback, compliance check, integracja z systemem ticketingowym (zmiany wymagają ticketu), Web UI + REST API. Stack: Python + Ansible + PostgreSQL + React.",
+  "rzeczywiste_godziny": 1280,
+  "typ_projektu": "nowy",
+  "historia_klienta": "Backupy konfiguracji ręczne przez skrypty — brak spójności i historii zmian.",
+  "wzorce_ryzyk": "3000 urządzeń różnych vendorów — Ansible moduły mają różną dojrzałość.",
+  "komentarz_pm": "Stare urządzenia bez wsparcia Ansible wymagały własnych modułów SSH — 15% urządzeń.",
+  "zrodlo": "curated"
+}

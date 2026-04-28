@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Migracja systemu zarządzania tożsamością z Microsoft AD + LDAP do Azure AD B2C + Entra ID. 80k użytkowników, migracja kont, synchronizacja atrybutów, konfiguracja MFA, SSPR, Conditional Access Policies, aktualizacja 40 aplikacji do OAuth2/OIDC (z LDAP bind), szkolenia helpdesk.",
+  "rzeczywiste_godziny": 1600,
+  "typ_projektu": "migracja",
+  "historia_klienta": "Klient ma 40 aplikacji z auth przez LDAP — każda wymaga osobnej pracy.",
+  "wzorce_ryzyk": "Aplikacje z LDAP bind: wiele legacy apps nie wspiera OAuth2 — adapter lub refactoring.",
+  "komentarz_pm": "8 aplikacji wymagało głębokiego refactoringu auth — bez możliwości prostego adaptera.",
+  "zrodlo": "curated"
+}

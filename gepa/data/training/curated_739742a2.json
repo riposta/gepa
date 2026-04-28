@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "System provisioning usług dla klientów B2B. Automatyczne uruchamianie internetu, telefonii i telewizji po podpisaniu umowy. Integracja z 4 systemami OSS/BSS, workflow engine (Camunda), notyfikacje statusu, rollback przy błędach. SLA: provisioning w < 4h robocze. API REST + SOAP dla starszych systemów.",
+  "rzeczywiste_godziny": 1580,
+  "typ_projektu": "nowy",
+  "historia_klienta": "Klient realizował wcześniej provisioning manualny — integracje z tymi systemami już znane.",
+  "wzorce_ryzyk": "SOAP integracje zawsze wymagają dodatkowego czasu na mapowanie danych — +40%.",
+  "komentarz_pm": "Rollback logic był niedoszacowany — okazał się najtrudniejszym elementem.",
+  "zrodlo": "curated"
+}

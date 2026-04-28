@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "NLP pipeline do automatycznej klasyfikacji i routingu zgłoszeń serwisowych. Klasyfikacja do 45 kategorii, ekstrakcja encji (numer klienta, adres, typ usługi), sentiment analysis, automatyczne odpowiedzi dla prostych zgłoszeń, model BERT fine-tuned na 200k historycznych zgłoszeń, interfejs do korygowania predykcji przez agentów.",
+  "rzeczywiste_godziny": 960,
+  "typ_projektu": "ai",
+  "historia_klienta": "Klient obsługuje 50k zgłoszeń miesięcznie — klasyfikacja manualna jest wąskim gardłem.",
+  "wzorce_ryzyk": "Fine-tuning BERT na specyficznym żargonie telco wymaga dużej ilości etykietowanych danych.",
+  "komentarz_pm": "Etykietowanie danych treningowych (2000 zgłoszeń) przez ekspertów domenowych — 3 tygodnie.",
+  "zrodlo": "curated"
+}

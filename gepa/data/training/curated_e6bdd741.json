@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Aplikacja mobilna iOS + Android do zarządzania abonamentem telefonicznym. Logowanie biometryczne, podgląd salda i faktur, doładowania, zmiana planu taryfowego, chat z obsługą klienta, powiadomienia push. React Native, integracja z REST API backendowym operatora, Apple Pay / Google Pay dla płatności.",
+  "rzeczywiste_godziny": 1160,
+  "typ_projektu": "nowy",
+  "historia_klienta": "Operator nie miał wcześniej aplikacji mobilnej — pierwsza implementacja.",
+  "wzorce_ryzyk": "Pierwsza aplikacja mobilna u klienta — brak wewnętrznych procesów review i store submission. +25%.",
+  "komentarz_pm": "Opóźnienia przy konfiguracji Apple Developer Program i Google Play Console.",
+  "zrodlo": "curated"
+}

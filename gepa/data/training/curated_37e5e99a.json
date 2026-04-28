@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Automatyczne tagowanie i wyszukiwanie semantyczne bazy wiedzy obsługi klienta. Embedding artykułów bazy wiedzy (sentence-transformers), vector store (Weaviate), semantic search API, integracja z CRM i chatbotem, interface dla redaktorów treści, monitoring jakości wyszukiwania (human feedback loop).",
+  "rzeczywiste_godziny": 720,
+  "typ_projektu": "ai",
+  "historia_klienta": "10k artykułów w bazie wiedzy — klasyczne wyszukiwanie keyword-based już nie wystarcza.",
+  "wzorce_ryzyk": "Jakość embeddingów zależy od jakości treści artykułów — wiele nieaktualnych.",
+  "komentarz_pm": "Aktualizacja 30% artykułów bazy wiedzy przez redaktorów była konieczna przed wdrożeniem.",
+  "zrodlo": "curated"
+}

@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Predykcja awarii sieci radiowych (predictive maintenance). Analiza telemetrii z 8000 stacji bazowych BTS/NodeB/eNodeB, modele predykcji awarii na 7 dni naprzód (random forest + LSTM), priorytetyzacja przeglądów technicznych, integracja z systemem field service, oszczędność kosztów przez prewencję zamiast naprawy awarii.",
+  "rzeczywiste_godziny": 1880,
+  "typ_projektu": "ai",
+  "historia_klienta": "Operator ma rozbudowane systemy monitorowania sieci — dane wysokiej jakości.",
+  "wzorce_ryzyk": "Predykcja rzadkich awarii — klasy niezbalansowane, precision/recall trade-off.",
+  "komentarz_pm": "Balansowanie klas i threshold tuning przy asymetrycznym koszcie błędów zajęło dużo czasu.",
+  "zrodlo": "curated"
+}

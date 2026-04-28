@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Narzędzie do planowania sieci radiowej 5G. Wizualizacja zasięgu na mapie (Mapbox GL), import danych z plików KML/shp, algorytm optymalizacji rozmieszczenia anten, eksport raportów PDF/Excel. Aplikacja webowa dla inżynierów sieci. Vue.js + Python backend + PostGIS.",
+  "rzeczywiste_godziny": 1100,
+  "typ_projektu": "nowy",
+  "historia_klienta": "Specjalistyczne narzędzie GIS — klient nie miał wcześniej takich projektów.",
+  "wzorce_ryzyk": "Algorytmy optymalizacji i GIS — ekspercka wiedza domenowa wymagana, ryzyko dostępności specjalistów.",
+  "komentarz_pm": "Algorytm optymalizacji okazał się bardzo złożony obliczeniowo — dodatkowa praca nad wydajnością.",
+  "zrodlo": "curated"
+}

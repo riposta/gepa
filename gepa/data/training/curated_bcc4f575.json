@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "System zarządzania zgłoszeniami serwisowymi dla klientów biznesowych. Ticketing z priorytetami SLA, eskalacją, przypisywaniem do techników. Panel klienta (web + mobile PWA), panel dyspozytora, integracja z systemem field service. Powiadomienia SMS/email, raporty KPI, dashboard menadżerski. Backend: Node.js + TypeScript, MongoDB, WebSockets dla real-time statusu.",
+  "rzeczywiste_godziny": 1040,
+  "typ_projektu": "nowy",
+  "historia_klienta": "Brak historii — nowy klient.",
+  "wzorce_ryzyk": "Real-time komponenty (WebSocket) historycznie trudne w testowaniu — +20%.",
+  "komentarz_pm": "Zakres był dobrze określony, estymacja bliska rzeczywistości.",
+  "zrodlo": "curated"
+}

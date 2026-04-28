@@ -1,0 +1,9 @@
+{
+  "opis_projektu": "Upgrade systemu zarządzania siecią z Java 8 + Struts 2 do Java 21 + Spring Boot 3 + React. Refactoring 350k linii kodu, migracja z Oracle 11g do Oracle 19c, zastąpienie JSP nowym frontendem React, modernizacja API (REST zamiast SOAP), testy regresji dla 800 przypadków testowych.",
+  "rzeczywiste_godziny": 3200,
+  "typ_projektu": "legacy",
+  "historia_klienta": "System OSS, 12 lat w produkcji. Poprzedni upgrade (Java 6→8) zajął 1800h.",
+  "wzorce_ryzyk": "SOAP → REST migracja przy zachowaniu kompatybilności z zewnętrznymi integracjami.",
+  "komentarz_pm": "Zidentyfikowano 15 zewnętrznych systemów zintegrowanych przez SOAP — każde wymagało osobnej pracy.",
+  "zrodlo": "curated"
+}
