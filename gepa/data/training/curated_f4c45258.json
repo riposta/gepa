@@ -1,0 +1,9 @@
+{
+  "project_description": "New billing API version (REST v3) with backward compatibility to v1/v2. 12 new endpoints, API versioning, old endpoint deprecation (18-month plan), optional GraphQL gateway, OpenAPI 3.1 documentation, Python/Java SDK, contract tests (consumer-driven contracts).",
+  "actual_hours": 1020,
+  "project_type": "legacy",
+  "client_history": "API v1 and v2 used by 40 external partners — backward compatibility critical.",
+  "risk_patterns": "Contract tests with 40 partners — each has different interpretation of API contract.",
+  "pm_comment": "Coordinating consumer-driven contracts with 40 external partners took 2 months.",
+  "source": "curated"
+}

@@ -1,0 +1,9 @@
+{
+  "project_description": "E-commerce platform migration from Magento 1.9 to Magento 2.4. 100k products, 500k customers, order history (3 years), migration of 25 custom modules (API rewriting), new graphic theme (PWA), ERP and warehouse system integration.",
+  "actual_hours": 2200,
+  "project_type": "migration",
+  "client_history": "Client had no previous Magento migrations — but experienced with PHP and e-commerce.",
+  "risk_patterns": "Magento 1→2: completely different architecture — M1 modules need rewriting from scratch.",
+  "pm_comment": "8 of 25 modules turned out impossible to migrate — rewritten from scratch.",
+  "source": "curated"
+}

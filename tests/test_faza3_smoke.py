@@ -6,18 +6,18 @@ import json
 
 
 def test_faza3_imports():
-    from gepa.dspy_modules.classifier import create_classifier, normalize_type, TYPY_PROJEKTOW
+    from gepa.dspy_modules.classifier import create_classifier, normalize_type, PROJECT_TYPES
     from gepa.api_auth import verify_api_key
-    assert len(TYPY_PROJEKTOW) == 4
+    assert len(PROJECT_TYPES) == 4
 
 
 def test_normalize_type_all_types():
     from gepa.dspy_modules.classifier import normalize_type
     assert normalize_type("legacy") == "legacy"
-    assert normalize_type("nowy portal") == "nowy"
-    assert normalize_type("ai projekt") == "ai"
-    assert normalize_type("migracja chmura") == "migracja"
-    assert normalize_type("nieznany") == "nowy"
+    assert normalize_type("new portal") == "new"
+    assert normalize_type("ai project") == "ai"
+    assert normalize_type("migration cloud") == "migration"
+    assert normalize_type("unknown") == "new"
 
 
 def test_workflow_has_classify_node():
@@ -45,19 +45,19 @@ def test_estimate_counter_increments():
             assert counter_file.exists()
 
 
-def test_api_responds_with_typ_projektu():
+def test_api_responds_with_project_type():
     import gepa.api as api_module
     mock_graph = MagicMock()
     mock_graph.ainvoke = AsyncMock(return_value={
-        "szacunek_godzin": 80, "uzasadnienie": "ok", "pewnosc": 0.6,
-        "typ_projektu": "ai", "session_id": "s2",
-        "klient": "K", "opis_projektu": "ML system", "historia_klienta": "",
-        "wzorce_ryzyk": "", "korekta_pm": None, "komentarz_pm": None,
-        "zatwierdzone": False,
+        "estimated_hours": 80, "reasoning": "ok", "confidence": 0.6,
+        "project_type": "ai", "session_id": "s2",
+        "client": "K", "project_description": "ML system", "client_history": "",
+        "risk_patterns": "", "pm_correction": None, "pm_comment": None,
+        "approved": False,
     })
     from fastapi.testclient import TestClient
     with patch.object(api_module, "_graph", mock_graph):
         client = TestClient(api_module.app)
-        resp = client.post("/estimate", json={"klient": "K", "opis_projektu": "ML system"})
+        resp = client.post("/estimate", json={"client": "K", "project_description": "ML system"})
         assert resp.status_code == 200
-        assert resp.json()["typ_projektu"] == "ai"
+        assert resp.json()["project_type"] == "ai"

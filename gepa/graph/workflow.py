@@ -9,7 +9,7 @@ from langgraph.checkpoint.memory import MemorySaver
 from gepa.graph.state import EstimationState
 from gepa.memory.graphiti_client import GraphitiClient
 from gepa.dspy_modules.estimator import create_estimator
-from gepa.dspy_modules.classifier import create_classifier, normalize_type, TYPY_PROJEKTOW
+from gepa.dspy_modules.classifier import create_classifier, normalize_type, PROJECT_TYPES
 from gepa.optimization.optimizer import OptimizerRunner
 
 logger = logging.getLogger(__name__)
@@ -19,15 +19,15 @@ ESTIMATES_FILE = os.environ.get("ESTIMATES_FILE", "gepa/data/estimates_count.jso
 GEPA_TRIGGER_EVERY = int(os.environ.get("GEPA_TRIGGER_EVERY", "100"))
 
 
-def _save_to_trainset(state: EstimationState, rzeczywiste_godziny: int) -> None:
+def _save_to_trainset(state: EstimationState, actual_hours: int) -> None:
     entry = {
-        "opis_projektu": state["opis_projektu"],
-        "rzeczywiste_godziny": rzeczywiste_godziny,
-        "typ_projektu": state.get("typ_projektu", "nowy"),
-        "historia_klienta": state.get("historia_klienta", ""),
-        "wzorce_ryzyk": state.get("wzorce_ryzyk", ""),
-        "komentarz_pm": state.get("komentarz_pm", ""),
-        "zrodlo": "hitl",
+        "project_description": state["project_description"],
+        "actual_hours": actual_hours,
+        "project_type": state.get("project_type", "new"),
+        "client_history": state.get("client_history", ""),
+        "risk_patterns": state.get("risk_patterns", ""),
+        "pm_comment": state.get("pm_comment", ""),
+        "source": "hitl",
     }
     path = Path(TRAINING_DIR) / f"hitl_{uuid.uuid4().hex[:8]}.json"
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -52,9 +52,9 @@ def create_graph(checkpointer=None, graphiti_client=None, estimator=None, estima
 
     if estimators is None:
         if estimator is not None:
-            estimators = {typ: estimator for typ in TYPY_PROJEKTOW}
+            estimators = {typ: estimator for typ in PROJECT_TYPES}
         else:
-            estimators = {typ: create_estimator() for typ in TYPY_PROJEKTOW}
+            estimators = {typ: create_estimator() for typ in PROJECT_TYPES}
 
     async def intake_node(state: EstimationState) -> dict:
         if not state.get("session_id"):
@@ -62,57 +62,57 @@ def create_graph(checkpointer=None, graphiti_client=None, estimator=None, estima
         return {}
 
     async def classify_node(state: EstimationState) -> dict:
-        result = classifier(opis_projektu=state["opis_projektu"])
-        return {"typ_projektu": normalize_type(result.typ_projektu)}
+        result = classifier(project_description=state["project_description"])
+        return {"project_type": normalize_type(result.project_type)}
 
     async def context_node(state: EstimationState) -> dict:
-        typ = state.get("typ_projektu", "nowy")
-        historia = await graphiti.get_context(
-            state["klient"], state["opis_projektu"], typ
+        typ = state.get("project_type", "new")
+        history = await graphiti.get_context(
+            state["client"], state["project_description"], typ
         )
-        wzorce = await graphiti.get_risk_patterns(state["opis_projektu"])
-        return {"historia_klienta": historia, "wzorce_ryzyk": wzorce}
+        patterns = await graphiti.get_risk_patterns(state["project_description"])
+        return {"client_history": history, "risk_patterns": patterns}
 
     async def estimation_node(state: EstimationState) -> dict:
-        typ = state.get("typ_projektu", "nowy")
-        est = estimators.get(typ) or estimators.get("nowy") or list(estimators.values())[0]
+        typ = state.get("project_type", "new")
+        est = estimators.get(typ) or estimators.get("new") or list(estimators.values())[0]
         result = est(
-            opis_projektu=state["opis_projektu"],
-            historia_klienta=state["historia_klienta"],
-            wzorce_ryzyk=state["wzorce_ryzyk"],
+            project_description=state["project_description"],
+            client_history=state["client_history"],
+            risk_patterns=state["risk_patterns"],
         )
         return {
-            "szacunek_godzin": result.szacunek_godzin,
-            "uzasadnienie": result.uzasadnienie,
-            "pewnosc": result.pewnosc,
+            "estimated_hours": result.estimated_hours,
+            "reasoning": result.reasoning,
+            "confidence": result.confidence,
         }
 
     async def store_node(state: EstimationState) -> dict:
-        godziny = state.get("korekta_pm") or state["szacunek_godzin"]
-        typ = state.get("typ_projektu", "nowy")
+        hours = state.get("pm_correction") or state["estimated_hours"]
+        typ = state.get("project_type", "new")
         content = (
-            f"Projekt: {state['opis_projektu']}\n"
-            f"Typ: {typ}\n"
-            f"Klient: {state['klient']}\n"
-            f"Szacunek agenta: {state['szacunek_godzin']} godz.\n"
-            f"Rzeczywiste (PM): {godziny} godz.\n"
-            f"Komentarz PM: {state.get('komentarz_pm', '')}"
+            f"Project: {state['project_description']}\n"
+            f"Type: {typ}\n"
+            f"Client: {state['client']}\n"
+            f"Agent estimate: {state['estimated_hours']} hrs\n"
+            f"Actual (PM): {hours} hrs\n"
+            f"PM comment: {state.get('pm_comment', '')}"
         )
         await graphiti.add_episode(state["session_id"], content)
 
-        if state.get("korekta_pm"):
-            _save_to_trainset(state, godziny)
+        if state.get("pm_correction"):
+            _save_to_trainset(state, hours)
 
         count = _increment_estimate_count()
         if count % GEPA_TRIGGER_EVERY == 0:
             runner = OptimizerRunner()
             try:
-                est = estimators.get("nowy") or list(estimators.values())[0]
+                est = estimators.get("new") or list(estimators.values())[0]
                 runner.run(student=est, training_dir=TRAINING_DIR)
             except Exception:
-                logger.exception("[GEPA] Optymalizacja nie powiodła się")
+                logger.exception("[GEPA] Optimization failed")
 
-        return {"zatwierdzone": True}
+        return {"approved": True}
 
     builder = StateGraph(EstimationState)
     builder.add_node("intake", intake_node)

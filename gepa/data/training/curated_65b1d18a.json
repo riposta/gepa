@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Rozbudowa systemu BI o moduł analiz w czasie rzeczywistym. Architektura Lambda: warstwa batch (Spark) + warstwa speed (Kafka + Flink), dashboard real-time KPIs w Grafana, alerty biznesowe (spadek sprzedaży, wzrost churnu), 8 nowych raportów operacyjnych.",
-  "rzeczywiste_godziny": 1560,
-  "typ_projektu": "nowy",
-  "historia_klienta": "Klient ma działający system BI batch — rozbudowa o real-time.",
-  "wzorce_ryzyk": "Flink i Kafka wymagają specjalistów — i są trudne w testowaniu distributed.",
-  "komentarz_pm": "Testy failure scenarios w distributed streaming były bardzo czasochłonne.",
-  "zrodlo": "curated"
-}

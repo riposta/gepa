@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Chatbot obsługi klienta oparty na LLM (GPT-4 / Claude). Obsługa 50 najczęstszych pytań klientów (FAQ, statusy zamówień, faktury), integracja z systemami CRM i bilingowym przez API, escalation do agenta ludzkiego, logging konwersacji, dashboard analityczny, fine-tuning na historycznych transkryptach, wielojęzyczność (PL, EN, UA).",
-  "rzeczywiste_godziny": 1240,
-  "typ_projektu": "ai",
-  "historia_klienta": "Klient ma obecne centrum obsługi klienta — chatbot ma odciążyć 30% ruchu.",
-  "wzorce_ryzyk": "Integracja LLM z systemami transakcyjnymi — hallucynacje LLM krytyczne przy danych finansowych.",
-  "komentarz_pm": "Guardrails przeciwko hallucynacjom i testy adversarialne zajęły 2x więcej niż planowano.",
-  "zrodlo": "curated"
-}

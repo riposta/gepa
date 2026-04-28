@@ -1,0 +1,9 @@
+{
+  "project_description": "Migration of employee portal from Liferay 6.2 to Liferay DXP 2024. 25 portlets, 60k users, Active Directory integration, content migration, graphic theme, 15 custom portlets to rebuild. Preserving SSO and role-based permissions.",
+  "actual_hours": 1200,
+  "project_type": "legacy",
+  "client_history": "Client had previous Liferay migration (5.x → 6.2) — 700h, delivered on time.",
+  "risk_patterns": "Custom Liferay portlets — API changed significantly between versions.",
+  "pm_comment": "7 of 15 portlets required rewriting from scratch due to Liferay API changes.",
+  "source": "curated"
+}

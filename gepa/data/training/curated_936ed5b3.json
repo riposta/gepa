@@ -1,0 +1,9 @@
+{
+  "project_description": "Packet network capacity optimization using ML. Traffic prediction (LSTM on 3 years of data), automatic capacity expansion recommendations, what-if simulator for network planners, network management system integration, planning department dashboard.",
+  "actual_hours": 1720,
+  "project_type": "ai",
+  "client_history": "Operator has high quality historical traffic data — good ML starting point.",
+  "risk_patterns": "Traffic prediction 12+ months ahead — model accuracy drops drastically for long horizons.",
+  "pm_comment": "Managing business expectations about prediction accuracy was a key challenge.",
+  "source": "curated"
+}

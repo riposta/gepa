@@ -1,0 +1,9 @@
+{
+  "project_description": "Refactoring of customer service monolith — 1.2 million lines of Delphi code. Extracting 6 modules into separate services, keeping Firebird database unchanged, new REST API for each service, gradual migration without stopping production (strangler fig pattern).",
+  "actual_hours": 5200,
+  "project_type": "legacy",
+  "client_history": "Monolith developed for 18 years — 6 different teams left their mark.",
+  "risk_patterns": "Delphi experts hard to find on the market. Monolith with hidden dependencies between modules.",
+  "pm_comment": "Identified circular dependencies between modules requiring 4 months of analysis before coding.",
+  "source": "curated"
+}

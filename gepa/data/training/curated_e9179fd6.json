@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Dekomisja i zastąpienie systemu fakturowania dla klientów hurtowych. Stary system: RPG na IBM AS/400 (iSeries), nowy: Java + PostgreSQL + Jasper Reports. Migracja danych z 15 lat historii, równoległe działanie przez 6 miesięcy, szkolenie działu finansowego (50 osób), certyfikacja przez audytorów.",
-  "rzeczywiste_godziny": 3800,
-  "typ_projektu": "legacy",
-  "historia_klienta": "AS/400 — ostatni programista znający RPG odszedł 2 lata temu.",
-  "wzorce_ryzyk": "Brak ekspertów RPG/AS400 na rynku — zrozumienie logiki z kodu źródłowego bez dokumentacji.",
-  "komentarz_pm": "Reverse engineering 25 lat logiki biznesowej z RPG zajął 8 miesięcy.",
-  "zrodlo": "curated"
-}

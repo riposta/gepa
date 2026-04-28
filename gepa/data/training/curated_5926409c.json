@@ -1,0 +1,9 @@
+{
+  "project_description": "Queue and appointment management system for retail stores. Registration kiosk (tablet), queue display (TV), SMS notifications about upcoming queue, advisor panel, wait time and service reports, CRM integration. 50 stores, 200 workstations.",
+  "actual_hours": 640,
+  "project_type": "new",
+  "client_history": "Client had a similar system for 10 stores — now scaling to 50.",
+  "risk_patterns": "Scaling from 10 to 50 stores — per-location configuration always time-consuming.",
+  "pm_comment": "Per-store location configuration took 20% more time than assumed.",
+  "source": "curated"
+}

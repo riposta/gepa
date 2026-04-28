@@ -1,25 +1,13 @@
 import dspy
 
 
-class WycenaIT(dspy.Signature):
-    """Wycena projektu IT w roboczogodzinach na podstawie opisu i historii."""
+class ITEstimation(dspy.Signature):
+    """Estimate IT project effort in man-hours based on description and history."""
 
-    opis_projektu: str = dspy.InputField(
-        desc="Pełen opis wymagań projektu IT"
-    )
-    historia_klienta: str = dspy.InputField(
-        desc="Historia poprzednich projektów klienta z Graphiti (lub 'Brak historii.')"
-    )
-    wzorce_ryzyk: str = dspy.InputField(
-        desc="Wyuczone wzorce ryzyk z Graphiti (lub 'Brak wzorców.')"
-    )
+    project_description: str = dspy.InputField(desc="Full description of the IT project requirements")
+    client_history: str = dspy.InputField(desc="Client's project history from Graphiti (or 'No history.')")
+    risk_patterns: str = dspy.InputField(desc="Learned risk patterns from Graphiti (or 'No patterns.')")
 
-    szacunek_godzin: int = dspy.OutputField(
-        desc="Szacunkowa liczba roboczogodzin (liczba całkowita)"
-    )
-    uzasadnienie: str = dspy.OutputField(
-        desc="Szczegółowe wyjaśnienie metodyki wyceny z podziałem na komponenty"
-    )
-    pewnosc: float = dspy.OutputField(
-        desc="Pewność wyceny od 0.0 (brak pewności) do 1.0 (pełna pewność)"
-    )
+    estimated_hours: int = dspy.OutputField(desc="Estimated man-hours (integer)")
+    reasoning: str = dspy.OutputField(desc="Detailed explanation of estimation methodology broken down by components")
+    confidence: float = dspy.OutputField(desc="Estimation confidence from 0.0 (none) to 1.0 (full)")

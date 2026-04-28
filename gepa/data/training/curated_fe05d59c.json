@@ -1,0 +1,9 @@
+{
+  "project_description": "5G radio network planning tool. Coverage visualization on map (Mapbox GL), KML/shp file import, antenna placement optimization algorithm, PDF/Excel report export. Web application for network engineers. Vue.js + Python backend + PostGIS.",
+  "actual_hours": 1100,
+  "project_type": "new",
+  "client_history": "Specialized GIS tool — client had no such projects before.",
+  "risk_patterns": "Optimization algorithms and GIS — expert domain knowledge required, specialist availability risk.",
+  "pm_comment": "Optimization algorithm turned out computationally very complex — extra work on performance.",
+  "source": "curated"
+}

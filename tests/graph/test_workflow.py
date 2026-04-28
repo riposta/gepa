@@ -24,17 +24,17 @@ def test_estimation_state_fields():
     from gepa.graph.state import EstimationState
     state: EstimationState = {
         "session_id": "test-001",
-        "klient": "Klient ABC",
-        "opis_projektu": "Nowy portal",
-        "typ_projektu": "nowy",
-        "historia_klienta": "",
-        "wzorce_ryzyk": "",
-        "szacunek_godzin": None,
-        "uzasadnienie": None,
-        "pewnosc": None,
-        "korekta_pm": None,
-        "komentarz_pm": None,
-        "zatwierdzone": False,
+        "client": "Client ABC",
+        "project_description": "New portal",
+        "project_type": "new",
+        "client_history": "",
+        "risk_patterns": "",
+        "estimated_hours": None,
+        "reasoning": None,
+        "confidence": None,
+        "pm_correction": None,
+        "pm_comment": None,
+        "approved": False,
     }
-    assert state["zatwierdzone"] is False
-    assert state["typ_projektu"] == "nowy"
+    assert state["approved"] is False
+    assert state["project_type"] == "new"

@@ -1,0 +1,9 @@
+{
+  "project_description": "Modernization of billing system written in COBOL (1990s). Migration of business logic to Java 17 + Spring Boot. Rewriting 200 COBOL programs, maintaining compatibility with output file formats, comparative regression tests (old vs new system running in parallel for 6 months), code documentation (no documentation in original).",
+  "actual_hours": 4800,
+  "project_type": "legacy",
+  "client_history": "Critical system, running continuously for 28 years. Zero documentation.",
+  "risk_patterns": "COBOL migration without documentation — discovering hidden business logic is the biggest risk. +80%.",
+  "pm_comment": "Project took 2x longer than planned — discovered 40 undocumented business rules.",
+  "source": "curated"
+}

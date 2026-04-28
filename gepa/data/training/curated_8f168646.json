@@ -1,0 +1,9 @@
+{
+  "project_description": "Customer data analytics platform (Customer Data Platform). Data unification from 8 sources (CRM, billing, network, mobile app, web), single customer view, predictive segmentation, marketing tool integration, Kafka + Spark Streaming pipeline, lakehouse on S3 + Delta Lake.",
+  "actual_hours": 3200,
+  "project_type": "new",
+  "client_history": "Client has data in silos — first CDP implementation.",
+  "risk_patterns": "Data quality from 8 sources: each has different keys and formats — deduplication very difficult.",
+  "pm_comment": "Identity resolution (linking customer records from different systems) took 35% of project.",
+  "source": "curated"
+}

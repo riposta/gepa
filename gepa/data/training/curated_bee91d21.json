@@ -1,0 +1,9 @@
+{
+  "project_description": "Self-service portal for individual customers of a telecommunications operator. Features: account management (change data, password, address), online invoice viewing and payment, service management (activate/deactivate packages), call and data usage history, service request form with status tracking. Stack: React 18 + TypeScript, FastAPI, PostgreSQL, Redis for sessions, payment gateway integration, OAuth2 SSO.",
+  "actual_hours": 920,
+  "project_type": "new",
+  "client_history": "Operator previously delivered a B2B portal (800h, on time). Experienced frontend team.",
+  "risk_patterns": "Payment gateway integration historically adds +30% to estimates.",
+  "pm_comment": "Testing time and OWASP security hardening were underestimated.",
+  "source": "curated"
+}

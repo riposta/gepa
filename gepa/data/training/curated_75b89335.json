@@ -1,0 +1,9 @@
+{
+  "project_description": "Customer service chatbot based on LLM (GPT-4 / Claude). Handling 50 most frequent customer questions (FAQ, order statuses, invoices), integration with CRM and billing systems via API, escalation to human agent, conversation logging, analytics dashboard, fine-tuning on historical transcripts, multilingual support (EN, PL, UA).",
+  "actual_hours": 1240,
+  "project_type": "ai",
+  "client_history": "Client has existing customer service center — chatbot to offload 30% of traffic.",
+  "risk_patterns": "LLM integration with transactional systems — hallucinations critical with financial data.",
+  "pm_comment": "Guardrails against hallucinations and adversarial tests took 2x longer than planned.",
+  "source": "curated"
+}

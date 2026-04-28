@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Portal B2B dla partnerów handlowych operatora. Zarządzanie zamówieniami hurtowymi, katalog produktów z cennikami indywidualnymi, rabaty wolumenowe, faktury, raporty sprzedaży, API do integracji z systemami ERP partnerów. Role i uprawnienia (admin partnera, handlowiec, finanse). Angular 17, Java Spring Boot, Oracle DB.",
-  "rzeczywiste_godziny": 1320,
-  "typ_projektu": "nowy",
-  "historia_klienta": "Dwa poprzednie projekty Java Spring Boot — dostarczane z 10% przekroczeniem budżetu.",
-  "wzorce_ryzyk": "Cenniki indywidualne i rabaty — logika biznesowa zawsze bardziej skomplikowana niż zakładano.",
-  "komentarz_pm": "Logika rabatów okazała się bardzo złożona — 4 typy rabatów zamiast planowanych 2.",
-  "zrodlo": "curated"
-}

@@ -1,0 +1,9 @@
+{
+  "project_description": "Service ticket management system for business customers. Ticketing with SLA priorities, escalation, assignment to technicians. Customer panel (web + mobile PWA), dispatcher panel, field service system integration. SMS/email notifications, KPI reports, management dashboard. Backend: Node.js + TypeScript, MongoDB, WebSockets for real-time status.",
+  "actual_hours": 1040,
+  "project_type": "new",
+  "client_history": "No history — new client.",
+  "risk_patterns": "Real-time components (WebSocket) historically difficult to test — +20%.",
+  "pm_comment": "Scope was well defined, estimate was close to actual.",
+  "source": "curated"
+}

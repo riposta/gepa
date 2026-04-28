@@ -1,0 +1,9 @@
+{
+  "project_description": "Consolidation of 4 monitoring systems (Zabbix, Nagios, Prometheus, Dynatrace) to single Dynatrace Full Stack platform. Agent configuration on 400 servers, instrumentation of 60 applications, alert migration (300 rules), Davis AI dashboards, old system deprecation, documentation.",
+  "actual_hours": 940,
+  "project_type": "migration",
+  "client_history": "4 monitoring tools = chaos — NOC team checks 4 panels.",
+  "risk_patterns": "Dynatrace OneAgent on legacy JVM can cause performance issues.",
+  "pm_comment": "2 applications on old JVMs had agent issues — forced JVM upgrade.",
+  "source": "curated"
+}

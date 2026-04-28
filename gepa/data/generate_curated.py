@@ -1,7 +1,7 @@
 """
-Generator ręcznie skurowanych przykładów treningowych.
-Pokrywa 4 typy projektów telco/IT: nowy, legacy, ai, migracja.
-Brak informacji company-specific.
+Generator of manually curated training examples.
+Covers 4 IT/telco project types: new, legacy, ai, migration.
+No company-specific information.
 """
 import json
 import uuid
@@ -10,1005 +10,1005 @@ from pathlib import Path
 EXAMPLES = [
 
     # ─────────────────────────────────────────────────────────────────────────
-    # TYP: NOWY — nowe systemy od zera
+    # TYPE: NEW — brand new systems from scratch
     # ─────────────────────────────────────────────────────────────────────────
 
     {
-        "opis_projektu": (
-            "Portal self-service dla klientów indywidualnych operatora telekomunikacyjnego. "
-            "Funkcjonalności: zarządzanie kontem (zmiana danych, hasła, adresu), "
-            "podgląd i opłacanie faktur online, zarządzanie usługami (aktywacja, dezaktywacja pakietów), "
-            "historia połączeń i zużycia danych, formularz zgłoszenia serwisowego z śledzeniem statusu. "
-            "Stack: React 18 + TypeScript, FastAPI, PostgreSQL, Redis dla sesji, "
-            "integracja z bramką płatności, OAuth2 SSO."
+        "project_description": (
+            "Self-service portal for individual customers of a telecommunications operator. "
+            "Features: account management (change data, password, address), "
+            "online invoice viewing and payment, service management (activate/deactivate packages), "
+            "call and data usage history, service request form with status tracking. "
+            "Stack: React 18 + TypeScript, FastAPI, PostgreSQL, Redis for sessions, "
+            "payment gateway integration, OAuth2 SSO."
         ),
-        "rzeczywiste_godziny": 920,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Operator zrealizował wcześniej portal B2B (800h, dostarczony na czas). Doświadczony zespół frontend.",
-        "wzorce_ryzyk": "Integracja z bramką płatności historycznie +30% do estymacji.",
-        "komentarz_pm": "Niedoszacowano czasu na testy regresji i zabezpieczenia OWASP.",
-        "zrodlo": "curated",
+        "actual_hours": 920,
+        "project_type": "new",
+        "client_history": "Operator previously delivered a B2B portal (800h, on time). Experienced frontend team.",
+        "risk_patterns": "Payment gateway integration historically adds +30% to estimates.",
+        "pm_comment": "Testing time and OWASP security hardening were underestimated.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "System zarządzania zgłoszeniami serwisowymi dla klientów biznesowych. "
-            "Ticketing z priorytetami SLA, eskalacją, przypisywaniem do techników. "
-            "Panel klienta (web + mobile PWA), panel dyspozytora, integracja z systemem field service. "
-            "Powiadomienia SMS/email, raporty KPI, dashboard menadżerski. "
-            "Backend: Node.js + TypeScript, MongoDB, WebSockets dla real-time statusu."
+        "project_description": (
+            "Service ticket management system for business customers. "
+            "Ticketing with SLA priorities, escalation, assignment to technicians. "
+            "Customer panel (web + mobile PWA), dispatcher panel, field service system integration. "
+            "SMS/email notifications, KPI reports, management dashboard. "
+            "Backend: Node.js + TypeScript, MongoDB, WebSockets for real-time status."
         ),
-        "rzeczywiste_godziny": 1040,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Brak historii — nowy klient.",
-        "wzorce_ryzyk": "Real-time komponenty (WebSocket) historycznie trudne w testowaniu — +20%.",
-        "komentarz_pm": "Zakres był dobrze określony, estymacja bliska rzeczywistości.",
-        "zrodlo": "curated",
+        "actual_hours": 1040,
+        "project_type": "new",
+        "client_history": "No history — new client.",
+        "risk_patterns": "Real-time components (WebSocket) historically difficult to test — +20%.",
+        "pm_comment": "Scope was well defined, estimate was close to actual.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "API gateway dla ekosystemu mikroserwisów operatora. "
-            "Rate limiting, autentykacja JWT + API keys, routing do 12 serwisów backendowych, "
-            "transformacja payloadów, monitoring SLA, circuit breaker, retry logic. "
-            "Dokumentacja OpenAPI, developer portal dla partnerów zewnętrznych. "
+        "project_description": (
+            "API gateway for a microservices ecosystem of a telco operator. "
+            "Rate limiting, JWT + API key authentication, routing to 12 backend services, "
+            "payload transformation, SLA monitoring, circuit breaker, retry logic. "
+            "OpenAPI documentation, developer portal for external partners. "
             "Stack: Kong Gateway + custom Lua plugins, Keycloak, Prometheus + Grafana."
         ),
-        "rzeczywiste_godziny": 680,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Klient ma doświadczenie z mikroserwisami — 3 poprzednie projekty dostarczane terminowo.",
-        "wzorce_ryzyk": "Custom plugins Lua wymagają specjalistów — ryzyko dostępności zasobów.",
-        "komentarz_pm": "Dobrze oszacowany projekt, lekkie przekroczenie na dokumentacji dev portalu.",
-        "zrodlo": "curated",
+        "actual_hours": 680,
+        "project_type": "new",
+        "client_history": "Client has microservices experience — 3 previous projects delivered on time.",
+        "risk_patterns": "Custom Lua plugins require specialists — resource availability risk.",
+        "pm_comment": "Well estimated project, slight overrun on developer portal documentation.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Aplikacja mobilna iOS + Android do zarządzania abonamentem telefonicznym. "
-            "Logowanie biometryczne, podgląd salda i faktur, doładowania, "
-            "zmiana planu taryfowego, chat z obsługą klienta, powiadomienia push. "
-            "React Native, integracja z REST API backendowym operatora, "
-            "Apple Pay / Google Pay dla płatności."
+        "project_description": (
+            "Mobile app iOS + Android for managing phone subscription. "
+            "Biometric login, balance and invoice view, top-ups, "
+            "tariff plan change, customer support chat, push notifications. "
+            "React Native, integration with operator's REST API backend, "
+            "Apple Pay / Google Pay for payments."
         ),
-        "rzeczywiste_godziny": 1160,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Operator nie miał wcześniej aplikacji mobilnej — pierwsza implementacja.",
-        "wzorce_ryzyk": "Pierwsza aplikacja mobilna u klienta — brak wewnętrznych procesów review i store submission. +25%.",
-        "komentarz_pm": "Opóźnienia przy konfiguracji Apple Developer Program i Google Play Console.",
-        "zrodlo": "curated",
+        "actual_hours": 1160,
+        "project_type": "new",
+        "client_history": "Operator had no mobile app before — first implementation.",
+        "risk_patterns": "First mobile app for client — no internal review processes and store submission. +25%.",
+        "pm_comment": "Delays in configuring Apple Developer Program and Google Play Console.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "System provisioning usług dla klientów B2B. Automatyczne uruchamianie internetu, "
-            "telefonii i telewizji po podpisaniu umowy. Integracja z 4 systemami OSS/BSS, "
-            "workflow engine (Camunda), notyfikacje statusu, rollback przy błędach. "
-            "SLA: provisioning w < 4h robocze. API REST + SOAP dla starszych systemów."
+        "project_description": (
+            "Service provisioning system for B2B customers. Automatic activation of internet, "
+            "telephony and TV after contract signing. Integration with 4 OSS/BSS systems, "
+            "workflow engine (Camunda), status notifications, rollback on errors. "
+            "SLA: provisioning in < 4 business hours. REST + SOAP API for legacy systems."
         ),
-        "rzeczywiste_godziny": 1580,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Klient realizował wcześniej provisioning manualny — integracje z tymi systemami już znane.",
-        "wzorce_ryzyk": "SOAP integracje zawsze wymagają dodatkowego czasu na mapowanie danych — +40%.",
-        "komentarz_pm": "Rollback logic był niedoszacowany — okazał się najtrudniejszym elementem.",
-        "zrodlo": "curated",
+        "actual_hours": 1580,
+        "project_type": "new",
+        "client_history": "Client previously did manual provisioning — integrations with these systems already known.",
+        "risk_patterns": "SOAP integrations always require extra time for data mapping — +40%.",
+        "pm_comment": "Rollback logic was underestimated — turned out to be the hardest element.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Portal B2B dla partnerów handlowych operatora. Zarządzanie zamówieniami hurtowymi, "
-            "katalog produktów z cennikami indywidualnymi, rabaty wolumenowe, faktury, "
-            "raporty sprzedaży, API do integracji z systemami ERP partnerów. "
-            "Role i uprawnienia (admin partnera, handlowiec, finanse). "
+        "project_description": (
+            "B2B portal for operator's trade partners. Wholesale order management, "
+            "product catalogue with individual pricing, volume discounts, invoices, "
+            "sales reports, API for partner ERP system integration. "
+            "Roles and permissions (partner admin, sales rep, finance). "
             "Angular 17, Java Spring Boot, Oracle DB."
         ),
-        "rzeczywiste_godziny": 1320,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Dwa poprzednie projekty Java Spring Boot — dostarczane z 10% przekroczeniem budżetu.",
-        "wzorce_ryzyk": "Cenniki indywidualne i rabaty — logika biznesowa zawsze bardziej skomplikowana niż zakładano.",
-        "komentarz_pm": "Logika rabatów okazała się bardzo złożona — 4 typy rabatów zamiast planowanych 2.",
-        "zrodlo": "curated",
+        "actual_hours": 1320,
+        "project_type": "new",
+        "client_history": "Two previous Java Spring Boot projects — delivered with 10% budget overrun.",
+        "risk_patterns": "Individual pricing and discounts — business logic always more complex than assumed.",
+        "pm_comment": "Discount logic turned out very complex — 4 discount types instead of planned 2.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "System monitorowania zużycia danych dla klientów prepaid. "
-            "Real-time counter zużycia MB, SMS, minut. Automatyczne powiadomienia przy 80% i 100% limitu. "
-            "Agregacja danych z 3 systemów billingowych, cache Redis, "
-            "API mobilne i webowe. Obciążenie: 500k aktywnych sesji jednocześnie."
+        "project_description": (
+            "Data usage monitoring system for prepaid customers. "
+            "Real-time MB, SMS, minutes counter. Automatic notifications at 80% and 100% limit. "
+            "Data aggregation from 3 billing systems, Redis cache, "
+            "mobile and web API. Load: 500k active sessions simultaneously."
         ),
-        "rzeczywiste_godziny": 760,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Klient realizował podobny system 2 lata temu (nieco mniejsza skala) — 640h.",
-        "wzorce_ryzyk": "Skalowanie do 500k sesji — testy wydajnościowe zawsze ujawniają problemy.",
-        "komentarz_pm": "Testy wydajnościowe i optymalizacja Redis zajęły 2x więcej niż planowano.",
-        "zrodlo": "curated",
+        "actual_hours": 760,
+        "project_type": "new",
+        "client_history": "Client built a similar system 2 years ago (slightly smaller scale) — 640h.",
+        "risk_patterns": "Scaling to 500k sessions — performance tests always reveal problems.",
+        "pm_comment": "Performance tests and Redis optimization took 2x longer than planned.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Elektroniczny system zarządzania umowami z klientami biznesowymi. "
-            "Generowanie umów z szablonów Word/PDF, podpis elektroniczny (e-podpis kwalifikowany), "
-            "repozytorium umów z wyszukiwarką, przypomnienia o terminach odnowień, "
-            "workflow akceptacji (wielopoziomowy), integracja z systemem CRM i ERP."
+        "project_description": (
+            "Electronic contract management system for business customers. "
+            "Contract generation from Word/PDF templates, electronic signature (qualified e-signature), "
+            "contract repository with search, renewal reminder notifications, "
+            "multi-level approval workflow, integration with CRM and ERP."
         ),
-        "rzeczywiste_godziny": 840,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Brak historii dotyczącej systemów podpisu elektronicznego.",
-        "wzorce_ryzyk": "E-podpis kwalifikowany — certyfikacja i testy prawne zawsze wydłużają projekt.",
-        "komentarz_pm": "Certyfikacja podpisu elektronicznego zajęła 6 tygodni zamiast planowanych 2.",
-        "zrodlo": "curated",
+        "actual_hours": 840,
+        "project_type": "new",
+        "client_history": "No history with electronic signature systems.",
+        "risk_patterns": "Qualified e-signature — certification and legal testing always extend the project.",
+        "pm_comment": "Electronic signature certification took 6 weeks instead of planned 2.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Platforma do zarządzania numerami telefonicznymi (Number Management System). "
-            "Pule numerów, rezerwacje, przydziały do klientów, portowanie numerów (MNP), "
-            "integracja z rejestrem krajowym, raportowanie, audyt zmian. "
-            "Obsługa 50 milionów numerów, wysoka dostępność 99.99%."
+        "project_description": (
+            "Phone number management platform (Number Management System). "
+            "Number pools, reservations, customer allocations, number porting (MNP), "
+            "national registry integration, reporting, change audit. "
+            "Handling 50 million numbers, high availability 99.99%."
         ),
-        "rzeczywiste_godziny": 2200,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Krytyczny system telco — klient nigdy wcześniej nie realizował projektu tej klasy.",
-        "wzorce_ryzyk": "Systemy telco-grade z wymogiem 99.99% HA: każdy element infrastruktury podwójny.",
-        "komentarz_pm": "Testy failover i disaster recovery zajęły 3 miesiące. Dobrze że zaplanowano bufor.",
-        "zrodlo": "curated",
+        "actual_hours": 2200,
+        "project_type": "new",
+        "client_history": "Critical telco system — client never implemented a project of this class.",
+        "risk_patterns": "Telco-grade systems with 99.99% HA requirement: every infrastructure element doubled.",
+        "pm_comment": "Failover and disaster recovery tests took 3 months. Good thing a buffer was planned.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Prosty landing page z formularzem rejestracji na usługę internetową. "
-            "Formularz wieloetapowy (dane osobowe → wybór pakietu → potwierdzenie), "
-            "walidacja w czasie rzeczywistym, integracja z systemem kolejkowania leadów, "
-            "A/B testy, Google Analytics. Stack: Next.js, Tailwind CSS."
+        "project_description": (
+            "Simple landing page with registration form for internet service. "
+            "Multi-step form (personal data → package selection → confirmation), "
+            "real-time validation, integration with lead queuing system, "
+            "A/B tests, Google Analytics. Stack: Next.js, Tailwind CSS."
         ),
-        "rzeczywiste_godziny": 180,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Klient regularnie zleca drobne projekty webowe — dobre doświadczenia.",
-        "wzorce_ryzyk": "Brak ryzyk — prosty zakres.",
-        "komentarz_pm": "Dostarczony terminowo i w budżecie.",
-        "zrodlo": "curated",
+        "actual_hours": 180,
+        "project_type": "new",
+        "client_history": "Client regularly commissions small web projects — good experience.",
+        "risk_patterns": "No risks — simple scope.",
+        "pm_comment": "Delivered on time and within budget.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "System kolejkowania i zarządzania wizytami w salonach sprzedaży. "
-            "Kiosk do rejestracji (tablet), wyświetlacz kolejki (TV), "
-            "powiadomienia SMS o zbliżającej się kolejce, panel doradcy, "
-            "raporty czasu oczekiwania i obsługi, integracja z systemem CRM. "
-            "50 salonów, 200 stanowisk."
+        "project_description": (
+            "Queue and appointment management system for retail stores. "
+            "Registration kiosk (tablet), queue display (TV), "
+            "SMS notifications about upcoming queue, advisor panel, "
+            "wait time and service reports, CRM integration. "
+            "50 stores, 200 workstations."
         ),
-        "rzeczywiste_godziny": 640,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Klient miał podobny system dla 10 salonów — teraz skalowanie do 50.",
-        "wzorce_ryzyk": "Skalowanie z 10 do 50 salonów — konfiguracja per placówka zawsze czasochłonna.",
-        "komentarz_pm": "Konfiguracja lokalizacyjna per salon pochłonęła 20% więcej czasu niż zakładano.",
-        "zrodlo": "curated",
+        "actual_hours": 640,
+        "project_type": "new",
+        "client_history": "Client had a similar system for 10 stores — now scaling to 50.",
+        "risk_patterns": "Scaling from 10 to 50 stores — per-location configuration always time-consuming.",
+        "pm_comment": "Per-store location configuration took 20% more time than assumed.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Narzędzie do planowania sieci radiowej 5G. "
-            "Wizualizacja zasięgu na mapie (Mapbox GL), import danych z plików KML/shp, "
-            "algorytm optymalizacji rozmieszczenia anten, eksport raportów PDF/Excel. "
-            "Aplikacja webowa dla inżynierów sieci. Vue.js + Python backend + PostGIS."
+        "project_description": (
+            "5G radio network planning tool. "
+            "Coverage visualization on map (Mapbox GL), KML/shp file import, "
+            "antenna placement optimization algorithm, PDF/Excel report export. "
+            "Web application for network engineers. Vue.js + Python backend + PostGIS."
         ),
-        "rzeczywiste_godziny": 1100,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Specjalistyczne narzędzie GIS — klient nie miał wcześniej takich projektów.",
-        "wzorce_ryzyk": "Algorytmy optymalizacji i GIS — ekspercka wiedza domenowa wymagana, ryzyko dostępności specjalistów.",
-        "komentarz_pm": "Algorytm optymalizacji okazał się bardzo złożony obliczeniowo — dodatkowa praca nad wydajnością.",
-        "zrodlo": "curated",
+        "actual_hours": 1100,
+        "project_type": "new",
+        "client_history": "Specialized GIS tool — client had no such projects before.",
+        "risk_patterns": "Optimization algorithms and GIS — expert domain knowledge required, specialist availability risk.",
+        "pm_comment": "Optimization algorithm turned out computationally very complex — extra work on performance.",
+        "source": "curated",
     },
 
     # ─────────────────────────────────────────────────────────────────────────
-    # TYP: LEGACY — modernizacja i utrzymanie starych systemów
+    # TYPE: LEGACY — modernization and maintenance of old systems
     # ─────────────────────────────────────────────────────────────────────────
 
     {
-        "opis_projektu": (
-            "Modernizacja systemu bilingowego napisanego w COBOL (lata 90.). "
-            "Migracja logiki biznesowej do Java 17 + Spring Boot. "
-            "Przepisanie 200 programów COBOL, zachowanie kompatybilności z formatami plików wyjściowych, "
-            "testy regresji porównawcze (stary vs nowy system przez 6 miesięcy równolegle), "
-            "dokumentacja kodu (brak dokumentacji w oryginale)."
+        "project_description": (
+            "Modernization of billing system written in COBOL (1990s). "
+            "Migration of business logic to Java 17 + Spring Boot. "
+            "Rewriting 200 COBOL programs, maintaining compatibility with output file formats, "
+            "comparative regression tests (old vs new system running in parallel for 6 months), "
+            "code documentation (no documentation in original)."
         ),
-        "rzeczywiste_godziny": 4800,
-        "typ_projektu": "legacy",
-        "historia_klienta": "System krytyczny, działający bez przerwy od 28 lat. Zero dokumentacji.",
-        "wzorce_ryzyk": "Migracja COBOL bez dokumentacji — odkrywanie ukrytej logiki biznesowej to największe ryzyko. +80%.",
-        "komentarz_pm": "Projekt trwał 2x dłużej niż planowano — odkryliśmy 40 nieudokumentowanych reguł biznesowych.",
-        "zrodlo": "curated",
+        "actual_hours": 4800,
+        "project_type": "legacy",
+        "client_history": "Critical system, running continuously for 28 years. Zero documentation.",
+        "risk_patterns": "COBOL migration without documentation — discovering hidden business logic is the biggest risk. +80%.",
+        "pm_comment": "Project took 2x longer than planned — discovered 40 undocumented business rules.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Upgrade systemu zarządzania siecią z Java 8 + Struts 2 do Java 21 + Spring Boot 3 + React. "
-            "Refactoring 350k linii kodu, migracja z Oracle 11g do Oracle 19c, "
-            "zastąpienie JSP nowym frontendem React, modernizacja API (REST zamiast SOAP), "
-            "testy regresji dla 800 przypadków testowych."
+        "project_description": (
+            "Upgrade of network management system from Java 8 + Struts 2 to Java 21 + Spring Boot 3 + React. "
+            "Refactoring 350k lines of code, migration from Oracle 11g to Oracle 19c, "
+            "replacing JSP with new React frontend, API modernization (REST instead of SOAP), "
+            "regression tests for 800 test cases."
         ),
-        "rzeczywiste_godziny": 3200,
-        "typ_projektu": "legacy",
-        "historia_klienta": "System OSS, 12 lat w produkcji. Poprzedni upgrade (Java 6→8) zajął 1800h.",
-        "wzorce_ryzyk": "SOAP → REST migracja przy zachowaniu kompatybilności z zewnętrznymi integracjami.",
-        "komentarz_pm": "Zidentyfikowano 15 zewnętrznych systemów zintegrowanych przez SOAP — każde wymagało osobnej pracy.",
-        "zrodlo": "curated",
+        "actual_hours": 3200,
+        "project_type": "legacy",
+        "client_history": "OSS system, 12 years in production. Previous upgrade (Java 6→8) took 1800h.",
+        "risk_patterns": "SOAP → REST migration while maintaining compatibility with external integrations.",
+        "pm_comment": "Identified 15 external systems integrated via SOAP — each required separate work.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Refactoring modułu obsługi reklamacji — monolityczna aplikacja PHP 5.6 → PHP 8.2 + Laravel. "
-            "Przepisanie 80k linii kodu, modernizacja schematu bazy danych (MySQL), "
-            "dodanie testów jednostkowych (docelowe pokrycie 70%), CI/CD pipeline, "
-            "zachowanie wszystkich funkcjonalności, zero downtime deployment."
+        "project_description": (
+            "Refactoring of complaints handling module — monolithic PHP 5.6 → PHP 8.2 + Laravel. "
+            "Rewriting 80k lines of code, database schema modernization (MySQL), "
+            "adding unit tests (target coverage 70%), CI/CD pipeline, "
+            "preserving all functionality, zero downtime deployment."
         ),
-        "rzeczywiste_godziny": 1440,
-        "typ_projektu": "legacy",
-        "historia_klienta": "Klient refaktorował już moduł zamówień (PHP 5.6→7.4, 900h). Ten moduł jest bardziej złożony.",
-        "wzorce_ryzyk": "Przepisanie bez testów regresji jest ryzykowne — wiele edge case'ów w logice reklamacji.",
-        "komentarz_pm": "Dodanie testów od zera zajęło 35% czasu projektu — warto było dla redukcji ryzyka.",
-        "zrodlo": "curated",
+        "actual_hours": 1440,
+        "project_type": "legacy",
+        "client_history": "Client already refactored orders module (PHP 5.6→7.4, 900h). This module is more complex.",
+        "risk_patterns": "Rewriting without regression tests is risky — many edge cases in complaints logic.",
+        "pm_comment": "Adding tests from scratch took 35% of project time — worth it for risk reduction.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Modernizacja systemu zarządzania zamówieniami hurtowymi — Oracle Forms 6i na web. "
-            "Migracja 120 formularzy Oracle Forms do aplikacji webowej Angular + REST API. "
-            "Zachowanie wszystkich reguł biznesowych, migracja danych Oracle, "
-            "szkolenia użytkowników (300 osób), działanie równoległe przez 3 miesiące."
+        "project_description": (
+            "Modernization of wholesale order management system — Oracle Forms 6i to web. "
+            "Migration of 120 Oracle Forms to Angular + REST API web application. "
+            "Preserving all business rules, Oracle data migration, "
+            "user training (300 people), parallel operation for 3 months."
         ),
-        "rzeczywiste_godziny": 2600,
-        "typ_projektu": "legacy",
-        "historia_klienta": "System z 1998 roku. Nigdy modernizowany. Klucz do działalności operatora.",
-        "wzorce_ryzyk": "Oracle Forms migracja — wiele ukrytych triggerów i procedur PL/SQL. +60% do estymacji.",
-        "komentarz_pm": "Odkryliśmy 200 procedur PL/SQL z logiką biznesową nieujętą w dokumentacji.",
-        "zrodlo": "curated",
+        "actual_hours": 2600,
+        "project_type": "legacy",
+        "client_history": "System from 1998. Never modernized. Key to operator's operations.",
+        "risk_patterns": "Oracle Forms migration — many hidden triggers and PL/SQL procedures. +60% to estimate.",
+        "pm_comment": "Discovered 200 PL/SQL procedures with business logic not in documentation.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Optymalizacja wydajności systemu CRM — czas odpowiedzi strony wzrósł z 2s do 45s. "
-            "Profilowanie SQL (Oracle), optymalizacja 150 wolnych zapytań, indeksy, partycjonowanie tabel, "
-            "wprowadzenie cache (Redis), archiwizacja danych (5 lat historii do cold storage). "
-            "Cel: powrót do < 3s dla 95% żądań."
+        "project_description": (
+            "CRM system performance optimization — page response time increased from 2s to 45s. "
+            "SQL profiling (Oracle), optimization of 150 slow queries, indexes, table partitioning, "
+            "introducing cache (Redis), data archival (5 years history to cold storage). "
+            "Target: return to < 3s for 95% of requests."
         ),
-        "rzeczywiste_godziny": 520,
-        "typ_projektu": "legacy",
-        "historia_klienta": "CRM działa od 8 lat — problemy wydajnościowe narastały przez 2 lata.",
-        "wzorce_ryzyk": "Optymalizacja istniejącego schematu DB bez przebudowy — trudno przewidzieć efekty przed profilowaniem.",
-        "komentarz_pm": "Zidentyfikowano 3 kluczowe zapytania N+1 odpowiadające za 70% degradacji — trafna diagnoza.",
-        "zrodlo": "curated",
+        "actual_hours": 520,
+        "project_type": "legacy",
+        "client_history": "CRM running for 8 years — performance issues building up for 2 years.",
+        "risk_patterns": "Optimizing existing DB schema without rebuild — hard to predict effects before profiling.",
+        "pm_comment": "Identified 3 key N+1 queries responsible for 70% of degradation — accurate diagnosis.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Upgrade i hardening serwera RADIUS do autentykacji PPPoE — "
-            "migracja z FreeRADIUS 2.x do FreeRADIUS 3.x na nowym sprzęcie, "
-            "implementacja EAP-TLS, integracja z nowym LDAP, "
-            "testy failover, dokumentacja, obsługa 2 milionów sesji dziennie."
+        "project_description": (
+            "Upgrade and hardening of RADIUS server for PPPoE authentication — "
+            "migration from FreeRADIUS 2.x to FreeRADIUS 3.x on new hardware, "
+            "EAP-TLS implementation, new LDAP integration, "
+            "failover tests, documentation, handling 2 million sessions per day."
         ),
-        "rzeczywiste_godziny": 380,
-        "typ_projektu": "legacy",
-        "historia_klienta": "Krytyczny element infrastruktury — ostatni upgrade był 6 lat temu.",
-        "wzorce_ryzyk": "Migracja live systemu autentykacji — zero downtime wymagane, okno serwisowe max 30 minut.",
-        "komentarz_pm": "Testy przed migracją były kluczowe — cut-over przebiegł sprawnie w 15 minut.",
-        "zrodlo": "curated",
+        "actual_hours": 380,
+        "project_type": "legacy",
+        "client_history": "Critical infrastructure element — last upgrade was 6 years ago.",
+        "risk_patterns": "Migrating a live authentication system — zero downtime required, maintenance window max 30 minutes.",
+        "pm_comment": "Pre-migration tests were key — cut-over went smoothly in 15 minutes.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Dekomisja i zastąpienie systemu fakturowania dla klientów hurtowych. "
-            "Stary system: RPG na IBM AS/400 (iSeries), nowy: Java + PostgreSQL + Jasper Reports. "
-            "Migracja danych z 15 lat historii, równoległe działanie przez 6 miesięcy, "
-            "szkolenie działu finansowego (50 osób), certyfikacja przez audytorów."
+        "project_description": (
+            "Decommission and replacement of wholesale customer billing system. "
+            "Old system: RPG on IBM AS/400 (iSeries), new: Java + PostgreSQL + Jasper Reports. "
+            "Data migration of 15 years of history, parallel operation for 6 months, "
+            "finance department training (50 people), auditor certification."
         ),
-        "rzeczywiste_godziny": 3800,
-        "typ_projektu": "legacy",
-        "historia_klienta": "AS/400 — ostatni programista znający RPG odszedł 2 lata temu.",
-        "wzorce_ryzyk": "Brak ekspertów RPG/AS400 na rynku — zrozumienie logiki z kodu źródłowego bez dokumentacji.",
-        "komentarz_pm": "Reverse engineering 25 lat logiki biznesowej z RPG zajął 8 miesięcy.",
-        "zrodlo": "curated",
+        "actual_hours": 3800,
+        "project_type": "legacy",
+        "client_history": "AS/400 — last programmer who knew RPG left 2 years ago.",
+        "risk_patterns": "No RPG/AS400 experts on the market — understanding logic from source code without documentation.",
+        "pm_comment": "Reverse engineering 25 years of business logic from RPG took 8 months.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Migracja portalu pracowniczego z Liferay 6.2 do Liferay DXP 2024. "
-            "25 portletów, 60k użytkowników, integracja z Active Directory, "
-            "migracja treści, motywu graficznego, 15 niestandardowych portletów do przebudowy. "
-            "Zachowanie SSO i uprawnień rolowych."
+        "project_description": (
+            "Migration of employee portal from Liferay 6.2 to Liferay DXP 2024. "
+            "25 portlets, 60k users, Active Directory integration, "
+            "content migration, graphic theme, 15 custom portlets to rebuild. "
+            "Preserving SSO and role-based permissions."
         ),
-        "rzeczywiste_godziny": 1200,
-        "typ_projektu": "legacy",
-        "historia_klienta": "Klient miał poprzednią migrację Liferay (5.x → 6.2) — 700h, dostarczono na czas.",
-        "wzorce_ryzyk": "Niestandardowe portlety Liferay — API znacznie zmieniło się między wersjami.",
-        "komentarz_pm": "7 z 15 portletów wymagało przepisania od nowa ze względu na zmiany API Liferay.",
-        "zrodlo": "curated",
+        "actual_hours": 1200,
+        "project_type": "legacy",
+        "client_history": "Client had previous Liferay migration (5.x → 6.2) — 700h, delivered on time.",
+        "risk_patterns": "Custom Liferay portlets — API changed significantly between versions.",
+        "pm_comment": "7 of 15 portlets required rewriting from scratch due to Liferay API changes.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Security hardening systemu telco klasy OSS — system zarządzania siecią działający od 10 lat. "
-            "Audyt bezpieczeństwa (150 punktów kontrolnych), implementacja poprawek, "
-            "aktualizacja 45 zależności (CVE), wdrożenie WAF, "
-            "segmentacja sieci, logi bezpieczeństwa do SIEM, certyfikacja ISO 27001."
+        "project_description": (
+            "Security hardening of telco OSS-class system — network management system running for 10 years. "
+            "Security audit (150 control points), fix implementation, "
+            "updating 45 dependencies (CVE), WAF deployment, "
+            "network segmentation, security logs to SIEM, ISO 27001 certification."
         ),
-        "rzeczywiste_godziny": 960,
-        "typ_projektu": "legacy",
-        "historia_klienta": "Ostatni audyt bezpieczeństwa 4 lata temu. Dług techniczny w zakresie security bardzo duży.",
-        "wzorce_ryzyk": "Security hardening starych systemów — zależności często podatne, regresja po aktualizacji.",
-        "komentarz_pm": "Aktualizacja 12 zależności spowodowała regresję wymagającą dodatkowej pracy.",
-        "zrodlo": "curated",
+        "actual_hours": 960,
+        "project_type": "legacy",
+        "client_history": "Last security audit 4 years ago. Very large security technical debt.",
+        "risk_patterns": "Security hardening of old systems — dependencies often vulnerable, regression after update.",
+        "pm_comment": "Updating 12 dependencies caused regression requiring additional work.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Przepisanie silnika reguł taryfowych z PL/SQL (40k linii) na mikroserwis Java. "
-            "Reguły cenowe dla 200 planów taryfowych, testowanie paragonów (10k przypadków testowych), "
-            "shadow mode — równoległe działanie starego i nowego przez 3 miesiące z porównaniem wyników. "
-            "Zero tolerancji na błędy w naliczaniu opłat."
+        "project_description": (
+            "Rewriting tariff rules engine from PL/SQL (40k lines) to Java microservice. "
+            "Pricing rules for 200 tariff plans, receipt testing (10k test cases), "
+            "shadow mode — parallel operation of old and new for 3 months with result comparison. "
+            "Zero tolerance for billing errors."
         ),
-        "rzeczywiste_godziny": 2800,
-        "typ_projektu": "legacy",
-        "historia_klienta": "Silnik taryfowy — najważniejszy element bilingowy. Jeden błąd = milionowe reklamacje.",
-        "wzorce_ryzyk": "Silniki taryfowe: każda reguła ma wyjątki, każdy wyjątek ma wyjątki. +50% do estymacji.",
-        "komentarz_pm": "Odkryto 35 nieudokumentowanych reguł w PL/SQL podczas analizy kodu.",
-        "zrodlo": "curated",
+        "actual_hours": 2800,
+        "project_type": "legacy",
+        "client_history": "Tariff engine — most important billing element. One error = million in claims.",
+        "risk_patterns": "Tariff engines: every rule has exceptions, every exception has exceptions. +50% to estimate.",
+        "pm_comment": "Discovered 35 undocumented rules in PL/SQL during code analysis.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Modernizacja systemu wydruku i dystrybucji faktur papierowych. "
-            "Stary system: skrypty Perl + cron + drukarka matrix. "
-            "Nowy: microservice Java, PDF generation (iText), "
-            "integracja z dostawcą usług pocztowych API, tracking wysyłki, "
-            "archiwum elektroniczne. 200k faktur miesięcznie."
+        "project_description": (
+            "Modernization of paper invoice printing and distribution system. "
+            "Old system: Perl scripts + cron + matrix printer. "
+            "New: Java microservice, PDF generation (iText), "
+            "integration with postal service provider API, shipment tracking, "
+            "electronic archive. 200k invoices per month."
         ),
-        "rzeczywiste_godziny": 680,
-        "typ_projektu": "legacy",
-        "historia_klienta": "Prosty zakres — Perl skrypty dobrze udokumentowane.",
-        "wzorce_ryzyk": "Integracja z zewnętrznym dostawcą pocztowym — API może się zmieniać.",
-        "komentarz_pm": "Projekt przebiegł sprawnie — Perl był dobrze udokumentowany, co rzadkie.",
-        "zrodlo": "curated",
+        "actual_hours": 680,
+        "project_type": "legacy",
+        "client_history": "Simple scope — Perl scripts well documented.",
+        "risk_patterns": "Integration with external postal provider — API may change.",
+        "pm_comment": "Project went smoothly — Perl was well documented, which is rare.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Refactoring monolitu obsługi klienta — 1.2 mln linii kodu Delphi. "
-            "Wydzielenie 6 modułów do osobnych serwisów, "
-            "zachowanie bazy danych Firebird bez zmian, "
-            "nowe REST API dla każdego serwisu, "
-            "stopniowa migracja bez zatrzymania produkcji (strangler fig pattern)."
+        "project_description": (
+            "Refactoring of customer service monolith — 1.2 million lines of Delphi code. "
+            "Extracting 6 modules into separate services, "
+            "keeping Firebird database unchanged, "
+            "new REST API for each service, "
+            "gradual migration without stopping production (strangler fig pattern)."
         ),
-        "rzeczywiste_godziny": 5200,
-        "typ_projektu": "legacy",
-        "historia_klienta": "Monolit rozwijany przez 18 lat — 6 różnych zespołów zostawiło swój ślad.",
-        "wzorce_ryzyk": "Delphi eksperci trudno dostępni na rynku. Monolit z ukrytymi zależnościami między modułami.",
-        "komentarz_pm": "Zidentyfikowano cykliczne zależności między modułami wymagające 4 miesięcy analizy przed kodowaniem.",
-        "zrodlo": "curated",
+        "actual_hours": 5200,
+        "project_type": "legacy",
+        "client_history": "Monolith developed for 18 years — 6 different teams left their mark.",
+        "risk_patterns": "Delphi experts hard to find on the market. Monolith with hidden dependencies between modules.",
+        "pm_comment": "Identified circular dependencies between modules requiring 4 months of analysis before coding.",
+        "source": "curated",
     },
 
     # ─────────────────────────────────────────────────────────────────────────
-    # TYP: AI — projekty z ML/AI/LLM
+    # TYPE: AI — ML/AI/LLM projects
     # ─────────────────────────────────────────────────────────────────────────
 
     {
-        "opis_projektu": (
-            "Model predykcji churnu klientów mobilnych. "
-            "Pipeline ML: ekstrakcja cech z danych bilingowych i CRM (12 miesięcy historii, "
-            "500+ cech), trenowanie modeli (XGBoost, LightGBM, ensemble), "
-            "threshold optimization, wyjaśnialność (SHAP), "
-            "API do codziennej predykcji dla 5 milionów klientów, "
-            "dashboard dla działu retencji, A/B test z grupą kontrolną."
+        "project_description": (
+            "Mobile customer churn prediction model. "
+            "ML pipeline: feature extraction from billing and CRM data (12 months history, "
+            "500+ features), model training (XGBoost, LightGBM, ensemble), "
+            "threshold optimization, explainability (SHAP), "
+            "API for daily prediction for 5 million customers, "
+            "retention department dashboard, A/B test with control group."
         ),
-        "rzeczywiste_godziny": 1680,
-        "typ_projektu": "ai",
-        "historia_klienta": "Klient miał wcześniej prosty scoring regresji logistycznej — chce ML z lepszą jakością.",
-        "wzorce_ryzyk": "Feature engineering na danych bilingowych — jakość danych zazwyczaj gorsza niż zakładano.",
-        "komentarz_pm": "Czyszczenie i normalizacja danych z 3 różnych systemów bilingowych zajęły 40% projektu.",
-        "zrodlo": "curated",
+        "actual_hours": 1680,
+        "project_type": "ai",
+        "client_history": "Client previously had simple logistic regression scoring — wants ML with better quality.",
+        "risk_patterns": "Feature engineering on billing data — data quality usually worse than assumed.",
+        "pm_comment": "Cleaning and normalizing data from 3 different billing systems took 40% of project.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Chatbot obsługi klienta oparty na LLM (GPT-4 / Claude). "
-            "Obsługa 50 najczęstszych pytań klientów (FAQ, statusy zamówień, faktury), "
-            "integracja z systemami CRM i bilingowym przez API, "
-            "escalation do agenta ludzkiego, logging konwersacji, "
-            "dashboard analityczny, fine-tuning na historycznych transkryptach, "
-            "wielojęzyczność (PL, EN, UA)."
+        "project_description": (
+            "Customer service chatbot based on LLM (GPT-4 / Claude). "
+            "Handling 50 most frequent customer questions (FAQ, order statuses, invoices), "
+            "integration with CRM and billing systems via API, "
+            "escalation to human agent, conversation logging, "
+            "analytics dashboard, fine-tuning on historical transcripts, "
+            "multilingual support (EN, PL, UA)."
         ),
-        "rzeczywiste_godziny": 1240,
-        "typ_projektu": "ai",
-        "historia_klienta": "Klient ma obecne centrum obsługi klienta — chatbot ma odciążyć 30% ruchu.",
-        "wzorce_ryzyk": "Integracja LLM z systemami transakcyjnymi — hallucynacje LLM krytyczne przy danych finansowych.",
-        "komentarz_pm": "Guardrails przeciwko hallucynacjom i testy adversarialne zajęły 2x więcej niż planowano.",
-        "zrodlo": "curated",
+        "actual_hours": 1240,
+        "project_type": "ai",
+        "client_history": "Client has existing customer service center — chatbot to offload 30% of traffic.",
+        "risk_patterns": "LLM integration with transactional systems — hallucinations critical with financial data.",
+        "pm_comment": "Guardrails against hallucinations and adversarial tests took 2x longer than planned.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "System wykrywania anomalii w sieci telekomunikacyjnej. "
-            "Analiza strumieni danych z 10k urządzeń sieciowych (NetFlow, SNMP), "
-            "modele Isolation Forest + Autoencoder dla detekcji anomalii, "
-            "korelacja zdarzeń, automatyczne alerty dla NOC, "
-            "dashboard real-time w Grafana, integracja z systemem ticketingowym."
+        "project_description": (
+            "Anomaly detection system in telecommunications network. "
+            "Analysis of data streams from 10k network devices (NetFlow, SNMP), "
+            "Isolation Forest + Autoencoder models for anomaly detection, "
+            "event correlation, automatic alerts for NOC, "
+            "real-time Grafana dashboard, ticketing system integration."
         ),
-        "rzeczywiste_godziny": 1480,
-        "typ_projektu": "ai",
-        "historia_klienta": "Operator ma duże doświadczenie z systemami monitorowania — ale pierwszy projekt ML.",
-        "wzorce_ryzyk": "Dane z urządzeń sieciowych mają wiele braków i szumów — preprocessing krytyczny.",
-        "komentarz_pm": "Wybór progu anomalii był trudny — wymagał 2 miesięcy kalibracji z zespołem NOC.",
-        "zrodlo": "curated",
+        "actual_hours": 1480,
+        "project_type": "ai",
+        "client_history": "Operator has extensive monitoring system experience — but first ML project.",
+        "risk_patterns": "Network device data has many gaps and noise — preprocessing critical.",
+        "pm_comment": "Choosing anomaly threshold was difficult — required 2 months of calibration with NOC team.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Silnik rekomendacji ofert dla klientów indywidualnych. "
-            "Collaborative filtering + content-based dla rekomendacji upgradów i dodatków. "
-            "A/B testy w czasie rzeczywistym, personalizacja powiadomień push, "
-            "integracja z platformą e-commerce i CRM, "
-            "monitoring metryk biznesowych (CTR, konwersja), "
-            "MLflow do wersjonowania modeli."
+        "project_description": (
+            "Offer recommendation engine for individual customers. "
+            "Collaborative filtering + content-based for upgrade and add-on recommendations. "
+            "Real-time A/B tests, push notification personalization, "
+            "e-commerce platform and CRM integration, "
+            "business metrics monitoring (CTR, conversion), "
+            "MLflow for model versioning."
         ),
-        "rzeczywiste_godziny": 1360,
-        "typ_projektu": "ai",
-        "historia_klienta": "Klient prowadził ręczne kampanie marketingowe — pierwsza personalizacja AI.",
-        "wzorce_ryzyk": "Cold start problem dla nowych klientów. Dane o zachowaniu rzadkie dla prepaid.",
-        "komentarz_pm": "Cold start wymagał osobnego podejścia dla 40% bazy — niedoszacowany w planowaniu.",
-        "zrodlo": "curated",
+        "actual_hours": 1360,
+        "project_type": "ai",
+        "client_history": "Client ran manual marketing campaigns — first AI personalization.",
+        "risk_patterns": "Cold start problem for new customers. Behavioral data sparse for prepaid.",
+        "pm_comment": "Cold start required a separate approach for 40% of base — underestimated in planning.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "NLP pipeline do automatycznej klasyfikacji i routingu zgłoszeń serwisowych. "
-            "Klasyfikacja do 45 kategorii, ekstrakcja encji (numer klienta, adres, typ usługi), "
-            "sentiment analysis, automatyczne odpowiedzi dla prostych zgłoszeń, "
-            "model BERT fine-tuned na 200k historycznych zgłoszeń, "
-            "interfejs do korygowania predykcji przez agentów."
+        "project_description": (
+            "NLP pipeline for automatic classification and routing of service tickets. "
+            "Classification into 45 categories, entity extraction (customer number, address, service type), "
+            "sentiment analysis, automatic responses for simple tickets, "
+            "BERT model fine-tuned on 200k historical tickets, "
+            "interface for agents to correct predictions."
         ),
-        "rzeczywiste_godziny": 960,
-        "typ_projektu": "ai",
-        "historia_klienta": "Klient obsługuje 50k zgłoszeń miesięcznie — klasyfikacja manualna jest wąskim gardłem.",
-        "wzorce_ryzyk": "Fine-tuning BERT na specyficznym żargonie telco wymaga dużej ilości etykietowanych danych.",
-        "komentarz_pm": "Etykietowanie danych treningowych (2000 zgłoszeń) przez ekspertów domenowych — 3 tygodnie.",
-        "zrodlo": "curated",
+        "actual_hours": 960,
+        "project_type": "ai",
+        "client_history": "Client handles 50k tickets per month — manual classification is a bottleneck.",
+        "risk_patterns": "Fine-tuning BERT on telco-specific jargon requires large amounts of labeled data.",
+        "pm_comment": "Labeling training data (2000 tickets) by domain experts — 3 weeks.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Predykcja awarii sieci radiowych (predictive maintenance). "
-            "Analiza telemetrii z 8000 stacji bazowych BTS/NodeB/eNodeB, "
-            "modele predykcji awarii na 7 dni naprzód (random forest + LSTM), "
-            "priorytetyzacja przeglądów technicznych, integracja z systemem field service, "
-            "oszczędność kosztów przez prewencję zamiast naprawy awarii."
+        "project_description": (
+            "Radio network failure prediction (predictive maintenance). "
+            "Telemetry analysis from 8000 BTS/NodeB/eNodeB base stations, "
+            "failure prediction models 7 days ahead (random forest + LSTM), "
+            "technical inspection prioritization, field service system integration, "
+            "cost savings through prevention rather than failure repair."
         ),
-        "rzeczywiste_godziny": 1880,
-        "typ_projektu": "ai",
-        "historia_klienta": "Operator ma rozbudowane systemy monitorowania sieci — dane wysokiej jakości.",
-        "wzorce_ryzyk": "Predykcja rzadkich awarii — klasy niezbalansowane, precision/recall trade-off.",
-        "komentarz_pm": "Balansowanie klas i threshold tuning przy asymetrycznym koszcie błędów zajęło dużo czasu.",
-        "zrodlo": "curated",
+        "actual_hours": 1880,
+        "project_type": "ai",
+        "client_history": "Operator has extensive network monitoring systems — high quality data.",
+        "risk_patterns": "Predicting rare failures — imbalanced classes, precision/recall trade-off.",
+        "pm_comment": "Class balancing and threshold tuning with asymmetric error costs took much time.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Automatyczne tagowanie i wyszukiwanie semantyczne bazy wiedzy obsługi klienta. "
-            "Embedding artykułów bazy wiedzy (sentence-transformers), "
+        "project_description": (
+            "Automatic tagging and semantic search of customer service knowledge base. "
+            "Embedding knowledge base articles (sentence-transformers), "
             "vector store (Weaviate), semantic search API, "
-            "integracja z CRM i chatbotem, interface dla redaktorów treści, "
-            "monitoring jakości wyszukiwania (human feedback loop)."
+            "CRM and chatbot integration, content editor interface, "
+            "search quality monitoring (human feedback loop)."
         ),
-        "rzeczywiste_godziny": 720,
-        "typ_projektu": "ai",
-        "historia_klienta": "10k artykułów w bazie wiedzy — klasyczne wyszukiwanie keyword-based już nie wystarcza.",
-        "wzorce_ryzyk": "Jakość embeddingów zależy od jakości treści artykułów — wiele nieaktualnych.",
-        "komentarz_pm": "Aktualizacja 30% artykułów bazy wiedzy przez redaktorów była konieczna przed wdrożeniem.",
-        "zrodlo": "curated",
+        "actual_hours": 720,
+        "project_type": "ai",
+        "client_history": "10k articles in knowledge base — classic keyword search no longer sufficient.",
+        "risk_patterns": "Embedding quality depends on article content quality — many outdated.",
+        "pm_comment": "Updating 30% of knowledge base articles by editors was necessary before deployment.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Computer vision do inspekcji infrastruktury sieciowej z dronów. "
-            "Detekcja uszkodzeń na zdjęciach anten i masztów (YOLOv8), "
-            "klasyfikacja typów uszkodzeń (pęknięcia, korozja, mechaniczne), "
-            "aplikacja mobilna dla techników, integracja z systemem zarządzania majątkiem sieciowym, "
-            "pipeline przetwarzania zdjęć (10k zdjęć miesięcznie)."
+        "project_description": (
+            "Computer vision for network infrastructure inspection from drones. "
+            "Damage detection on antenna and mast photos (YOLOv8), "
+            "damage type classification (cracks, corrosion, mechanical), "
+            "mobile app for technicians, network asset management integration, "
+            "photo processing pipeline (10k photos per month)."
         ),
-        "rzeczywiste_godziny": 1560,
-        "typ_projektu": "ai",
-        "historia_klienta": "Innowacyjny projekt — brak historycznych danych o podobnych wdrożeniach.",
-        "wzorce_ryzyk": "Etykietowanie danych (uszkodzenia infrastruktury) wymaga certyfikowanych inżynierów — kosztowne i czasochłonne.",
-        "komentarz_pm": "Zebranie 5000 etykietowanych zdjęć zajęło 4 miesiące — pierwsza i najtrudniejsza faza.",
-        "zrodlo": "curated",
+        "actual_hours": 1560,
+        "project_type": "ai",
+        "client_history": "Innovative project — no historical data on similar deployments.",
+        "risk_patterns": "Labeling data (infrastructure damage) requires certified engineers — costly and time-consuming.",
+        "pm_comment": "Collecting 5000 labeled photos took 4 months — first and hardest phase.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Dynamiczne ustalanie cen (dynamic pricing) dla usług roamingowych. "
-            "Model optymalizacji cen w czasie rzeczywistym na podstawie popytu, pojemności sieci, "
-            "cen konkurencji (web scraping), historycznych wzorców. "
+        "project_description": (
+            "Dynamic pricing for roaming services. "
+            "Real-time price optimization model based on demand, network capacity, "
+            "competitor prices (web scraping), historical patterns. "
             "Reinforcement learning (bandit algorithm), A/B testing, "
-            "integracja z systemem billingowym, dashboard revenue managementu."
+            "billing system integration, revenue management dashboard."
         ),
-        "rzeczywiste_godziny": 2100,
-        "typ_projektu": "ai",
-        "historia_klienta": "Klient ma doświadczenie z BI — ale pierwszy projekt RL w środowisku produkcyjnym.",
-        "wzorce_ryzyk": "RL w produkcji — niewłaściwa nagroda może prowadzić do niezamierzonego zachowania systemu.",
-        "komentarz_pm": "Simulation environment przed wdrożeniem produkcyjnym był kluczowy — zajął 3 miesiące.",
-        "zrodlo": "curated",
+        "actual_hours": 2100,
+        "project_type": "ai",
+        "client_history": "Client has BI experience — but first RL project in production environment.",
+        "risk_patterns": "RL in production — wrong reward can lead to unintended system behavior.",
+        "pm_comment": "Simulation environment before production deployment was key — took 3 months.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Automatyczne generowanie raportów technicznych z logów sieci. "
-            "Pipeline: logi syslog/NetFlow → preprocessing → LLM (Claude) → raport PDF/Word. "
-            "Szablony raportów dla NOC, działu sprzedaży, zarządu. "
-            "Harmonogram automatycznych wysyłek email, "
-            "feedback od odbiorców do poprawy jakości generowanych treści."
+        "project_description": (
+            "Automatic technical report generation from network logs. "
+            "Pipeline: syslog/NetFlow logs → preprocessing → LLM (Claude) → PDF/Word report. "
+            "Report templates for NOC, sales, management. "
+            "Automated email delivery schedule, "
+            "recipient feedback to improve generated content quality."
         ),
-        "rzeczywiste_godziny": 580,
-        "typ_projektu": "ai",
-        "historia_klienta": "Raporty generowane ręcznie przez analityków — 40h/tydzień oszczędności.",
-        "wzorce_ryzyk": "Prompt engineering dla raportów technicznych wymaga iteracji z odbiorcami.",
-        "komentarz_pm": "Iteracje z odbiorcami raportów zajęły 6 tygodni — ale efekt końcowy bardzo dobry.",
-        "zrodlo": "curated",
+        "actual_hours": 580,
+        "project_type": "ai",
+        "client_history": "Reports generated manually by analysts — 40h/week savings.",
+        "risk_patterns": "Prompt engineering for technical reports requires iterations with recipients.",
+        "pm_comment": "Iterations with report recipients took 6 weeks — but the final result was very good.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Optymalizacja pojemności sieci pakietowej z wykorzystaniem ML. "
-            "Predykcja ruchu (LSTM na danych z 3 lat), "
-            "automatyczne rekomendacje rozbudowy pojemności, "
-            "symulator co-if dla planistów sieci, "
-            "integracja z systemami zarządzania siecią, "
-            "dashboard dla działu planowania."
+        "project_description": (
+            "Packet network capacity optimization using ML. "
+            "Traffic prediction (LSTM on 3 years of data), "
+            "automatic capacity expansion recommendations, "
+            "what-if simulator for network planners, "
+            "network management system integration, "
+            "planning department dashboard."
         ),
-        "rzeczywiste_godziny": 1720,
-        "typ_projektu": "ai",
-        "historia_klienta": "Operator posiada wysokiej jakości dane historyczne ruchu — dobry punkt startowy dla ML.",
-        "wzorce_ryzyk": "Predykcja ruchu na 12+ miesięcy naprzód — dokładność modelu spada drastycznie dla długich horyzontów.",
-        "komentarz_pm": "Zarządzanie oczekiwaniami biznesu odnośnie dokładności predykcji było kluczowym wyzwaniem.",
-        "zrodlo": "curated",
+        "actual_hours": 1720,
+        "project_type": "ai",
+        "client_history": "Operator has high quality historical traffic data — good ML starting point.",
+        "risk_patterns": "Traffic prediction 12+ months ahead — model accuracy drops drastically for long horizons.",
+        "pm_comment": "Managing business expectations about prediction accuracy was a key challenge.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Proof of concept: asystent AI dla specjalistów sieci oparty na RAG. "
-            "Baza wiedzy: dokumentacja techniczna sprzętowa (5000 dokumentów), "
-            "procedury konfiguracyjne, logi historycznych awarii. "
-            "LangChain + Claude, interface webowy, ewaluacja odpowiedzi (RAGAS). "
-            "Cel: PoC w 8 tygodni, 20 użytkowników pilotażowych."
+        "project_description": (
+            "Proof of concept: AI assistant for network specialists based on RAG. "
+            "Knowledge base: hardware technical documentation (5000 documents), "
+            "configuration procedures, historical failure logs. "
+            "LangChain + Claude, web interface, response evaluation (RAGAS). "
+            "Goal: PoC in 8 weeks, 20 pilot users."
         ),
-        "rzeczywiste_godziny": 320,
-        "typ_projektu": "ai",
-        "historia_klienta": "Pierwszy projekt LLM w organizacji — PoC do oceny wartości przed inwestycją.",
-        "wzorce_ryzyk": "PoC: ograniczony zakres, akceptowalna jakosc 'wystarczajaco dobra' - nie produkcja.",
-        "komentarz_pm": "PoC dostarczony w 7 tygodni. Decyzja o wdrożeniu produkcyjnym podjęta po pozytywnym feedbacku.",
-        "zrodlo": "curated",
+        "actual_hours": 320,
+        "project_type": "ai",
+        "client_history": "First LLM project in the organization — PoC to evaluate value before investment.",
+        "risk_patterns": "PoC: limited scope, acceptable quality 'good enough' — not production.",
+        "pm_comment": "PoC delivered in 7 weeks. Production deployment decision made after positive feedback.",
+        "source": "curated",
     },
 
     # ─────────────────────────────────────────────────────────────────────────
-    # TYP: MIGRACJA — przeniesienie infrastruktury, danych, platform
+    # TYPE: MIGRATION — infrastructure, data, platform transfers
     # ─────────────────────────────────────────────────────────────────────────
 
     {
-        "opis_projektu": (
-            "Migracja on-premise centrum danych do AWS (lift-and-shift + optimize). "
-            "150 serwerów wirtualnych → EC2/ECS, "
-            "migracja baz danych (Oracle → RDS Aurora, MongoDB → DocumentDB), "
-            "sieć: VPN + Direct Connect, "
+        "project_description": (
+            "On-premise data center migration to AWS (lift-and-shift + optimize). "
+            "150 virtual servers → EC2/ECS, "
+            "database migration (Oracle → RDS Aurora, MongoDB → DocumentDB), "
+            "network: VPN + Direct Connect, "
             "storage: SAN → S3 + EFS, "
-            "disaster recovery, monitoring CloudWatch, IAM redesign. "
-            "Zero downtime dla krytycznych systemów."
+            "disaster recovery, CloudWatch monitoring, IAM redesign. "
+            "Zero downtime for critical systems."
         ),
-        "rzeczywiste_godziny": 4200,
-        "typ_projektu": "migracja",
-        "historia_klienta": "Klient nie miał wcześniej workloadów w chmurze — pierwsza migracja cloud.",
-        "wzorce_ryzyk": "Pierwsza migracja cloud: curve of learning, zmiany w sieciowaniu, IAM policies — +50%.",
-        "komentarz_pm": "Sieciowanie i IAM redesign zajęły 2x więcej niż planowano — archetypowe problemy.",
-        "zrodlo": "curated",
+        "actual_hours": 4200,
+        "project_type": "migration",
+        "client_history": "Client had no cloud workloads before — first cloud migration.",
+        "risk_patterns": "First cloud migration: learning curve, networking changes, IAM policies — +50%.",
+        "pm_comment": "Networking and IAM redesign took 2x longer than planned — archetypal problems.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Migracja bazy danych Oracle 12c (3TB) do PostgreSQL 16. "
-            "Konwersja schematów (ora2pg + ręczne dostosowania), migracja stored procedures (PL/SQL → PL/pgSQL), "
-            "migracja danych z zachowaniem integralności, "
-            "testy regresji aplikacji (12 aplikacji używa tej bazy), "
-            "cutover plan z oknem serwisowym 4h."
+        "project_description": (
+            "Oracle 12c database migration (3TB) to PostgreSQL 16. "
+            "Schema conversion (ora2pg + manual adjustments), stored procedure migration (PL/SQL → PL/pgSQL), "
+            "data migration with integrity preservation, "
+            "application regression tests (12 applications use this database), "
+            "cutover plan with 4h maintenance window."
         ),
-        "rzeczywiste_godziny": 1640,
-        "typ_projektu": "migracja",
-        "historia_klienta": "Klient realizował mniejszą migrację Oracle→PG (500GB) 2 lata temu — 800h, z małymi problemami.",
-        "wzorce_ryzyk": "PL/SQL → PL/pgSQL: package'y Oracle nie mają odpowiednika — refactoring wymagany.",
-        "komentarz_pm": "280 stored procedures wymagało ręcznej konwersji ze względu na Oracle-specific SQL.",
-        "zrodlo": "curated",
+        "actual_hours": 1640,
+        "project_type": "migration",
+        "client_history": "Client did smaller Oracle→PG migration (500GB) 2 years ago — 800h, with minor issues.",
+        "risk_patterns": "PL/SQL → PL/pgSQL: Oracle packages have no equivalent — refactoring required.",
+        "pm_comment": "280 stored procedures required manual conversion due to Oracle-specific SQL.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Migracja 8 serwisów z bare metal do Kubernetes (on-premise). "
-            "Konteneryzacja (Dockerfile dla każdego serwisu), "
-            "Helm charts, konfiguracja Ingress/NetworkPolicy, "
-            "persistent volumes dla serwisów stateful, "
+        "project_description": (
+            "Migration of 8 services from bare metal to Kubernetes (on-premise). "
+            "Containerization (Dockerfile for each service), "
+            "Helm charts, Ingress/NetworkPolicy configuration, "
+            "persistent volumes for stateful services, "
             "CI/CD pipeline (GitLab CI → ArgoCD), "
             "monitoring (Prometheus + Grafana), "
-            "load testing po migracji."
+            "load testing after migration."
         ),
-        "rzeczywiste_godziny": 1080,
-        "typ_projektu": "migracja",
-        "historia_klienta": "Klient miał wcześniej 3 serwisy na K8s (360h). Teraz skaluje na całą organizację.",
-        "wzorce_ryzyk": "Serwisy stateful (bazy danych) w K8s wymagają szczególnej uwagi na storage i backup.",
-        "komentarz_pm": "Persistent volumes i backup stateful workloadów zajęły 30% projektu — dobrze oszacowane.",
-        "zrodlo": "curated",
+        "actual_hours": 1080,
+        "project_type": "migration",
+        "client_history": "Client had 3 services on K8s (360h). Now scaling to whole organization.",
+        "risk_patterns": "Stateful services (databases) in K8s require special attention on storage and backup.",
+        "pm_comment": "Persistent volumes and stateful workload backup took 30% of project — well estimated.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Przeniesienie data lake z on-premise Hadoop/HDFS do Databricks na Azure. "
-            "Migracja 200TB danych, przepisanie 150 job Spark (Scala → PySpark), "
-            "Delta Lake format, Unity Catalog dla governance, "
-            "migracja pipeline MLflow, "
-            "szkolenie 25 data scientistów i data engineerów."
+        "project_description": (
+            "Data lake migration from on-premise Hadoop/HDFS to Databricks on Azure. "
+            "Migration of 200TB data, rewriting 150 Spark jobs (Scala → PySpark), "
+            "Delta Lake format, Unity Catalog for governance, "
+            "MLflow pipeline migration, "
+            "training for 25 data scientists and data engineers."
         ),
-        "rzeczywiste_godziny": 2800,
-        "typ_projektu": "migracja",
-        "historia_klienta": "Hadoop od 7 lat — dług techniczny bardzo duży. Klient chce nowoczesny stack.",
-        "wzorce_ryzyk": "Scala → PySpark: różnice w API, niekompatybilność niektórych bibliotek.",
-        "komentarz_pm": "20 z 150 jobów miało zakodowane na stałe ścieżki HDFS — wymagały głębokiej przebudowy.",
-        "zrodlo": "curated",
+        "actual_hours": 2800,
+        "project_type": "migration",
+        "client_history": "Hadoop for 7 years — very large technical debt. Client wants modern stack.",
+        "risk_patterns": "Scala → PySpark: API differences, incompatibility of some libraries.",
+        "pm_comment": "20 of 150 jobs had hardcoded HDFS paths — required deep rework.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Migracja systemu zarządzania dokumentami z FileNet P8 do SharePoint Online (Microsoft 365). "
-            "2 miliony dokumentów, zachowanie metadanych i historii wersji, "
-            "migracja uprawnień (150 grup AD), "
-            "integracja z aplikacjami biznesowymi przez Graph API, "
-            "szkolenia użytkowników (500 osób)."
+        "project_description": (
+            "Document management system migration from FileNet P8 to SharePoint Online (Microsoft 365). "
+            "2 million documents, preserving metadata and version history, "
+            "permission migration (150 AD groups), "
+            "business application integration via Graph API, "
+            "user training (500 people)."
         ),
-        "rzeczywiste_godziny": 1480,
-        "typ_projektu": "migracja",
-        "historia_klienta": "FileNet P8 działa od 12 lat — brak wewnętrznej wiedzy, vendor support wygasa.",
-        "wzorce_ryzyk": "Migracja metadanych FileNet → SharePoint — różne modele obiektów.",
-        "komentarz_pm": "Mapowanie 80 typów dokumentów FileNet na content types SharePoint zajęło miesiąc.",
-        "zrodlo": "curated",
+        "actual_hours": 1480,
+        "project_type": "migration",
+        "client_history": "FileNet P8 running for 12 years — no internal expertise, vendor support expiring.",
+        "risk_patterns": "FileNet metadata migration → SharePoint — different object models.",
+        "pm_comment": "Mapping 80 FileNet document types to SharePoint content types took a month.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Migracja systemu VoIP z Cisco CUCM na Cisco Webex Calling (cloud PBX). "
-            "2500 użytkowników, 180 lokalizacji, migracja numerów (DID), "
-            "konfiguracja urządzeń (telefony IP, softphone), "
-            "integracja z systemem call center, "
-            "szkolenia IT helpdesk i użytkowników końcowych."
+        "project_description": (
+            "VoIP system migration from Cisco CUCM to Cisco Webex Calling (cloud PBX). "
+            "2500 users, 180 locations, number migration (DID), "
+            "device configuration (IP phones, softphone), "
+            "call center integration, "
+            "IT helpdesk and end user training."
         ),
-        "rzeczywiste_godziny": 860,
-        "typ_projektu": "migracja",
-        "historia_klienta": "Klient zna Cisco — wcześniejsza migracja CUCM (v8 → v11) 520h.",
-        "wzorce_ryzyk": "Migracja numerów DID w live środowisku — okno serwisowe per lokalizacja.",
-        "komentarz_pm": "Planowanie okien serwisowych dla 180 lokalizacji było logistycznie złożone.",
-        "zrodlo": "curated",
+        "actual_hours": 860,
+        "project_type": "migration",
+        "client_history": "Client knows Cisco — previous CUCM migration (v8 → v11) 520h.",
+        "risk_patterns": "DID number migration in live environment — maintenance window per location.",
+        "pm_comment": "Planning maintenance windows for 180 locations was logistically complex.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Migracja platformy e-commerce z Magento 1.9 do Magento 2.4. "
-            "100k produktów, 500k klientów, historia zamówień (3 lata), "
-            "migracja 25 niestandardowych modułów (przepisanie API), "
-            "nowy motyw graficzny (PWA), "
-            "integracja z ERP i systemem magazynowym."
+        "project_description": (
+            "E-commerce platform migration from Magento 1.9 to Magento 2.4. "
+            "100k products, 500k customers, order history (3 years), "
+            "migration of 25 custom modules (API rewriting), "
+            "new graphic theme (PWA), "
+            "ERP and warehouse system integration."
         ),
-        "rzeczywiste_godziny": 2200,
-        "typ_projektu": "migracja",
-        "historia_klienta": "Klient nie miał poprzednich migracji Magento — ale doświadczeni z PHP i e-commerce.",
-        "wzorce_ryzyk": "Magento 1→2: architektura całkowicie różna — moduły M1 wymagają przepisania od zera.",
-        "komentarz_pm": "8 z 25 modułów okazało się niemożliwych do migracji — przepisano od podstaw.",
-        "zrodlo": "curated",
+        "actual_hours": 2200,
+        "project_type": "migration",
+        "client_history": "Client had no previous Magento migrations — but experienced with PHP and e-commerce.",
+        "risk_patterns": "Magento 1→2: completely different architecture — M1 modules need rewriting from scratch.",
+        "pm_comment": "8 of 25 modules turned out impossible to migrate — rewritten from scratch.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Migracja poczty email (25k skrzynek) z Lotus Notes 9 do Microsoft 365 Exchange Online. "
-            "Migracja maili (archiwum 5 lat), kontaktów, kalendarzy, "
-            "aplikacje Lotus Notes (15 baz danych) → SharePoint + Power Apps, "
-            "DNS cutover, konfiguracja MX, DKIM/DMARC, "
-            "szkolenia użytkowników."
+        "project_description": (
+            "Email migration (25k mailboxes) from Lotus Notes 9 to Microsoft 365 Exchange Online. "
+            "Email migration (5 years archive), contacts, calendars, "
+            "Lotus Notes applications (15 databases) → SharePoint + Power Apps, "
+            "DNS cutover, MX configuration, DKIM/DMARC, "
+            "user training."
         ),
-        "rzeczywiste_godziny": 1340,
-        "typ_projektu": "migracja",
-        "historia_klienta": "Lotus Notes od 1996 roku — klient nigdy nie miał chmury.",
-        "wzorce_ryzyk": "Lotus Notes bazy danych to często ukryte procesy biznesowe — inwentaryzacja krytyczna.",
-        "komentarz_pm": "Zinwentaryzowano 47 baz Notes zamiast planowanych 15 — każda to osobny zakres.",
-        "zrodlo": "curated",
+        "actual_hours": 1340,
+        "project_type": "migration",
+        "client_history": "Lotus Notes since 1996 — client never had cloud.",
+        "risk_patterns": "Lotus Notes databases often contain hidden business processes — inventory critical.",
+        "pm_comment": "Inventoried 47 Notes databases instead of planned 15 — each is a separate scope.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Lift-and-shift 30 aplikacji webowych na Azure Kubernetes Service. "
-            "Konteneryzacja (Docker), konfiguracja AKS, "
+        "project_description": (
+            "Lift-and-shift of 30 web applications to Azure Kubernetes Service. "
+            "Containerization (Docker), AKS configuration, "
             "Azure Container Registry, Azure DevOps pipelines, "
             "Azure Monitor + Application Insights, "
-            "Key Vault dla sekretów, "
-            "Private Endpoints dla bezpieczeństwa."
+            "Key Vault for secrets, "
+            "Private Endpoints for security."
         ),
-        "rzeczywiste_godziny": 1860,
-        "typ_projektu": "migracja",
-        "historia_klienta": "5 z 30 aplikacji już na Azure — klient zna platformę.",
-        "wzorce_ryzyk": "Aplikacje z hard-coded connection strings — wymagają refactoringu przed konteneryzacją.",
-        "komentarz_pm": "12 aplikacji miało zakodowane sekrety w kodzie — wymuszało refactoring przed migracją.",
-        "zrodlo": "curated",
+        "actual_hours": 1860,
+        "project_type": "migration",
+        "client_history": "5 of 30 applications already on Azure — client knows the platform.",
+        "risk_patterns": "Applications with hard-coded connection strings — require refactoring before containerization.",
+        "pm_comment": "12 applications had secrets coded in source — forced refactoring before migration.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Migracja systemu monitorowania sieci (Cacti + Nagios) do Zabbix 6.4 + Grafana. "
-            "1200 monitorowanych urządzeń, migracja 800 szablonów, "
-            "konfiguracja triggerów i alertów, "
-            "integracja z PagerDuty do eskalacji, "
-            "dashboardy Grafana per typ sieci (core, dostęp, radiowa). "
-            "Działanie równoległe przez 2 miesiące."
+        "project_description": (
+            "Network monitoring system migration (Cacti + Nagios) to Zabbix 6.4 + Grafana. "
+            "1200 monitored devices, migration of 800 templates, "
+            "trigger and alert configuration, "
+            "PagerDuty integration for escalation, "
+            "Grafana dashboards per network type (core, access, radio). "
+            "Parallel operation for 2 months."
         ),
-        "rzeczywiste_godziny": 760,
-        "typ_projektu": "migracja",
-        "historia_klienta": "Klient używa Nagiosa od 10 lat — dobrze zdokumentowana konfiguracja.",
-        "wzorce_ryzyk": "Nagios → Zabbix: różne koncepcje szablonów — konwersja nie jest 1:1.",
-        "komentarz_pm": "Konwersja szablonów zajęła 30% więcej niż planowano — ale dashboardy Grafana bardzo dobrze odebrane.",
-        "zrodlo": "curated",
+        "actual_hours": 760,
+        "project_type": "migration",
+        "client_history": "Client uses Nagios for 10 years — well documented configuration.",
+        "risk_patterns": "Nagios → Zabbix: different template concepts — conversion is not 1:1.",
+        "pm_comment": "Template conversion took 30% more than planned — but Grafana dashboards were well received.",
+        "source": "curated",
     },
 
     # ─────────────────────────────────────────────────────────────────────────
-    # DODATKOWE — rozszerzenie skali i różnorodności
+    # ADDITIONAL — scale and diversity extension
     # ─────────────────────────────────────────────────────────────────────────
 
     {
-        "opis_projektu": (
-            "Mikroserwis do obsługi płatności cyklicznych (subskrypcje). "
-            "Automatyczne pobieranie opłat miesięcznych, obsługa nieudanych transakcji (retry logic), "
-            "zarządzanie kartami płatniczymi (tokenizacja PCI-DSS), "
-            "powiadomienia SMS/email, raportowanie finansowe, "
-            "integracja z 2 bramkami płatności (Stripe + lokalna)."
+        "project_description": (
+            "Microservice for recurring payment handling (subscriptions). "
+            "Automatic monthly charge collection, failed transaction handling (retry logic), "
+            "payment card management (PCI-DSS tokenization), "
+            "SMS/email notifications, financial reporting, "
+            "integration with 2 payment gateways (Stripe + local)."
         ),
-        "rzeczywiste_godziny": 780,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Klient oferuje subskrypcje, ale obsługa płatności jest manualna.",
-        "wzorce_ryzyk": "PCI-DSS compliance: audyt i certyfikacja zawsze wydłuża projekt o 6-8 tygodni.",
-        "komentarz_pm": "Certyfikacja PCI-DSS SAQ D zajęła 8 tygodni — ale planowano 4.",
-        "zrodlo": "curated",
+        "actual_hours": 780,
+        "project_type": "new",
+        "client_history": "Client offers subscriptions but payment handling is manual.",
+        "risk_patterns": "PCI-DSS compliance: audit and certification always extends project by 6-8 weeks.",
+        "pm_comment": "PCI-DSS SAQ D certification took 8 weeks — but 4 were planned.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "System zarządzania flotą pojazdów serwisowych operatora. "
-            "Śledzenie GPS (500 pojazdów), planowanie tras i zleceń serwisowych, "
-            "mobilna aplikacja dla techników (React Native), "
-            "integracja z systemem zarządzania majątkiem, "
-            "raporty wydajności i kosztów, "
-            "alerty o przekroczeniu prędkości i stref."
+        "project_description": (
+            "Fleet management system for operator's service vehicles. "
+            "GPS tracking (500 vehicles), route and service order planning, "
+            "mobile app for technicians (React Native), "
+            "asset management integration, "
+            "performance and cost reports, "
+            "speeding and zone violation alerts."
         ),
-        "rzeczywiste_godziny": 1120,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Klient zarządza flotą manualnie — pierwsze wdrożenie telematyki.",
-        "wzorce_ryzyk": "Integracja z urządzeniami GPS różnych producentów — brak standardu protokołu.",
-        "komentarz_pm": "Protokoły GPS różnych producentów: 4 różne formaty danych wymagające osobnych parserów.",
-        "zrodlo": "curated",
+        "actual_hours": 1120,
+        "project_type": "new",
+        "client_history": "Client manages fleet manually — first telematics deployment.",
+        "risk_patterns": "Integration with GPS devices from different manufacturers — no protocol standard.",
+        "pm_comment": "GPS protocols from different manufacturers: 4 different data formats requiring separate parsers.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Wewnętrzna platforma developer portal (Internal Developer Platform). "
-            "Katalog API (AsyncAPI + OpenAPI), dokumentacja techniczna (Docusaurus), "
+        "project_description": (
+            "Internal developer portal platform (Internal Developer Platform). "
+            "API catalog (AsyncAPI + OpenAPI), technical documentation (Docusaurus), "
             "self-service infrastructure (Backstage), CI/CD templates, "
-            "integracja z GitLab, Jira, Confluence. "
-            "Zwiększenie produktywności 300 developerów."
+            "GitLab, Jira, Confluence integration. "
+            "Improving productivity of 300 developers."
         ),
-        "rzeczywiste_godziny": 1440,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Organizacja ma 12 zespołów developerskich — brak spójnych standardów.",
-        "wzorce_ryzyk": "Backstage wymaga dużego nakładu na konfigurację i adopcję — często niedoceniane.",
-        "komentarz_pm": "Backstage plugins i integracje zajęły 2x więcej niż dokumentacja sugerowała.",
-        "zrodlo": "curated",
+        "actual_hours": 1440,
+        "project_type": "new",
+        "client_history": "Organization has 12 development teams — no consistent standards.",
+        "risk_patterns": "Backstage requires significant configuration and adoption effort — often underestimated.",
+        "pm_comment": "Backstage plugins and integrations took 2x more than documentation suggested.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Modernizacja CDN dla dostarczania treści wideo (IPTV). "
-            "Wymiana Varnish 4 na Varnish 7 + nowa konfiguracja VCL, "
-            "dodanie warstwy cache L2 (Redis), "
+        "project_description": (
+            "CDN modernization for video content delivery (IPTV). "
+            "Replacing Varnish 4 with Varnish 7 + new VCL configuration, "
+            "adding L2 cache layer (Redis), "
             "origin shield, purge API, "
-            "monitoring hit ratio i latency, "
-            "obsługa 10Gbps peak traffic."
+            "hit ratio and latency monitoring, "
+            "handling 10Gbps peak traffic."
         ),
-        "rzeczywiste_godziny": 420,
-        "typ_projektu": "legacy",
-        "historia_klienta": "CDN działa od 5 lat — Varnish 4 wychodzi z EOL support.",
-        "wzorce_ryzyk": "VCL między wersjami — breaking changes w syntaxie i zachowaniu.",
-        "komentarz_pm": "VCL migration z V4 na V7 miał breaking changes — ale dobrze udokumentowane przez Varnish.",
-        "zrodlo": "curated",
+        "actual_hours": 420,
+        "project_type": "legacy",
+        "client_history": "CDN running for 5 years — Varnish 4 reaching EOL support.",
+        "risk_patterns": "VCL between versions — breaking changes in syntax and behavior.",
+        "pm_comment": "VCL migration from V4 to V7 had breaking changes — but well documented by Varnish.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Automatyzacja testów regresji dla systemu bilingowego. "
-            "Framework testowy (Pytest + Selenium), "
-            "600 przypadków testowych dla procesów bilingowych, "
-            "integracja z CI/CD (GitLab CI), "
-            "testy dymne po każdym deployu, "
+        "project_description": (
+            "Regression test automation for billing system. "
+            "Test framework (Pytest + Selenium), "
+            "600 test cases for billing processes, "
+            "CI/CD integration (GitLab CI), "
+            "smoke tests after every deploy, "
             "reporting (Allure), "
-            "środowisko testowe z anonimizowanymi danymi produkcyjnymi."
+            "test environment with anonymized production data."
         ),
-        "rzeczywiste_godziny": 860,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Testy regresji robione manualnie przez 6 QA engineerów — 2 tygodnie per release.",
-        "wzorce_ryzyk": "Automatyzacja testów Selenium jest krucha — każda zmiana UI może powodować flaky tests.",
-        "komentarz_pm": "Przejście na Page Object Model od początku było dobrą decyzją — testy stabilne.",
-        "zrodlo": "curated",
+        "actual_hours": 860,
+        "project_type": "new",
+        "client_history": "Regression tests done manually by 6 QA engineers — 2 weeks per release.",
+        "risk_patterns": "Selenium test automation is brittle — any UI change can cause flaky tests.",
+        "pm_comment": "Using Page Object Model from the start was a good decision — tests remain stable.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Migracja systemu zarządzania tożsamością z Microsoft AD + LDAP do Azure AD B2C + Entra ID. "
-            "80k użytkowników, migracja kont, synchronizacja atrybutów, "
-            "konfiguracja MFA, SSPR, Conditional Access Policies, "
-            "aktualizacja 40 aplikacji do OAuth2/OIDC (z LDAP bind), "
-            "szkolenia helpdesk."
+        "project_description": (
+            "Identity management system migration from Microsoft AD + LDAP to Azure AD B2C + Entra ID. "
+            "80k users, account migration, attribute synchronization, "
+            "MFA, SSPR, Conditional Access Policies configuration, "
+            "updating 40 applications to OAuth2/OIDC (from LDAP bind), "
+            "helpdesk training."
         ),
-        "rzeczywiste_godziny": 1600,
-        "typ_projektu": "migracja",
-        "historia_klienta": "Klient ma 40 aplikacji z auth przez LDAP — każda wymaga osobnej pracy.",
-        "wzorce_ryzyk": "Aplikacje z LDAP bind: wiele legacy apps nie wspiera OAuth2 — adapter lub refactoring.",
-        "komentarz_pm": "8 aplikacji wymagało głębokiego refactoringu auth — bez możliwości prostego adaptera.",
-        "zrodlo": "curated",
+        "actual_hours": 1600,
+        "project_type": "migration",
+        "client_history": "Client has 40 applications with LDAP auth — each requires separate work.",
+        "risk_patterns": "Applications with LDAP bind: many legacy apps don't support OAuth2 — adapter or refactoring.",
+        "pm_comment": "8 applications required deep auth refactoring — no simple adapter possible.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Sentiment analysis dla opinii klientów z wszystkich kanałów. "
-            "Integracja danych z: call center (transkrypcje ASR), email, chat, social media, ankiety NPS. "
-            "Fine-tuning modelu BERT-large-polish, "
-            "dashboard dla zarządu (real-time NPS, tematy, trendy), "
-            "alerty przy nagłym spadku sentymentu dla produktu/regionu."
+        "project_description": (
+            "Sentiment analysis for customer opinions from all channels. "
+            "Data integration from: call center (ASR transcripts), email, chat, social media, NPS surveys. "
+            "Fine-tuning BERT-large model, "
+            "management dashboard (real-time NPS, topics, trends), "
+            "alerts on sudden sentiment drop for product/region."
         ),
-        "rzeczywiste_godziny": 1140,
-        "typ_projektu": "ai",
-        "historia_klienta": "Klient analizuje NPS raz na kwartał ręcznie — potrzeba real-time.",
-        "wzorce_ryzyk": "Transkrypcje call center mają niską jakość (szumy, akcenty) — preprocessing ASR trudny.",
-        "komentarz_pm": "Jakość transkrypcji ASR wymagała dodatkowego modułu korekty — nieplanowany zakres.",
-        "zrodlo": "curated",
+        "actual_hours": 1140,
+        "project_type": "ai",
+        "client_history": "Client analyzes NPS manually once per quarter — needs real-time.",
+        "risk_patterns": "Call center transcripts have low quality (noise, accents) — ASR preprocessing difficult.",
+        "pm_comment": "ASR transcript quality required an additional correction module — unplanned scope.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "System zarządzania siecią dostępową DSL (xDSL management system). "
-            "DSLAM configuration API, line profiling, troubleshooting tool dla techników, "
-            "integracja z CRM (podgląd parametrów linii klienta), "
-            "bulk provisioning, alerty degradacji jakości linii (SNR, attenuation). "
+        "project_description": (
+            "DSL access network management system (xDSL management system). "
+            "DSLAM configuration API, line profiling, troubleshooting tool for technicians, "
+            "CRM integration (customer line parameter view), "
+            "bulk provisioning, line quality degradation alerts (SNR, attenuation). "
             "Stack: Python + Django, PostgreSQL, NETCONF/YANG."
         ),
-        "rzeczywiste_godziny": 1380,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Operator zarządza 500k linii DSL — obecne narzędzia CLI nieefektywne.",
-        "wzorce_ryzyk": "NETCONF/YANG integracja z urządzeniami różnych vendorów — niezgodności YANGmodeli.",
-        "komentarz_pm": "Modele YANG różnych vendorów DSLAMów były niezgodne — osobne adaptery dla każdego.",
-        "zrodlo": "curated",
+        "actual_hours": 1380,
+        "project_type": "new",
+        "client_history": "Operator manages 500k DSL lines — current CLI tools inefficient.",
+        "risk_patterns": "NETCONF/YANG integration with devices from different vendors — YANG model incompatibilities.",
+        "pm_comment": "YANG models from different DSLAM vendors were incompatible — separate adapters for each.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Analityczna platforma danych klientów (Customer Data Platform). "
-            "Unifikacja danych z 8 źródeł (CRM, billing, sieć, aplikacja mobilna, www), "
-            "single customer view, segmentacja predyktywna, "
-            "integracja z narzędziami marketingowymi, "
-            "pipeline Kafka + Spark Streaming, lakehouse na S3 + Delta Lake."
+        "project_description": (
+            "Customer data analytics platform (Customer Data Platform). "
+            "Data unification from 8 sources (CRM, billing, network, mobile app, web), "
+            "single customer view, predictive segmentation, "
+            "marketing tool integration, "
+            "Kafka + Spark Streaming pipeline, lakehouse on S3 + Delta Lake."
         ),
-        "rzeczywiste_godziny": 3200,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Klient ma dane w silosach — pierwsza CDP implementacja.",
-        "wzorce_ryzyk": "Jakość danych z 8 źródeł: każde ma inne klucze i formaty — deduplication bardzo trudna.",
-        "komentarz_pm": "Identity resolution (łączenie rekordów klienta z różnych systemów) zajął 35% projektu.",
-        "zrodlo": "curated",
+        "actual_hours": 3200,
+        "project_type": "new",
+        "client_history": "Client has data in silos — first CDP implementation.",
+        "risk_patterns": "Data quality from 8 sources: each has different keys and formats — deduplication very difficult.",
+        "pm_comment": "Identity resolution (linking customer records from different systems) took 35% of project.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Automatyczne generowanie opisów produktów w katalogu telco przy pomocy LLM. "
-            "Szablony per kategoria produktu, tone of voice guidelines, "
-            "A/B testy konwersji opisów AI vs ręcznych, "
-            "workflow akceptacji przez redaktorów, "
-            "integracja z PIM (Product Information Management), "
-            "10k produktów do opisania."
+        "project_description": (
+            "Automatic product description generation in telco catalogue using LLM. "
+            "Templates per product category, tone of voice guidelines, "
+            "A/B conversion tests AI vs manual descriptions, "
+            "editor approval workflow, "
+            "PIM (Product Information Management) integration, "
+            "10k products to describe."
         ),
-        "rzeczywiste_godziny": 460,
-        "typ_projektu": "ai",
-        "historia_klienta": "Klient ma PIM z 10k produktów — opisy pisane ręcznie przez redaktorów.",
-        "wzorce_ryzyk": "LLM generuje treści wymagające weryfikacji — workflow akceptacji krytyczny.",
-        "komentarz_pm": "Kalibracja promptów per kategoria produktu zajęła dłużej niż zakładano — wiele iteracji z redaktorami.",
-        "zrodlo": "curated",
+        "actual_hours": 460,
+        "project_type": "ai",
+        "client_history": "Client has PIM with 10k products — descriptions written manually by editors.",
+        "risk_patterns": "LLM generates content requiring verification — approval workflow critical.",
+        "pm_comment": "Calibrating prompts per product category took longer than assumed — many iterations with editors.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Migracja platform CI/CD z Jenkins (on-premise) do GitLab CI/CD (cloud). "
-            "200 pipeline'ów, migracja konfiguracji Jenkinsfile → .gitlab-ci.yml, "
-            "konfiguracja runnerów, integracja z SonarQube, Nexus → GitLab Packages, "
-            "szkolenia dla 80 developerów. Stopniowa migracja — 20 pipeline'ów miesięcznie."
+        "project_description": (
+            "CI/CD platform migration from Jenkins (on-premise) to GitLab CI/CD (cloud). "
+            "200 pipelines, Jenkinsfile → .gitlab-ci.yml configuration migration, "
+            "runner configuration, SonarQube integration, Nexus → GitLab Packages, "
+            "training for 80 developers. Gradual migration — 20 pipelines per month."
         ),
-        "rzeczywiste_godziny": 720,
-        "typ_projektu": "migracja",
-        "historia_klienta": "Jenkins od 8 lat — duży dług techniczny, wiele shared libraries.",
-        "wzorce_ryzyk": "Shared Jenkins libraries: brak odpowiednika w GitLab CI — refactoring wymagany.",
-        "komentarz_pm": "Shared libraries Jenkinsa wymagały przepisania na GitLab CI components — 4 tygodnie dodatkowej pracy.",
-        "zrodlo": "curated",
+        "actual_hours": 720,
+        "project_type": "migration",
+        "client_history": "Jenkins for 8 years — large technical debt, many shared libraries.",
+        "risk_patterns": "Shared Jenkins libraries: no equivalent in GitLab CI — refactoring required.",
+        "pm_comment": "Jenkins shared libraries required rewriting as GitLab CI components — 4 weeks extra work.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "System zarządzania konfiguracją sieci (Network Configuration Management). "
-            "Automatyczne backupy konfiguracji 3000 urządzeń (routery, switche, firewalle), "
-            "diff konfiguracji, rollback, compliance check, "
-            "integracja z systemem ticketingowym (zmiany wymagają ticketu), "
+        "project_description": (
+            "Network configuration management system (Network Configuration Management). "
+            "Automatic configuration backups for 3000 devices (routers, switches, firewalls), "
+            "configuration diff, rollback, compliance check, "
+            "ticketing integration (changes require a ticket), "
             "Web UI + REST API. Stack: Python + Ansible + PostgreSQL + React."
         ),
-        "rzeczywiste_godziny": 1280,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Backupy konfiguracji ręczne przez skrypty — brak spójności i historii zmian.",
-        "wzorce_ryzyk": "3000 urządzeń różnych vendorów — Ansible moduły mają różną dojrzałość.",
-        "komentarz_pm": "Stare urządzenia bez wsparcia Ansible wymagały własnych modułów SSH — 15% urządzeń.",
-        "zrodlo": "curated",
+        "actual_hours": 1280,
+        "project_type": "new",
+        "client_history": "Configuration backups done manually via scripts — no consistency or change history.",
+        "risk_patterns": "3000 devices from different vendors — Ansible modules have varying maturity.",
+        "pm_comment": "Old devices without Ansible support required custom SSH modules — 15% of devices.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Rozbudowa systemu BI o moduł analiz w czasie rzeczywistym. "
-            "Architektura Lambda: warstwa batch (Spark) + warstwa speed (Kafka + Flink), "
-            "dashboard real-time KPIs w Grafana, "
-            "alerty biznesowe (spadek sprzedaży, wzrost churnu), "
-            "8 nowych raportów operacyjnych."
+        "project_description": (
+            "BI system expansion with real-time analytics module. "
+            "Lambda architecture: batch layer (Spark) + speed layer (Kafka + Flink), "
+            "real-time KPI dashboard in Grafana, "
+            "business alerts (sales drop, churn increase), "
+            "8 new operational reports."
         ),
-        "rzeczywiste_godziny": 1560,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Klient ma działający system BI batch — rozbudowa o real-time.",
-        "wzorce_ryzyk": "Flink i Kafka wymagają specjalistów — i są trudne w testowaniu distributed.",
-        "komentarz_pm": "Testy failure scenarios w distributed streaming były bardzo czasochłonne.",
-        "zrodlo": "curated",
+        "actual_hours": 1560,
+        "project_type": "new",
+        "client_history": "Client has working batch BI system — expanding with real-time.",
+        "risk_patterns": "Flink and Kafka require specialists — and are difficult to test in distributed mode.",
+        "pm_comment": "Testing failure scenarios in distributed streaming was very time-consuming.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Konsolidacja 4 systemów monitorowania (Zabbix, Nagios, Prometheus, Dynatrace) "
-            "do jednej platformy Dynatrace Full Stack. "
-            "Konfiguracja agentów na 400 serwerach, instrumentacja 60 aplikacji, "
-            "migracja alertów (300 reguł), dashboardy Davis AI, "
-            "deprecacja starych systemów, dokumentacja."
+        "project_description": (
+            "Consolidation of 4 monitoring systems (Zabbix, Nagios, Prometheus, Dynatrace) "
+            "to single Dynatrace Full Stack platform. "
+            "Agent configuration on 400 servers, instrumentation of 60 applications, "
+            "alert migration (300 rules), Davis AI dashboards, "
+            "old system deprecation, documentation."
         ),
-        "rzeczywiste_godziny": 940,
-        "typ_projektu": "migracja",
-        "historia_klienta": "4 narzędzia monitorowania = chaos — team NOC sprawdza 4 panele.",
-        "wzorce_ryzyk": "Dynatrace OneAgent na legacy JVM może powodować problemy wydajnościowe.",
-        "komentarz_pm": "2 aplikacje na starych JVM miały problemy z agentem — wymusiły aktualizację JVM.",
-        "zrodlo": "curated",
+        "actual_hours": 940,
+        "project_type": "migration",
+        "client_history": "4 monitoring tools = chaos — NOC team checks 4 panels.",
+        "risk_patterns": "Dynatrace OneAgent on legacy JVM can cause performance issues.",
+        "pm_comment": "2 applications on old JVMs had agent issues — forced JVM upgrade.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Wdrożenie SIEM (Security Information and Event Management) — Splunk Enterprise. "
-            "Integracja 35 źródeł logów (firewalle, serwery, aplikacje, AD), "
-            "80 reguł detekcji zagrożeń (MITRE ATT&CK), "
-            "playbooki odpowiedzi na incydenty, "
-            "dashboard SOC, integracja z ticketingiem, "
-            "szkolenia analityków bezpieczeństwa."
+        "project_description": (
+            "SIEM deployment (Security Information and Event Management) — Splunk Enterprise. "
+            "Integration of 35 log sources (firewalls, servers, applications, AD), "
+            "80 threat detection rules (MITRE ATT&CK), "
+            "incident response playbooks, "
+            "SOC dashboard, ticketing integration, "
+            "security analyst training."
         ),
-        "rzeczywiste_godziny": 1620,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Klient nie ma SIEM — incydenty bezpieczeństwa wykrywane z opóźnieniem.",
-        "wzorce_ryzyk": "Splunk: wolumeny logów zawsze większe niż zakładano — koszty licencji i storage.",
-        "komentarz_pm": "Wolumeny logów były 3x większe niż prognozowane — redesign architektury zbierania.",
-        "zrodlo": "curated",
+        "actual_hours": 1620,
+        "project_type": "new",
+        "client_history": "Client has no SIEM — security incidents detected with delay.",
+        "risk_patterns": "Splunk: log volumes always larger than assumed — license and storage costs.",
+        "pm_comment": "Log volumes were 3x larger than projected — collection architecture redesign.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Nowa wersja API bilingowego (REST v3) z zachowaniem kompatybilności wstecznej z v1/v2. "
-            "12 nowych endpointów, wersjonowanie API, "
-            "deprecacja starych endpointów (plan 18 miesięcy), "
-            "GraphQL gateway opcjonalny, "
-            "dokumentacja OpenAPI 3.1, SDK Python/Java, "
-            "testy kontraktowe (consumer-driven contracts)."
+        "project_description": (
+            "New billing API version (REST v3) with backward compatibility to v1/v2. "
+            "12 new endpoints, API versioning, "
+            "old endpoint deprecation (18-month plan), "
+            "optional GraphQL gateway, "
+            "OpenAPI 3.1 documentation, Python/Java SDK, "
+            "contract tests (consumer-driven contracts)."
         ),
-        "rzeczywiste_godziny": 1020,
-        "typ_projektu": "legacy",
-        "historia_klienta": "API v1 i v2 używane przez 40 zewnętrznych partnerów — kompatybilność wsteczna krytyczna.",
-        "wzorce_ryzyk": "Testy kontraktowe z 40 partnerami — każdy ma inną interpretację API contract.",
-        "komentarz_pm": "Koordynacja consumer-driven contracts z 40 partnerami zewnętrznymi trwała 2 miesiące.",
-        "zrodlo": "curated",
+        "actual_hours": 1020,
+        "project_type": "legacy",
+        "client_history": "API v1 and v2 used by 40 external partners — backward compatibility critical.",
+        "risk_patterns": "Contract tests with 40 partners — each has different interpretation of API contract.",
+        "pm_comment": "Coordinating consumer-driven contracts with 40 external partners took 2 months.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Platforma zarządzania zgodą na przetwarzanie danych osobowych (Consent Management Platform). "
-            "GDPR i ePrivacy compliance, rejestr zgód klientów, "
-            "widget web/mobile do zbierania zgód, API dla systemów marketingowych, "
-            "eksport raportów dla DPO, prawo do bycia zapomnianym (usuwanie danych z 12 systemów)."
+        "project_description": (
+            "Personal data consent management platform (Consent Management Platform). "
+            "GDPR and ePrivacy compliance, customer consent registry, "
+            "web/mobile widget for consent collection, API for marketing systems, "
+            "DPO report exports, right to be forgotten (data deletion from 12 systems)."
         ),
-        "rzeczywiste_godziny": 1080,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Klient otrzymał karę UODO — pilne wdrożenie CMP.",
-        "wzorce_ryzyk": "Integracja z 12 systemami dla prawa do bycia zapomnianym — każda integracja osobna.",
-        "komentarz_pm": "2 systemy legacy nie miały API do usuwania danych — wymagały manualnych procedur.",
-        "zrodlo": "curated",
+        "actual_hours": 1080,
+        "project_type": "new",
+        "client_history": "Client received a data protection authority fine — urgent CMP deployment.",
+        "risk_patterns": "Integration with 12 systems for right to be forgotten — each integration separate.",
+        "pm_comment": "2 legacy systems had no data deletion API — required manual procedures.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Moduł obsługi zamówień urządzeń końcowych (CPE) dla klientów biznesowych. "
-            "Konfiguracja urządzeń (router, ONT, set-top box) przez API ZeroTouch Provisioning, "
-            "śledzenie wysyłki, aktywacja, auto-diagnostyka po instalacji, "
-            "portal klienta do zarządzania urządzeniami, "
-            "integracja z systemem magazynowym i logistyką."
+        "project_description": (
+            "CPE device order handling module for business customers. "
+            "Device configuration (router, ONT, set-top box) via ZeroTouch Provisioning API, "
+            "shipment tracking, activation, post-installation auto-diagnostics, "
+            "customer portal for device management, "
+            "warehouse and logistics integration."
         ),
-        "rzeczywiste_godziny": 1460,
-        "typ_projektu": "nowy",
-        "historia_klienta": "Provisioning CPE manualny przez techników — 3 wizyty per klient.",
-        "wzorce_ryzyk": "ZeroTouch Provisioning z urządzeniami różnych vendorów — brak pełnej standaryzacji TR-369.",
-        "komentarz_pm": "TR-369 (USP) wsparcie u jednego z vendorów było niepełne — osobny adapter.",
-        "zrodlo": "curated",
+        "actual_hours": 1460,
+        "project_type": "new",
+        "client_history": "CPE provisioning done manually by technicians — 3 visits per customer.",
+        "risk_patterns": "ZeroTouch Provisioning with devices from different vendors — incomplete TR-369 standardization.",
+        "pm_comment": "TR-369 (USP) support from one vendor was incomplete — separate adapter required.",
+        "source": "curated",
     },
     {
-        "opis_projektu": (
-            "Migracja systemu helpdesk z Remedy ITSM do ServiceNow. "
-            "Migracja 5 lat historii ticketów (200k rekordów), "
-            "konfiguracja ITIL workflows (Incident, Problem, Change, Request), "
-            "integracja z monitoringiem (Zabbix alerts → ServiceNow), "
-            "custom aplikacja do zarządzania infrastrukturą telco w ServiceNow. "
-            "600 użytkowników."
+        "project_description": (
+            "Helpdesk system migration from Remedy ITSM to ServiceNow. "
+            "Migration of 5 years of ticket history (200k records), "
+            "ITIL workflow configuration (Incident, Problem, Change, Request), "
+            "monitoring integration (Zabbix alerts → ServiceNow), "
+            "custom application for telco infrastructure management in ServiceNow. "
+            "600 users."
         ),
-        "rzeczywiste_godziny": 1760,
-        "typ_projektu": "migracja",
-        "historia_klienta": "Remedy ITSM od 10 lat — mocno skostniały, wiele customizacji.",
-        "wzorce_ryzyk": "Customizacje Remedy często niemożliwe do 1:1 przeniesienia na ServiceNow.",
-        "komentarz_pm": "30% customizacji Remedy wymagało przeprojektowania dla ServiceNow — decyzja biznesowa o uproszczeniu.",
-        "zrodlo": "curated",
+        "actual_hours": 1760,
+        "project_type": "migration",
+        "client_history": "Remedy ITSM for 10 years — heavily customized, very rigid.",
+        "risk_patterns": "Remedy customizations often impossible to transfer 1:1 to ServiceNow.",
+        "pm_comment": "30% of Remedy customizations required redesign for ServiceNow — business decision to simplify.",
+        "source": "curated",
     },
 ]
 
@@ -1030,16 +1030,16 @@ if __name__ == "__main__":
     import sys
     output_dir = sys.argv[1] if len(sys.argv) > 1 else "gepa/data/training"
     count = generate_curated(output_dir)
-    print(f"Zapisano {count} przykładów do {output_dir}/")
+    print(f"Saved {count} examples to {output_dir}/")
 
-    # Statystyki
-    typy = {}
-    godziny = []
+    # Statistics
+    types = {}
+    hours = []
     for ex in EXAMPLES:
-        t = ex.get("typ_projektu", "?")
-        typy[t] = typy.get(t, 0) + 1
-        godziny.append(ex["rzeczywiste_godziny"])
+        t = ex.get("project_type", "?")
+        types[t] = types.get(t, 0) + 1
+        hours.append(ex["actual_hours"])
 
-    print(f"\nRozkład typów: {typy}")
-    print(f"Zakres godzin: {min(godziny)}h – {max(godziny)}h")
-    print(f"Mediana: {sorted(godziny)[len(godziny)//2]}h")
+    print(f"\nType distribution: {types}")
+    print(f"Hours range: {min(hours)}h - {max(hours)}h")
+    print(f"Median: {sorted(hours)[len(hours)//2]}h")

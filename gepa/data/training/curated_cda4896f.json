@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Platforma do zarządzania numerami telefonicznymi (Number Management System). Pule numerów, rezerwacje, przydziały do klientów, portowanie numerów (MNP), integracja z rejestrem krajowym, raportowanie, audyt zmian. Obsługa 50 milionów numerów, wysoka dostępność 99.99%.",
-  "rzeczywiste_godziny": 2200,
-  "typ_projektu": "nowy",
-  "historia_klienta": "Krytyczny system telco — klient nigdy wcześniej nie realizował projektu tej klasy.",
-  "wzorce_ryzyk": "Systemy telco-grade z wymogiem 99.99% HA: każdy element infrastruktury podwójny.",
-  "komentarz_pm": "Testy failover i disaster recovery zajęły 3 miesiące. Dobrze że zaplanowano bufor.",
-  "zrodlo": "curated"
-}

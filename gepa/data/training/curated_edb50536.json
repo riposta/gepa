@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Refactoring monolitu obsługi klienta — 1.2 mln linii kodu Delphi. Wydzielenie 6 modułów do osobnych serwisów, zachowanie bazy danych Firebird bez zmian, nowe REST API dla każdego serwisu, stopniowa migracja bez zatrzymania produkcji (strangler fig pattern).",
-  "rzeczywiste_godziny": 5200,
-  "typ_projektu": "legacy",
-  "historia_klienta": "Monolit rozwijany przez 18 lat — 6 różnych zespołów zostawiło swój ślad.",
-  "wzorce_ryzyk": "Delphi eksperci trudno dostępni na rynku. Monolit z ukrytymi zależnościami między modułami.",
-  "komentarz_pm": "Zidentyfikowano cykliczne zależności między modułami wymagające 4 miesięcy analizy przed kodowaniem.",
-  "zrodlo": "curated"
-}

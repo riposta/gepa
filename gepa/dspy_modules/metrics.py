@@ -1,67 +1,67 @@
-def metryka_wyceny(gold, pred, trace=None) -> float:
-    rzeczywiste = getattr(gold, "rzeczywiste_godziny", 0) or 0
-    szacunek = getattr(pred, "szacunek_godzin", 0) or 0
-    uzasadnienie = getattr(pred, "uzasadnienie", "") or ""
-    pewnosc = getattr(pred, "pewnosc", 0.5) or 0.5
+def estimation_metric(gold, pred, trace=None) -> float:
+    actual = getattr(gold, "actual_hours", 0) or 0
+    estimate = getattr(pred, "estimated_hours", 0) or 0
+    reasoning = getattr(pred, "reasoning", "") or ""
+    confidence = getattr(pred, "confidence", 0.5) or 0.5
 
-    # Dokładność (50%)
-    if rzeczywiste == 0:
-        dokladnosc = 0.0
+    # Accuracy (50%)
+    if actual == 0:
+        accuracy = 0.0
     else:
-        blad = abs(szacunek - rzeczywiste) / rzeczywiste
-        dokladnosc = max(0.0, 1.0 - blad)
+        error = abs(estimate - actual) / actual
+        accuracy = max(0.0, 1.0 - error)
 
-    # Uzasadnienie (30%) — długość jako proxy jakości
-    uzasadnienie_score = min(1.0, len(uzasadnienie) / 150)
+    # Reasoning (30%) — length as quality proxy
+    reasoning_score = min(1.0, len(reasoning) / 150)
 
-    # Kalibracja pewności (20%)
-    if pewnosc < 0.2 or pewnosc > 0.95:
-        kalibracja = 0.3
-    elif 0.3 <= pewnosc <= 0.85:
-        kalibracja = 1.0
+    # Confidence calibration (20%)
+    if confidence < 0.2 or confidence > 0.95:
+        calibration = 0.3
+    elif 0.3 <= confidence <= 0.85:
+        calibration = 1.0
     else:
-        kalibracja = 0.7
+        calibration = 0.7
 
     return round(
-        0.5 * dokladnosc + 0.3 * uzasadnienie_score + 0.2 * kalibracja,
+        0.5 * accuracy + 0.3 * reasoning_score + 0.2 * calibration,
         4,
     )
 
 
-def metryka_wyceny_z_feedbackiem(gold, pred, trace=None) -> tuple[float, str]:
-    score = metryka_wyceny(gold, pred, trace)
+def estimation_metric_with_feedback(gold, pred, trace=None) -> tuple[float, str]:
+    score = estimation_metric(gold, pred, trace)
 
-    rzeczywiste = getattr(gold, "rzeczywiste_godziny", 0) or 0
-    szacunek = getattr(pred, "szacunek_godzin", 0) or 0
-    uzasadnienie = getattr(pred, "uzasadnienie", "") or ""
-    pewnosc = getattr(pred, "pewnosc", 0.5) or 0.5
+    actual = getattr(gold, "actual_hours", 0) or 0
+    estimate = getattr(pred, "estimated_hours", 0) or 0
+    reasoning = getattr(pred, "reasoning", "") or ""
+    confidence = getattr(pred, "confidence", 0.5) or 0.5
 
     feedback_parts = []
 
-    if rzeczywiste > 0:
-        blad = (szacunek - rzeczywiste) / rzeczywiste
-        if blad > 0.3:
+    if actual > 0:
+        error = (estimate - actual) / actual
+        if error > 0.3:
             feedback_parts.append(
-                f"Szacunek za wysoki o {blad:.0%} — sprawdź czy nie duplikujesz zadań."
+                f"Estimate too high by {error:.0%} — check for duplicate tasks."
             )
-        elif blad < -0.3:
+        elif error < -0.3:
             feedback_parts.append(
-                f"Szacunek za niski o {abs(blad):.0%} — uwzględnij bufor na ryzyko i testy."
+                f"Estimate too low by {abs(error):.0%} — include risk buffer and testing time."
             )
 
-    if len(uzasadnienie) < 80:
+    if len(reasoning) < 80:
         feedback_parts.append(
-            "Uzasadnienie zbyt krótkie — dodaj podział na komponenty (backend/frontend/testy)."
+            "Reasoning too short — add breakdown by components (backend/frontend/tests)."
         )
 
-    if pewnosc > 0.95:
+    if confidence > 0.95:
         feedback_parts.append(
-            "Zbyt wysoka pewność — dla nowych projektów trzymaj pewność poniżej 0.9."
+            "Confidence too high — for new projects keep confidence below 0.9."
         )
-    elif pewnosc < 0.2:
+    elif confidence < 0.2:
         feedback_parts.append(
-            "Zbyt niska pewność — jeśli masz historyczne dane, podnieś pewność."
+            "Confidence too low — if you have historical data, raise confidence."
         )
 
-    feedback = " ".join(feedback_parts) if feedback_parts else "Wycena w normie."
+    feedback = " ".join(feedback_parts) if feedback_parts else "Estimate within normal range."
     return score, feedback

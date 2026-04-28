@@ -1,0 +1,9 @@
+{
+  "project_description": "Network monitoring system migration (Cacti + Nagios) to Zabbix 6.4 + Grafana. 1200 monitored devices, migration of 800 templates, trigger and alert configuration, PagerDuty integration for escalation, Grafana dashboards per network type (core, access, radio). Parallel operation for 2 months.",
+  "actual_hours": 760,
+  "project_type": "migration",
+  "client_history": "Client uses Nagios for 10 years — well documented configuration.",
+  "risk_patterns": "Nagios → Zabbix: different template concepts — conversion is not 1:1.",
+  "pm_comment": "Template conversion took 30% more than planned — but Grafana dashboards were well received.",
+  "source": "curated"
+}

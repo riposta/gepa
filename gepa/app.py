@@ -3,14 +3,14 @@ import httpx
 
 API_BASE = "http://localhost:8000"
 
-st.set_page_config(page_title="GEPA — Wycena IT", layout="wide")
+st.set_page_config(page_title="GEPA — IT Estimation", layout="wide")
 
-tab_wycena, tab_dashboard = st.tabs(["Wycena projektu", "Dashboard"])
+tab_estimate, tab_dashboard = st.tabs(["Project estimation", "Dashboard"])
 
-# ─── TAB 1: WYCENA ────────────────────────────────────────────
+# ─── TAB 1: ESTIMATION ────────────────────────────────────────
 
-with tab_wycena:
-    st.title("Agent Wyceny Projektów IT")
+with tab_estimate:
+    st.title("IT Project Estimation Agent")
 
     if "phase" not in st.session_state:
         st.session_state.phase = "input"
@@ -18,21 +18,21 @@ with tab_wycena:
         st.session_state.session_id = None
 
     if st.session_state.phase == "input":
-        with st.form("wycena_form"):
-            klient = st.text_input("Nazwa klienta", placeholder="np. Orange Polska")
-            opis = st.text_area(
-                "Opis projektu",
+        with st.form("estimation_form"):
+            client = st.text_input("Client name", placeholder="e.g. Orange Poland")
+            description = st.text_area(
+                "Project description",
                 height=200,
-                placeholder="Opisz wymagania projektu, technologie, zakres...",
+                placeholder="Describe project requirements, technologies, scope...",
             )
-            submitted = st.form_submit_button("Wyceń projekt")
+            submitted = st.form_submit_button("Estimate project")
 
-        if submitted and klient and opis:
-            with st.spinner("Generuję wycenę..."):
+        if submitted and client and description:
+            with st.spinner("Generating estimate..."):
                 try:
                     resp = httpx.post(
                         f"{API_BASE}/estimate",
-                        json={"klient": klient, "opis_projektu": opis},
+                        json={"client": client, "project_description": description},
                         timeout=60,
                     )
                     if resp.status_code == 200:
@@ -41,96 +41,96 @@ with tab_wycena:
                         st.session_state.phase = "review"
                         st.rerun()
                     else:
-                        st.error(f"Błąd API ({resp.status_code}): {resp.text}")
+                        st.error(f"API error ({resp.status_code}): {resp.text}")
                 except httpx.ConnectError:
-                    st.error("Nie można połączyć z API. Czy FastAPI działa?")
+                    st.error("Cannot connect to API. Is FastAPI running?")
 
     elif st.session_state.phase == "review":
         r = st.session_state.result
-        st.subheader("Wynik wyceny")
+        st.subheader("Estimation result")
 
         col1, col2, col3, col4 = st.columns(4)
-        col1.metric("Szacunek (godz.)", r["szacunek_godzin"])
-        col2.metric("Pewność", f"{r['pewnosc']:.0%}")
-        col3.metric("Typ projektu", r.get("typ_projektu", "nowy").upper())
-        col4.metric("Sesja", r["session_id"][:8] + "...")
+        col1.metric("Estimate (hrs)", r["estimated_hours"])
+        col2.metric("Confidence", f"{r['confidence']:.0%}")
+        col3.metric("Project type", r.get("project_type", "new").upper())
+        col4.metric("Session", r["session_id"][:8] + "...")
 
-        st.markdown("**Uzasadnienie:**")
-        st.info(r["uzasadnienie"])
+        st.markdown("**Reasoning:**")
+        st.info(r["reasoning"])
 
         st.divider()
-        st.subheader("Ocena PM")
+        st.subheader("PM Review")
 
         with st.form("approve_form"):
-            decision = st.radio("Decyzja", ["Zatwierdź", "Koryguj"])
-            korekta = None
-            komentarz = ""
-            if decision == "Koryguj":
-                korekta = st.number_input(
-                    "Rzeczywista liczba godzin",
+            decision = st.radio("Decision", ["Approve", "Correct"])
+            correction = None
+            comment = ""
+            if decision == "Correct":
+                correction = st.number_input(
+                    "Actual hours",
                     min_value=1,
-                    value=r["szacunek_godzin"],
+                    value=r["estimated_hours"],
                 )
-                komentarz = st.text_area("Komentarz (opcjonalny)")
-            submitted = st.form_submit_button("Zatwierdź i zapisz")
+                comment = st.text_area("Comment (optional)")
+            submitted = st.form_submit_button("Save & confirm")
 
         if submitted:
             payload = {
                 "session_id": st.session_state.session_id,
-                "zatwierdzone": True,
-                "korekta_pm": int(korekta) if korekta else None,
-                "komentarz_pm": komentarz or None,
+                "approved": True,
+                "pm_correction": int(correction) if correction else None,
+                "pm_comment": comment or None,
             }
-            with st.spinner("Zapisuję..."):
+            with st.spinner("Saving..."):
                 try:
                     resp = httpx.post(f"{API_BASE}/approve", json=payload, timeout=30)
                     if resp.status_code == 200:
-                        st.success("Wycena zapisana w pamięci agenta.")
+                        st.success("Estimation saved to agent memory.")
                         st.session_state.phase = "input"
                         st.session_state.result = None
                         st.rerun()
                     else:
-                        st.error(f"Błąd zapisu: {resp.text}")
+                        st.error(f"Save error: {resp.text}")
                 except httpx.ConnectError:
-                    st.error("Nie można połączyć z API.")
+                    st.error("Cannot connect to API.")
 
 # ─── TAB 2: DASHBOARD ─────────────────────────────────────────
 
 with tab_dashboard:
-    st.title("Dashboard Modelu")
+    st.title("Model Dashboard")
 
     try:
         info_resp = httpx.get(f"{API_BASE}/model/info", timeout=5)
         if info_resp.status_code == 200:
             info = info_resp.json()
             col1, col2 = st.columns(2)
-            col1.metric("Wersja programu", info["program_version"])
-            col2.metric("Ścieżka", info["program_path"] or "baseline (DSPy default)")
+            col1.metric("Program version", info["program_version"])
+            col2.metric("Path", info["program_path"] or "baseline (DSPy default)")
         else:
-            st.warning("Nie można pobrać info o modelu.")
+            st.warning("Cannot fetch model info.")
     except httpx.ConnectError:
-        st.warning("API niedostępne — uruchom `uvicorn gepa.api:app --reload`")
+        st.warning("API unavailable — run `uvicorn gepa.api:app --reload`")
 
     st.divider()
 
     col_reload, col_info = st.columns(2)
     with col_reload:
-        if st.button("Załaduj najnowszy program (hot-swap)"):
+        if st.button("Load latest program (hot-swap)"):
             try:
                 resp = httpx.post(f"{API_BASE}/model/reload", timeout=30)
                 if resp.status_code == 200:
                     data = resp.json()
                     if data["status"] == "reloaded":
-                        st.success(f"Program załadowany: {data['program']}")
+                        st.success(f"Program loaded: {data['program']}")
                     else:
-                        st.info(data.get("message", "Brak zoptymalizowanego programu."))
+                        st.info(data.get("message", "No optimized program available."))
             except httpx.ConnectError:
-                st.error("API niedostępne.")
+                st.error("API unavailable.")
 
     st.divider()
-    st.subheader("Jak uruchomić optymalizację ręcznie")
+    st.subheader("How to run optimization manually")
     st.code("""
-# Gdy masz 50+ przykładów treningowych w gepa/data/training/:
+# When you have 50+ training examples in gepa/data/training/:
 .venv/bin/python -c "
 from gepa.optimization.optimizer import OptimizerRunner
 from gepa.dspy_modules.estimator import create_estimator
@@ -143,6 +143,6 @@ dspy.configure(lm=lm)
 runner = OptimizerRunner()
 student = create_estimator()
 path = runner.run(student, 'gepa/data/training')
-print(f'Program zapisany: {path}')
+print(f'Program saved: {path}')
 "
 """, language="bash")

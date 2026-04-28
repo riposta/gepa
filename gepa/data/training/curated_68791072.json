@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Modernizacja systemu zarządzania zamówieniami hurtowymi — Oracle Forms 6i na web. Migracja 120 formularzy Oracle Forms do aplikacji webowej Angular + REST API. Zachowanie wszystkich reguł biznesowych, migracja danych Oracle, szkolenia użytkowników (300 osób), działanie równoległe przez 3 miesiące.",
-  "rzeczywiste_godziny": 2600,
-  "typ_projektu": "legacy",
-  "historia_klienta": "System z 1998 roku. Nigdy modernizowany. Klucz do działalności operatora.",
-  "wzorce_ryzyk": "Oracle Forms migracja — wiele ukrytych triggerów i procedur PL/SQL. +60% do estymacji.",
-  "komentarz_pm": "Odkryliśmy 200 procedur PL/SQL z logiką biznesową nieujętą w dokumentacji.",
-  "zrodlo": "curated"
-}

@@ -1,0 +1,9 @@
+{
+  "project_description": "Security hardening of telco OSS-class system — network management system running for 10 years. Security audit (150 control points), fix implementation, updating 45 dependencies (CVE), WAF deployment, network segmentation, security logs to SIEM, ISO 27001 certification.",
+  "actual_hours": 960,
+  "project_type": "legacy",
+  "client_history": "Last security audit 4 years ago. Very large security technical debt.",
+  "risk_patterns": "Security hardening of old systems — dependencies often vulnerable, regression after update.",
+  "pm_comment": "Updating 12 dependencies caused regression requiring additional work.",
+  "source": "curated"
+}

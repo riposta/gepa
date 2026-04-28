@@ -7,14 +7,14 @@ def load_trainset(training_dir: str) -> list[dspy.Example]:
     examples = []
     for f in Path(training_dir).glob("*.json"):
         data = json.loads(f.read_text())
-        if "opis_projektu" not in data or "rzeczywiste_godziny" not in data:
+        if "project_description" not in data or "actual_hours" not in data:
             continue
         ex = dspy.Example(
-            opis_projektu=data["opis_projektu"],
-            historia_klienta=data.get("historia_klienta", "Brak historii."),
-            wzorce_ryzyk=data.get("wzorce_ryzyk", "Brak wzorców."),
-            rzeczywiste_godziny=data["rzeczywiste_godziny"],
-        ).with_inputs("opis_projektu", "historia_klienta", "wzorce_ryzyk")
+            project_description=data["project_description"],
+            client_history=data.get("client_history", "No history."),
+            risk_patterns=data.get("risk_patterns", "No patterns."),
+            actual_hours=data["actual_hours"],
+        ).with_inputs("project_description", "client_history", "risk_patterns")
         examples.append(ex)
     return examples
 

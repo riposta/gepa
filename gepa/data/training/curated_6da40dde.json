@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Migracja platform CI/CD z Jenkins (on-premise) do GitLab CI/CD (cloud). 200 pipeline'ów, migracja konfiguracji Jenkinsfile → .gitlab-ci.yml, konfiguracja runnerów, integracja z SonarQube, Nexus → GitLab Packages, szkolenia dla 80 developerów. Stopniowa migracja — 20 pipeline'ów miesięcznie.",
-  "rzeczywiste_godziny": 720,
-  "typ_projektu": "migracja",
-  "historia_klienta": "Jenkins od 8 lat — duży dług techniczny, wiele shared libraries.",
-  "wzorce_ryzyk": "Shared Jenkins libraries: brak odpowiednika w GitLab CI — refactoring wymagany.",
-  "komentarz_pm": "Shared libraries Jenkinsa wymagały przepisania na GitLab CI components — 4 tygodnie dodatkowej pracy.",
-  "zrodlo": "curated"
-}

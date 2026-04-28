@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Mikroserwis do obsługi płatności cyklicznych (subskrypcje). Automatyczne pobieranie opłat miesięcznych, obsługa nieudanych transakcji (retry logic), zarządzanie kartami płatniczymi (tokenizacja PCI-DSS), powiadomienia SMS/email, raportowanie finansowe, integracja z 2 bramkami płatności (Stripe + lokalna).",
-  "rzeczywiste_godziny": 780,
-  "typ_projektu": "nowy",
-  "historia_klienta": "Klient oferuje subskrypcje, ale obsługa płatności jest manualna.",
-  "wzorce_ryzyk": "PCI-DSS compliance: audyt i certyfikacja zawsze wydłuża projekt o 6-8 tygodni.",
-  "komentarz_pm": "Certyfikacja PCI-DSS SAQ D zajęła 8 tygodni — ale planowano 4.",
-  "zrodlo": "curated"
-}

@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Wdrożenie SIEM (Security Information and Event Management) — Splunk Enterprise. Integracja 35 źródeł logów (firewalle, serwery, aplikacje, AD), 80 reguł detekcji zagrożeń (MITRE ATT&CK), playbooki odpowiedzi na incydenty, dashboard SOC, integracja z ticketingiem, szkolenia analityków bezpieczeństwa.",
-  "rzeczywiste_godziny": 1620,
-  "typ_projektu": "nowy",
-  "historia_klienta": "Klient nie ma SIEM — incydenty bezpieczeństwa wykrywane z opóźnieniem.",
-  "wzorce_ryzyk": "Splunk: wolumeny logów zawsze większe niż zakładano — koszty licencji i storage.",
-  "komentarz_pm": "Wolumeny logów były 3x większe niż prognozowane — redesign architektury zbierania.",
-  "zrodlo": "curated"
-}

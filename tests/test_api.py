@@ -8,45 +8,45 @@ import gepa.api
 def test_estimate_endpoint_returns_required_fields():
     mock_compiled = MagicMock()
     mock_compiled.ainvoke = AsyncMock(return_value={
-        "szacunek_godzin": 120,
-        "uzasadnienie": "Test uzasadnienia.",
-        "pewnosc": 0.75,
+        "estimated_hours": 120,
+        "reasoning": "Test reasoning.",
+        "confidence": 0.75,
         "session_id": "test-001",
-        "klient": "Klient TEST",
-        "opis_projektu": "Portal webowy",
-        "typ_projektu": "nowy",
-        "historia_klienta": "",
-        "wzorce_ryzyk": "",
-        "korekta_pm": None,
-        "komentarz_pm": None,
-        "zatwierdzone": False,
+        "client": "Test Client",
+        "project_description": "Web portal",
+        "project_type": "new",
+        "client_history": "",
+        "risk_patterns": "",
+        "pm_correction": None,
+        "pm_comment": None,
+        "approved": False,
     })
 
     with patch.object(gepa.api, "_graph", mock_compiled):
         client = TestClient(gepa.api.app)
         response = client.post("/estimate", json={
-            "klient": "Klient TEST",
-            "opis_projektu": "Portal webowy",
+            "client": "Test Client",
+            "project_description": "Web portal",
         })
         assert response.status_code == 200
         data = response.json()
-        assert "szacunek_godzin" in data
+        assert "estimated_hours" in data
         assert "session_id" in data
-        assert "uzasadnienie" in data
-        assert "pewnosc" in data
-        assert "typ_projektu" in data
+        assert "reasoning" in data
+        assert "confidence" in data
+        assert "project_type" in data
 
 
 def test_approve_endpoint_returns_status():
     mock_compiled = MagicMock()
-    mock_compiled.ainvoke = AsyncMock(return_value={"zatwierdzone": True})
+    mock_compiled.ainvoke = AsyncMock(return_value={"approved": True})
     mock_compiled.aupdate_state = AsyncMock()
 
     with patch.object(gepa.api, "_graph", mock_compiled):
         client = TestClient(gepa.api.app)
         response = client.post("/approve", json={
             "session_id": "test-001",
-            "zatwierdzone": True,
+            "approved": True,
         })
         assert response.status_code == 200
         data = response.json()

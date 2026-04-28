@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Optymalizacja pojemności sieci pakietowej z wykorzystaniem ML. Predykcja ruchu (LSTM na danych z 3 lat), automatyczne rekomendacje rozbudowy pojemności, symulator co-if dla planistów sieci, integracja z systemami zarządzania siecią, dashboard dla działu planowania.",
-  "rzeczywiste_godziny": 1720,
-  "typ_projektu": "ai",
-  "historia_klienta": "Operator posiada wysokiej jakości dane historyczne ruchu — dobry punkt startowy dla ML.",
-  "wzorce_ryzyk": "Predykcja ruchu na 12+ miesięcy naprzód — dokładność modelu spada drastycznie dla długich horyzontów.",
-  "komentarz_pm": "Zarządzanie oczekiwaniami biznesu odnośnie dokładności predykcji było kluczowym wyzwaniem.",
-  "zrodlo": "curated"
-}

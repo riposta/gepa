@@ -1,0 +1,9 @@
+{
+  "project_description": "Radio network failure prediction (predictive maintenance). Telemetry analysis from 8000 BTS/NodeB/eNodeB base stations, failure prediction models 7 days ahead (random forest + LSTM), technical inspection prioritization, field service system integration, cost savings through prevention rather than failure repair.",
+  "actual_hours": 1880,
+  "project_type": "ai",
+  "client_history": "Operator has extensive network monitoring systems — high quality data.",
+  "risk_patterns": "Predicting rare failures — imbalanced classes, precision/recall trade-off.",
+  "pm_comment": "Class balancing and threshold tuning with asymmetric error costs took much time.",
+  "source": "curated"
+}

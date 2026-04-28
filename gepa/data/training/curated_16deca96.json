@@ -1,0 +1,9 @@
+{
+  "project_description": "API gateway for a microservices ecosystem of a telco operator. Rate limiting, JWT + API key authentication, routing to 12 backend services, payload transformation, SLA monitoring, circuit breaker, retry logic. OpenAPI documentation, developer portal for external partners. Stack: Kong Gateway + custom Lua plugins, Keycloak, Prometheus + Grafana.",
+  "actual_hours": 680,
+  "project_type": "new",
+  "client_history": "Client has microservices experience — 3 previous projects delivered on time.",
+  "risk_patterns": "Custom Lua plugins require specialists — resource availability risk.",
+  "pm_comment": "Well estimated project, slight overrun on developer portal documentation.",
+  "source": "curated"
+}

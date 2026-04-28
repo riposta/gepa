@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Lift-and-shift 30 aplikacji webowych na Azure Kubernetes Service. Konteneryzacja (Docker), konfiguracja AKS, Azure Container Registry, Azure DevOps pipelines, Azure Monitor + Application Insights, Key Vault dla sekretów, Private Endpoints dla bezpieczeństwa.",
-  "rzeczywiste_godziny": 1860,
-  "typ_projektu": "migracja",
-  "historia_klienta": "5 z 30 aplikacji już na Azure — klient zna platformę.",
-  "wzorce_ryzyk": "Aplikacje z hard-coded connection strings — wymagają refactoringu przed konteneryzacją.",
-  "komentarz_pm": "12 aplikacji miało zakodowane sekrety w kodzie — wymuszało refactoring przed migracją.",
-  "zrodlo": "curated"
-}

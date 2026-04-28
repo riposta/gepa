@@ -1,0 +1,9 @@
+{
+  "project_description": "On-premise data center migration to AWS (lift-and-shift + optimize). 150 virtual servers → EC2/ECS, database migration (Oracle → RDS Aurora, MongoDB → DocumentDB), network: VPN + Direct Connect, storage: SAN → S3 + EFS, disaster recovery, CloudWatch monitoring, IAM redesign. Zero downtime for critical systems.",
+  "actual_hours": 4200,
+  "project_type": "migration",
+  "client_history": "Client had no cloud workloads before — first cloud migration.",
+  "risk_patterns": "First cloud migration: learning curve, networking changes, IAM policies — +50%.",
+  "pm_comment": "Networking and IAM redesign took 2x longer than planned — archetypal problems.",
+  "source": "curated"
+}

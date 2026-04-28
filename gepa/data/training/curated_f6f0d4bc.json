@@ -1,0 +1,9 @@
+{
+  "project_description": "Internal developer portal platform (Internal Developer Platform). API catalog (AsyncAPI + OpenAPI), technical documentation (Docusaurus), self-service infrastructure (Backstage), CI/CD templates, GitLab, Jira, Confluence integration. Improving productivity of 300 developers.",
+  "actual_hours": 1440,
+  "project_type": "new",
+  "client_history": "Organization has 12 development teams — no consistent standards.",
+  "risk_patterns": "Backstage requires significant configuration and adoption effort — often underestimated.",
+  "pm_comment": "Backstage plugins and integrations took 2x more than documentation suggested.",
+  "source": "curated"
+}

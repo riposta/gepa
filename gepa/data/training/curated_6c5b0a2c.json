@@ -1,0 +1,9 @@
+{
+  "project_description": "Automatic tagging and semantic search of customer service knowledge base. Embedding knowledge base articles (sentence-transformers), vector store (Weaviate), semantic search API, CRM and chatbot integration, content editor interface, search quality monitoring (human feedback loop).",
+  "actual_hours": 720,
+  "project_type": "ai",
+  "client_history": "10k articles in knowledge base — classic keyword search no longer sufficient.",
+  "risk_patterns": "Embedding quality depends on article content quality — many outdated.",
+  "pm_comment": "Updating 30% of knowledge base articles by editors was necessary before deployment.",
+  "source": "curated"
+}

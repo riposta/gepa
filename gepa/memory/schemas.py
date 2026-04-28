@@ -1,22 +1,22 @@
 from pydantic import BaseModel
 
 
-class ProjektIT(BaseModel):
-    nazwa: str
-    technologie: list[str]
-    typ: str  # "nowy" | "legacy" | "migracja" | "ai"
-    budzet_szacowany_godz: float | None = None
-    budzet_rzeczywisty_godz: float | None = None
-    odchylenie_procent: float | None = None
+class ITProject(BaseModel):
+    name: str
+    technologies: list[str]
+    type: str  # "new" | "legacy" | "migration" | "ai"
+    estimated_budget_hours: float | None = None
+    actual_budget_hours: float | None = None
+    deviation_percent: float | None = None
 
 
-class Klient(BaseModel):
-    nazwa: str
-    branza: str
-    preferencje_wyceny: str = "szczegółowy"
+class Client(BaseModel):
+    name: str
+    industry: str
+    estimation_preferences: str = "detailed"
 
 
-class WzorzecRyzyka(BaseModel):
-    opis: str
-    typowy_narzut_procent: float
-    kiedy_wystepuje: str
+class RiskPattern(BaseModel):
+    description: str
+    typical_overhead_percent: float
+    when_occurs: str

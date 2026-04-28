@@ -18,7 +18,7 @@ def _build_graphiti_clients(
     base_url: str | None,
     api_version: str | None,
 ) -> tuple:
-    """Zwraca (llm_client, embedder) dobrane do dostawcy modelu."""
+    """Returns (llm_client, embedder) matched to the model provider."""
     provider = model.split("/")[0].lower() if "/" in model else "openai"
     bare_model = model.split("/", 1)[1] if "/" in model else model
 
@@ -42,7 +42,7 @@ def _build_graphiti_clients(
             OpenAIEmbedder(config=embedder_config),
         )
 
-    # OpenAI-compatible: Ollama, Groq, Together, lokalne serwery, itp.
+    # OpenAI-compatible: Ollama, Groq, Together, local servers, etc.
     llm_config = LLMConfig(api_key=api_key, model=bare_model, base_url=base_url)
     embedder_config = OpenAIEmbedderConfig(api_key=api_key, base_url=base_url)
     return (
@@ -71,20 +71,20 @@ class GraphitiClient:
             embedder=embedder,
         )
 
-    async def get_context(self, klient: str, opis_projektu: str, typ_projektu: str = "nowy") -> str:
+    async def get_context(self, client: str, project_description: str, project_type: str = "new") -> str:
         results = await self.graphiti.search(
-            f"historia projektów {typ_projektu} klienta {klient}: {opis_projektu}"
+            f"project history {project_type} client {client}: {project_description}"
         )
         if not results:
-            return "Brak historii klienta w bazie wiedzy."
+            return "No client history in knowledge base."
         return "\n".join(r.fact for r in results[:5])
 
-    async def get_risk_patterns(self, opis_projektu: str) -> str:
+    async def get_risk_patterns(self, project_description: str) -> str:
         results = await self.graphiti.search(
-            f"wzorce ryzyk wycena: {opis_projektu}"
+            f"risk patterns estimation: {project_description}"
         )
         if not results:
-            return "Brak wyuczonych wzorców ryzyk."
+            return "No learned risk patterns."
         return "\n".join(r.fact for r in results[:3])
 
     async def add_episode(self, session_id: str, content: str) -> None:

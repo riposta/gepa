@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Model predykcji churnu klientów mobilnych. Pipeline ML: ekstrakcja cech z danych bilingowych i CRM (12 miesięcy historii, 500+ cech), trenowanie modeli (XGBoost, LightGBM, ensemble), threshold optimization, wyjaśnialność (SHAP), API do codziennej predykcji dla 5 milionów klientów, dashboard dla działu retencji, A/B test z grupą kontrolną.",
-  "rzeczywiste_godziny": 1680,
-  "typ_projektu": "ai",
-  "historia_klienta": "Klient miał wcześniej prosty scoring regresji logistycznej — chce ML z lepszą jakością.",
-  "wzorce_ryzyk": "Feature engineering na danych bilingowych — jakość danych zazwyczaj gorsza niż zakładano.",
-  "komentarz_pm": "Czyszczenie i normalizacja danych z 3 różnych systemów bilingowych zajęły 40% projektu.",
-  "zrodlo": "curated"
-}

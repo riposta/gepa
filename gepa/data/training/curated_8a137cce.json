@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "API gateway dla ekosystemu mikroserwisów operatora. Rate limiting, autentykacja JWT + API keys, routing do 12 serwisów backendowych, transformacja payloadów, monitoring SLA, circuit breaker, retry logic. Dokumentacja OpenAPI, developer portal dla partnerów zewnętrznych. Stack: Kong Gateway + custom Lua plugins, Keycloak, Prometheus + Grafana.",
-  "rzeczywiste_godziny": 680,
-  "typ_projektu": "nowy",
-  "historia_klienta": "Klient ma doświadczenie z mikroserwisami — 3 poprzednie projekty dostarczane terminowo.",
-  "wzorce_ryzyk": "Custom plugins Lua wymagają specjalistów — ryzyko dostępności zasobów.",
-  "komentarz_pm": "Dobrze oszacowany projekt, lekkie przekroczenie na dokumentacji dev portalu.",
-  "zrodlo": "curated"
-}

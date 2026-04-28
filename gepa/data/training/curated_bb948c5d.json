@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Migracja systemu helpdesk z Remedy ITSM do ServiceNow. Migracja 5 lat historii ticketów (200k rekordów), konfiguracja ITIL workflows (Incident, Problem, Change, Request), integracja z monitoringiem (Zabbix alerts → ServiceNow), custom aplikacja do zarządzania infrastrukturą telco w ServiceNow. 600 użytkowników.",
-  "rzeczywiste_godziny": 1760,
-  "typ_projektu": "migracja",
-  "historia_klienta": "Remedy ITSM od 10 lat — mocno skostniały, wiele customizacji.",
-  "wzorce_ryzyk": "Customizacje Remedy często niemożliwe do 1:1 przeniesienia na ServiceNow.",
-  "komentarz_pm": "30% customizacji Remedy wymagało przeprojektowania dla ServiceNow — decyzja biznesowa o uproszczeniu.",
-  "zrodlo": "curated"
-}

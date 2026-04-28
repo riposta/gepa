@@ -1,0 +1,9 @@
+{
+  "project_description": "Automatic product description generation in telco catalogue using LLM. Templates per product category, tone of voice guidelines, A/B conversion tests AI vs manual descriptions, editor approval workflow, PIM (Product Information Management) integration, 10k products to describe.",
+  "actual_hours": 460,
+  "project_type": "ai",
+  "client_history": "Client has PIM with 10k products — descriptions written manually by editors.",
+  "risk_patterns": "LLM generates content requiring verification — approval workflow critical.",
+  "pm_comment": "Calibrating prompts per product category took longer than assumed — many iterations with editors.",
+  "source": "curated"
+}

@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Portal self-service dla klientów indywidualnych operatora telekomunikacyjnego. Funkcjonalności: zarządzanie kontem (zmiana danych, hasła, adresu), podgląd i opłacanie faktur online, zarządzanie usługami (aktywacja, dezaktywacja pakietów), historia połączeń i zużycia danych, formularz zgłoszenia serwisowego z śledzeniem statusu. Stack: React 18 + TypeScript, FastAPI, PostgreSQL, Redis dla sesji, integracja z bramką płatności, OAuth2 SSO.",
-  "rzeczywiste_godziny": 920,
-  "typ_projektu": "nowy",
-  "historia_klienta": "Operator zrealizował wcześniej portal B2B (800h, dostarczony na czas). Doświadczony zespół frontend.",
-  "wzorce_ryzyk": "Integracja z bramką płatności historycznie +30% do estymacji.",
-  "komentarz_pm": "Niedoszacowano czasu na testy regresji i zabezpieczenia OWASP.",
-  "zrodlo": "curated"
-}

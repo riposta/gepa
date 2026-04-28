@@ -1,0 +1,9 @@
+{
+  "project_description": "Regression test automation for billing system. Test framework (Pytest + Selenium), 600 test cases for billing processes, CI/CD integration (GitLab CI), smoke tests after every deploy, reporting (Allure), test environment with anonymized production data.",
+  "actual_hours": 860,
+  "project_type": "new",
+  "client_history": "Regression tests done manually by 6 QA engineers — 2 weeks per release.",
+  "risk_patterns": "Selenium test automation is brittle — any UI change can cause flaky tests.",
+  "pm_comment": "Using Page Object Model from the start was a good decision — tests remain stable.",
+  "source": "curated"
+}

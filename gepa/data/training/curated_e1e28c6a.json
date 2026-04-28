@@ -1,0 +1,9 @@
+{
+  "project_description": "Offer recommendation engine for individual customers. Collaborative filtering + content-based for upgrade and add-on recommendations. Real-time A/B tests, push notification personalization, e-commerce platform and CRM integration, business metrics monitoring (CTR, conversion), MLflow for model versioning.",
+  "actual_hours": 1360,
+  "project_type": "ai",
+  "client_history": "Client ran manual marketing campaigns — first AI personalization.",
+  "risk_patterns": "Cold start problem for new customers. Behavioral data sparse for prepaid.",
+  "pm_comment": "Cold start required a separate approach for 40% of base — underestimated in planning.",
+  "source": "curated"
+}

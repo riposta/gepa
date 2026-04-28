@@ -23,9 +23,9 @@ def test_create_graph_accepts_estimators_dict():
 
         estimators = {
             "legacy": MagicMock(),
-            "nowy": MagicMock(),
+            "new": MagicMock(),
             "ai": MagicMock(),
-            "migracja": MagicMock(),
+            "migration": MagicMock(),
         }
         from gepa.graph.workflow import create_graph
         graph = create_graph(estimators=estimators)

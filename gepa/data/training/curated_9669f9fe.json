@@ -1,0 +1,9 @@
+{
+  "project_description": "Computer vision for network infrastructure inspection from drones. Damage detection on antenna and mast photos (YOLOv8), damage type classification (cracks, corrosion, mechanical), mobile app for technicians, network asset management integration, photo processing pipeline (10k photos per month).",
+  "actual_hours": 1560,
+  "project_type": "ai",
+  "client_history": "Innovative project — no historical data on similar deployments.",
+  "risk_patterns": "Labeling data (infrastructure damage) requires certified engineers — costly and time-consuming.",
+  "pm_comment": "Collecting 5000 labeled photos took 4 months — first and hardest phase.",
+  "source": "curated"
+}

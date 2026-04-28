@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Automatyczne generowanie opisów produktów w katalogu telco przy pomocy LLM. Szablony per kategoria produktu, tone of voice guidelines, A/B testy konwersji opisów AI vs ręcznych, workflow akceptacji przez redaktorów, integracja z PIM (Product Information Management), 10k produktów do opisania.",
-  "rzeczywiste_godziny": 460,
-  "typ_projektu": "ai",
-  "historia_klienta": "Klient ma PIM z 10k produktów — opisy pisane ręcznie przez redaktorów.",
-  "wzorce_ryzyk": "LLM generuje treści wymagające weryfikacji — workflow akceptacji krytyczny.",
-  "komentarz_pm": "Kalibracja promptów per kategoria produktu zajęła dłużej niż zakładano — wiele iteracji z redaktorami.",
-  "zrodlo": "curated"
-}

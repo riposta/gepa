@@ -1,0 +1,9 @@
+{
+  "project_description": "CPE device order handling module for business customers. Device configuration (router, ONT, set-top box) via ZeroTouch Provisioning API, shipment tracking, activation, post-installation auto-diagnostics, customer portal for device management, warehouse and logistics integration.",
+  "actual_hours": 1460,
+  "project_type": "new",
+  "client_history": "CPE provisioning done manually by technicians — 3 visits per customer.",
+  "risk_patterns": "ZeroTouch Provisioning with devices from different vendors — incomplete TR-369 standardization.",
+  "pm_comment": "TR-369 (USP) support from one vendor was incomplete — separate adapter required.",
+  "source": "curated"
+}

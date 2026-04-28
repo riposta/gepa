@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Security hardening systemu telco klasy OSS — system zarządzania siecią działający od 10 lat. Audyt bezpieczeństwa (150 punktów kontrolnych), implementacja poprawek, aktualizacja 45 zależności (CVE), wdrożenie WAF, segmentacja sieci, logi bezpieczeństwa do SIEM, certyfikacja ISO 27001.",
-  "rzeczywiste_godziny": 960,
-  "typ_projektu": "legacy",
-  "historia_klienta": "Ostatni audyt bezpieczeństwa 4 lata temu. Dług techniczny w zakresie security bardzo duży.",
-  "wzorce_ryzyk": "Security hardening starych systemów — zależności często podatne, regresja po aktualizacji.",
-  "komentarz_pm": "Aktualizacja 12 zależności spowodowała regresję wymagającą dodatkowej pracy.",
-  "zrodlo": "curated"
-}

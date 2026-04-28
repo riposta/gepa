@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Migracja poczty email (25k skrzynek) z Lotus Notes 9 do Microsoft 365 Exchange Online. Migracja maili (archiwum 5 lat), kontaktów, kalendarzy, aplikacje Lotus Notes (15 baz danych) → SharePoint + Power Apps, DNS cutover, konfiguracja MX, DKIM/DMARC, szkolenia użytkowników.",
-  "rzeczywiste_godziny": 1340,
-  "typ_projektu": "migracja",
-  "historia_klienta": "Lotus Notes od 1996 roku — klient nigdy nie miał chmury.",
-  "wzorce_ryzyk": "Lotus Notes bazy danych to często ukryte procesy biznesowe — inwentaryzacja krytyczna.",
-  "komentarz_pm": "Zinwentaryzowano 47 baz Notes zamiast planowanych 15 — każda to osobny zakres.",
-  "zrodlo": "curated"
-}

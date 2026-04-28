@@ -1,0 +1,9 @@
+{
+  "project_description": "Upgrade and hardening of RADIUS server for PPPoE authentication — migration from FreeRADIUS 2.x to FreeRADIUS 3.x on new hardware, EAP-TLS implementation, new LDAP integration, failover tests, documentation, handling 2 million sessions per day.",
+  "actual_hours": 380,
+  "project_type": "legacy",
+  "client_history": "Critical infrastructure element — last upgrade was 6 years ago.",
+  "risk_patterns": "Migrating a live authentication system — zero downtime required, maintenance window max 30 minutes.",
+  "pm_comment": "Pre-migration tests were key — cut-over went smoothly in 15 minutes.",
+  "source": "curated"
+}

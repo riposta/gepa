@@ -1,32 +1,30 @@
 import dspy
 
-TYPY_PROJEKTOW = ["legacy", "nowy", "ai", "migracja"]
+PROJECT_TYPES = ["legacy", "new", "ai", "migration"]
 
 
-class KlasyfikacjaTypu(dspy.Signature):
-    """Sklasyfikuj typ projektu IT na podstawie jego opisu."""
+class ProjectTypeClassification(dspy.Signature):
+    """Classify the IT project type based on its description."""
 
-    opis_projektu: str = dspy.InputField(
-        desc="Opis projektu IT"
-    )
-    typ_projektu: str = dspy.OutputField(
+    project_description: str = dspy.InputField(desc="IT project description")
+    project_type: str = dspy.OutputField(
         desc=(
-            "Typ projektu — JEDNO słowo: "
-            "legacy (modernizacja/utrzymanie starego systemu), "
-            "nowy (nowy system od zera), "
-            "ai (projekt z ML/AI/LLM), "
-            "migracja (przeniesienie do chmury lub nowej platformy)"
+            "Project type — ONE word: "
+            "legacy (modernization/maintenance of existing system), "
+            "new (brand new system from scratch), "
+            "ai (ML/AI/LLM project), "
+            "migration (cloud or platform migration)"
         )
     )
 
 
 def create_classifier() -> dspy.ChainOfThought:
-    return dspy.ChainOfThought(KlasyfikacjaTypu)
+    return dspy.ChainOfThought(ProjectTypeClassification)
 
 
 def normalize_type(raw: str) -> str:
     cleaned = raw.lower().strip()
-    for typ in TYPY_PROJEKTOW:
+    for typ in PROJECT_TYPES:
         if typ in cleaned:
             return typ
-    return "nowy"
+    return "new"

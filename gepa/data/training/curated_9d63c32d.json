@@ -1,0 +1,9 @@
+{
+  "project_description": "Oracle 12c database migration (3TB) to PostgreSQL 16. Schema conversion (ora2pg + manual adjustments), stored procedure migration (PL/SQL → PL/pgSQL), data migration with integrity preservation, application regression tests (12 applications use this database), cutover plan with 4h maintenance window.",
+  "actual_hours": 1640,
+  "project_type": "migration",
+  "client_history": "Client did smaller Oracle→PG migration (500GB) 2 years ago — 800h, with minor issues.",
+  "risk_patterns": "PL/SQL → PL/pgSQL: Oracle packages have no equivalent — refactoring required.",
+  "pm_comment": "280 stored procedures required manual conversion due to Oracle-specific SQL.",
+  "source": "curated"
+}

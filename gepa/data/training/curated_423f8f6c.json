@@ -1,0 +1,9 @@
+{
+  "project_description": "Phone number management platform (Number Management System). Number pools, reservations, customer allocations, number porting (MNP), national registry integration, reporting, change audit. Handling 50 million numbers, high availability 99.99%.",
+  "actual_hours": 2200,
+  "project_type": "new",
+  "client_history": "Critical telco system — client never implemented a project of this class.",
+  "risk_patterns": "Telco-grade systems with 99.99% HA requirement: every infrastructure element doubled.",
+  "pm_comment": "Failover and disaster recovery tests took 3 months. Good thing a buffer was planned.",
+  "source": "curated"
+}

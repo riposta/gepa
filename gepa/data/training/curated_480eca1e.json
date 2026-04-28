@@ -1,0 +1,9 @@
+{
+  "project_description": "Migration of 8 services from bare metal to Kubernetes (on-premise). Containerization (Dockerfile for each service), Helm charts, Ingress/NetworkPolicy configuration, persistent volumes for stateful services, CI/CD pipeline (GitLab CI → ArgoCD), monitoring (Prometheus + Grafana), load testing after migration.",
+  "actual_hours": 1080,
+  "project_type": "migration",
+  "client_history": "Client had 3 services on K8s (360h). Now scaling to whole organization.",
+  "risk_patterns": "Stateful services (databases) in K8s require special attention on storage and backup.",
+  "pm_comment": "Persistent volumes and stateful workload backup took 30% of project — well estimated.",
+  "source": "curated"
+}

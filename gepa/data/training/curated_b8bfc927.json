@@ -1,0 +1,9 @@
+{
+  "project_description": "Network configuration management system (Network Configuration Management). Automatic configuration backups for 3000 devices (routers, switches, firewalls), configuration diff, rollback, compliance check, ticketing integration (changes require a ticket), Web UI + REST API. Stack: Python + Ansible + PostgreSQL + React.",
+  "actual_hours": 1280,
+  "project_type": "new",
+  "client_history": "Configuration backups done manually via scripts — no consistency or change history.",
+  "risk_patterns": "3000 devices from different vendors — Ansible modules have varying maturity.",
+  "pm_comment": "Old devices without Ansible support required custom SSH modules — 15% of devices.",
+  "source": "curated"
+}

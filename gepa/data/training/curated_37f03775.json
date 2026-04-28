@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Modernizacja systemu wydruku i dystrybucji faktur papierowych. Stary system: skrypty Perl + cron + drukarka matrix. Nowy: microservice Java, PDF generation (iText), integracja z dostawcą usług pocztowych API, tracking wysyłki, archiwum elektroniczne. 200k faktur miesięcznie.",
-  "rzeczywiste_godziny": 680,
-  "typ_projektu": "legacy",
-  "historia_klienta": "Prosty zakres — Perl skrypty dobrze udokumentowane.",
-  "wzorce_ryzyk": "Integracja z zewnętrznym dostawcą pocztowym — API może się zmieniać.",
-  "komentarz_pm": "Projekt przebiegł sprawnie — Perl był dobrze udokumentowany, co rzadkie.",
-  "zrodlo": "curated"
-}

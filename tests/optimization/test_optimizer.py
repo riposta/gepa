@@ -61,7 +61,7 @@ def test_should_trigger_false_below_threshold():
 def test_should_trigger_true_above_threshold():
     with tempfile.TemporaryDirectory() as tmpdir:
         for i in range(60):
-            ex = {"opis_projektu": f"Projekt {i}", "rzeczywiste_godziny": 100 + i}
+            ex = {"project_description": f"Project {i}", "actual_hours": 100 + i}
             (Path(tmpdir) / f"ex{i}.json").write_text(json.dumps(ex))
 
         from gepa.optimization.optimizer import OptimizerRunner

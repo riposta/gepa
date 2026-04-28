@@ -1,0 +1,9 @@
+{
+  "project_description": "Personal data consent management platform (Consent Management Platform). GDPR and ePrivacy compliance, customer consent registry, web/mobile widget for consent collection, API for marketing systems, DPO report exports, right to be forgotten (data deletion from 12 systems).",
+  "actual_hours": 1080,
+  "project_type": "new",
+  "client_history": "Client received a data protection authority fine — urgent CMP deployment.",
+  "risk_patterns": "Integration with 12 systems for right to be forgotten — each integration separate.",
+  "pm_comment": "2 legacy systems had no data deletion API — required manual procedures.",
+  "source": "curated"
+}

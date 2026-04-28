@@ -1,0 +1,9 @@
+{
+  "project_description": "Fleet management system for operator's service vehicles. GPS tracking (500 vehicles), route and service order planning, mobile app for technicians (React Native), asset management integration, performance and cost reports, speeding and zone violation alerts.",
+  "actual_hours": 1120,
+  "project_type": "new",
+  "client_history": "Client manages fleet manually — first telematics deployment.",
+  "risk_patterns": "Integration with GPS devices from different manufacturers — no protocol standard.",
+  "pm_comment": "GPS protocols from different manufacturers: 4 different data formats requiring separate parsers.",
+  "source": "curated"
+}

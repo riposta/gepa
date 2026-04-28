@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "System wykrywania anomalii w sieci telekomunikacyjnej. Analiza strumieni danych z 10k urządzeń sieciowych (NetFlow, SNMP), modele Isolation Forest + Autoencoder dla detekcji anomalii, korelacja zdarzeń, automatyczne alerty dla NOC, dashboard real-time w Grafana, integracja z systemem ticketingowym.",
-  "rzeczywiste_godziny": 1480,
-  "typ_projektu": "ai",
-  "historia_klienta": "Operator ma duże doświadczenie z systemami monitorowania — ale pierwszy projekt ML.",
-  "wzorce_ryzyk": "Dane z urządzeń sieciowych mają wiele braków i szumów — preprocessing krytyczny.",
-  "komentarz_pm": "Wybór progu anomalii był trudny — wymagał 2 miesięcy kalibracji z zespołem NOC.",
-  "zrodlo": "curated"
-}

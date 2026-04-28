@@ -1,0 +1,9 @@
+{
+  "project_description": "Data usage monitoring system for prepaid customers. Real-time MB, SMS, minutes counter. Automatic notifications at 80% and 100% limit. Data aggregation from 3 billing systems, Redis cache, mobile and web API. Load: 500k active sessions simultaneously.",
+  "actual_hours": 760,
+  "project_type": "new",
+  "client_history": "Client built a similar system 2 years ago (slightly smaller scale) — 640h.",
+  "risk_patterns": "Scaling to 500k sessions — performance tests always reveal problems.",
+  "pm_comment": "Performance tests and Redis optimization took 2x longer than planned.",
+  "source": "curated"
+}

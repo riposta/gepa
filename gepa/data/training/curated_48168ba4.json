@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Elektroniczny system zarządzania umowami z klientami biznesowymi. Generowanie umów z szablonów Word/PDF, podpis elektroniczny (e-podpis kwalifikowany), repozytorium umów z wyszukiwarką, przypomnienia o terminach odnowień, workflow akceptacji (wielopoziomowy), integracja z systemem CRM i ERP.",
-  "rzeczywiste_godziny": 840,
-  "typ_projektu": "nowy",
-  "historia_klienta": "Brak historii dotyczącej systemów podpisu elektronicznego.",
-  "wzorce_ryzyk": "E-podpis kwalifikowany — certyfikacja i testy prawne zawsze wydłużają projekt.",
-  "komentarz_pm": "Certyfikacja podpisu elektronicznego zajęła 6 tygodni zamiast planowanych 2.",
-  "zrodlo": "curated"
-}

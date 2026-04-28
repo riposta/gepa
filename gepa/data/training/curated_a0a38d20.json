@@ -1,0 +1,9 @@
+{
+  "project_description": "SIEM deployment (Security Information and Event Management) — Splunk Enterprise. Integration of 35 log sources (firewalls, servers, applications, AD), 80 threat detection rules (MITRE ATT&CK), incident response playbooks, SOC dashboard, ticketing integration, security analyst training.",
+  "actual_hours": 1620,
+  "project_type": "new",
+  "client_history": "Client has no SIEM — security incidents detected with delay.",
+  "risk_patterns": "Splunk: log volumes always larger than assumed — license and storage costs.",
+  "pm_comment": "Log volumes were 3x larger than projected — collection architecture redesign.",
+  "source": "curated"
+}

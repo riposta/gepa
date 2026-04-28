@@ -1,0 +1,9 @@
+{
+  "project_description": "Modernization of paper invoice printing and distribution system. Old system: Perl scripts + cron + matrix printer. New: Java microservice, PDF generation (iText), integration with postal service provider API, shipment tracking, electronic archive. 200k invoices per month.",
+  "actual_hours": 680,
+  "project_type": "legacy",
+  "client_history": "Simple scope — Perl scripts well documented.",
+  "risk_patterns": "Integration with external postal provider — API may change.",
+  "pm_comment": "Project went smoothly — Perl was well documented, which is rare.",
+  "source": "curated"
+}

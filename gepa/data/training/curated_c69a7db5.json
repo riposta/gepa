@@ -1,0 +1,9 @@
+{
+  "project_description": "Dynamic pricing for roaming services. Real-time price optimization model based on demand, network capacity, competitor prices (web scraping), historical patterns. Reinforcement learning (bandit algorithm), A/B testing, billing system integration, revenue management dashboard.",
+  "actual_hours": 2100,
+  "project_type": "ai",
+  "client_history": "Client has BI experience — but first RL project in production environment.",
+  "risk_patterns": "RL in production — wrong reward can lead to unintended system behavior.",
+  "pm_comment": "Simulation environment before production deployment was key — took 3 months.",
+  "source": "curated"
+}

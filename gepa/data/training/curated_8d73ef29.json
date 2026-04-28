@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Przepisanie silnika reguł taryfowych z PL/SQL (40k linii) na mikroserwis Java. Reguły cenowe dla 200 planów taryfowych, testowanie paragonów (10k przypadków testowych), shadow mode — równoległe działanie starego i nowego przez 3 miesiące z porównaniem wyników. Zero tolerancji na błędy w naliczaniu opłat.",
-  "rzeczywiste_godziny": 2800,
-  "typ_projektu": "legacy",
-  "historia_klienta": "Silnik taryfowy — najważniejszy element bilingowy. Jeden błąd = milionowe reklamacje.",
-  "wzorce_ryzyk": "Silniki taryfowe: każda reguła ma wyjątki, każdy wyjątek ma wyjątki. +50% do estymacji.",
-  "komentarz_pm": "Odkryto 35 nieudokumentowanych reguł w PL/SQL podczas analizy kodu.",
-  "zrodlo": "curated"
-}

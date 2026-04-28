@@ -1,0 +1,9 @@
+{
+  "project_description": "VoIP system migration from Cisco CUCM to Cisco Webex Calling (cloud PBX). 2500 users, 180 locations, number migration (DID), device configuration (IP phones, softphone), call center integration, IT helpdesk and end user training.",
+  "actual_hours": 860,
+  "project_type": "migration",
+  "client_history": "Client knows Cisco — previous CUCM migration (v8 → v11) 520h.",
+  "risk_patterns": "DID number migration in live environment — maintenance window per location.",
+  "pm_comment": "Planning maintenance windows for 180 locations was logistically complex.",
+  "source": "curated"
+}

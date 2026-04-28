@@ -1,0 +1,9 @@
+{
+  "project_description": "Sentiment analysis for customer opinions from all channels. Data integration from: call center (ASR transcripts), email, chat, social media, NPS surveys. Fine-tuning BERT-large model, management dashboard (real-time NPS, topics, trends), alerts on sudden sentiment drop for product/region.",
+  "actual_hours": 1140,
+  "project_type": "ai",
+  "client_history": "Client analyzes NPS manually once per quarter — needs real-time.",
+  "risk_patterns": "Call center transcripts have low quality (noise, accents) — ASR preprocessing difficult.",
+  "pm_comment": "ASR transcript quality required an additional correction module — unplanned scope.",
+  "source": "curated"
+}

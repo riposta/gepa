@@ -1,0 +1,9 @@
+{
+  "project_description": "Refactoring of complaints handling module — monolithic PHP 5.6 → PHP 8.2 + Laravel. Rewriting 80k lines of code, database schema modernization (MySQL), adding unit tests (target coverage 70%), CI/CD pipeline, preserving all functionality, zero downtime deployment.",
+  "actual_hours": 1440,
+  "project_type": "legacy",
+  "client_history": "Client already refactored orders module (PHP 5.6→7.4, 900h). This module is more complex.",
+  "risk_patterns": "Rewriting without regression tests is risky — many edge cases in complaints logic.",
+  "pm_comment": "Adding tests from scratch took 35% of project time — worth it for risk reduction.",
+  "source": "curated"
+}

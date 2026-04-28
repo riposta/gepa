@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Przeniesienie data lake z on-premise Hadoop/HDFS do Databricks na Azure. Migracja 200TB danych, przepisanie 150 job Spark (Scala → PySpark), Delta Lake format, Unity Catalog dla governance, migracja pipeline MLflow, szkolenie 25 data scientistów i data engineerów.",
-  "rzeczywiste_godziny": 2800,
-  "typ_projektu": "migracja",
-  "historia_klienta": "Hadoop od 7 lat — dług techniczny bardzo duży. Klient chce nowoczesny stack.",
-  "wzorce_ryzyk": "Scala → PySpark: różnice w API, niekompatybilność niektórych bibliotek.",
-  "komentarz_pm": "20 z 150 jobów miało zakodowane na stałe ścieżki HDFS — wymagały głębokiej przebudowy.",
-  "zrodlo": "curated"
-}

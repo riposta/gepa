@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Platforma zarządzania zgodą na przetwarzanie danych osobowych (Consent Management Platform). GDPR i ePrivacy compliance, rejestr zgód klientów, widget web/mobile do zbierania zgód, API dla systemów marketingowych, eksport raportów dla DPO, prawo do bycia zapomnianym (usuwanie danych z 12 systemów).",
-  "rzeczywiste_godziny": 1080,
-  "typ_projektu": "nowy",
-  "historia_klienta": "Klient otrzymał karę UODO — pilne wdrożenie CMP.",
-  "wzorce_ryzyk": "Integracja z 12 systemami dla prawa do bycia zapomnianym — każda integracja osobna.",
-  "komentarz_pm": "2 systemy legacy nie miały API do usuwania danych — wymagały manualnych procedur.",
-  "zrodlo": "curated"
-}

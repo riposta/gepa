@@ -1,0 +1,9 @@
+{
+  "project_description": "CDN modernization for video content delivery (IPTV). Replacing Varnish 4 with Varnish 7 + new VCL configuration, adding L2 cache layer (Redis), origin shield, purge API, hit ratio and latency monitoring, handling 10Gbps peak traffic.",
+  "actual_hours": 420,
+  "project_type": "legacy",
+  "client_history": "CDN running for 5 years — Varnish 4 reaching EOL support.",
+  "risk_patterns": "VCL between versions — breaking changes in syntax and behavior.",
+  "pm_comment": "VCL migration from V4 to V7 had breaking changes — but well documented by Varnish.",
+  "source": "curated"
+}

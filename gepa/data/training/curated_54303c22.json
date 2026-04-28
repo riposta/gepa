@@ -1,0 +1,9 @@
+{
+  "project_description": "Upgrade of network management system from Java 8 + Struts 2 to Java 21 + Spring Boot 3 + React. Refactoring 350k lines of code, migration from Oracle 11g to Oracle 19c, replacing JSP with new React frontend, API modernization (REST instead of SOAP), regression tests for 800 test cases.",
+  "actual_hours": 3200,
+  "project_type": "legacy",
+  "client_history": "OSS system, 12 years in production. Previous upgrade (Java 6→8) took 1800h.",
+  "risk_patterns": "SOAP → REST migration while maintaining compatibility with external integrations.",
+  "pm_comment": "Identified 15 external systems integrated via SOAP — each required separate work.",
+  "source": "curated"
+}

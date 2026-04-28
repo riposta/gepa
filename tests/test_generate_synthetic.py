@@ -6,11 +6,11 @@ from unittest.mock import patch, MagicMock
 
 def test_generate_creates_n_examples():
     mock_result = MagicMock()
-    mock_result.opis_projektu = "Aplikacja mobilna iOS"
-    mock_result.rzeczywiste_godziny = 320
-    mock_result.typ_projektu = "nowy"
-    mock_result.technologie = '["Swift", "Firebase"]'
-    mock_result.uzasadnienie = "Typowy projekt mobilny."
+    mock_result.project_description = "iOS Mobile Application"
+    mock_result.actual_hours = 320
+    mock_result.project_type = "new"
+    mock_result.technologies = '["Swift", "Firebase"]'
+    mock_result.reasoning = "Typical mobile project."
 
     mock_predictor = MagicMock(return_value=mock_result)
 
@@ -22,5 +22,5 @@ def test_generate_creates_n_examples():
         files = list(Path(tmpdir).glob("*.json"))
         assert len(files) == 3
         data = json.loads(files[0].read_text())
-        assert "opis_projektu" in data
-        assert "rzeczywiste_godziny" in data
+        assert "project_description" in data
+        assert "actual_hours" in data

@@ -1,0 +1,9 @@
+{
+  "project_description": "Mobile app iOS + Android for managing phone subscription. Biometric login, balance and invoice view, top-ups, tariff plan change, customer support chat, push notifications. React Native, integration with operator's REST API backend, Apple Pay / Google Pay for payments.",
+  "actual_hours": 1160,
+  "project_type": "new",
+  "client_history": "Operator had no mobile app before — first implementation.",
+  "risk_patterns": "First mobile app for client — no internal review processes and store submission. +25%.",
+  "pm_comment": "Delays in configuring Apple Developer Program and Google Play Console.",
+  "source": "curated"
+}

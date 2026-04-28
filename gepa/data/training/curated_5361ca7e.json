@@ -1,0 +1,9 @@
+{
+  "project_description": "Document management system migration from FileNet P8 to SharePoint Online (Microsoft 365). 2 million documents, preserving metadata and version history, permission migration (150 AD groups), business application integration via Graph API, user training (500 people).",
+  "actual_hours": 1480,
+  "project_type": "migration",
+  "client_history": "FileNet P8 running for 12 years — no internal expertise, vendor support expiring.",
+  "risk_patterns": "FileNet metadata migration → SharePoint — different object models.",
+  "pm_comment": "Mapping 80 FileNet document types to SharePoint content types took a month.",
+  "source": "curated"
+}

@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Computer vision do inspekcji infrastruktury sieciowej z dronów. Detekcja uszkodzeń na zdjęciach anten i masztów (YOLOv8), klasyfikacja typów uszkodzeń (pęknięcia, korozja, mechaniczne), aplikacja mobilna dla techników, integracja z systemem zarządzania majątkiem sieciowym, pipeline przetwarzania zdjęć (10k zdjęć miesięcznie).",
-  "rzeczywiste_godziny": 1560,
-  "typ_projektu": "ai",
-  "historia_klienta": "Innowacyjny projekt — brak historycznych danych o podobnych wdrożeniach.",
-  "wzorce_ryzyk": "Etykietowanie danych (uszkodzenia infrastruktury) wymaga certyfikowanych inżynierów — kosztowne i czasochłonne.",
-  "komentarz_pm": "Zebranie 5000 etykietowanych zdjęć zajęło 4 miesiące — pierwsza i najtrudniejsza faza.",
-  "zrodlo": "curated"
-}

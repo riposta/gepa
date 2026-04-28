@@ -1,0 +1,9 @@
+{
+  "project_description": "Anomaly detection system in telecommunications network. Analysis of data streams from 10k network devices (NetFlow, SNMP), Isolation Forest + Autoencoder models for anomaly detection, event correlation, automatic alerts for NOC, real-time Grafana dashboard, ticketing system integration.",
+  "actual_hours": 1480,
+  "project_type": "ai",
+  "client_history": "Operator has extensive monitoring system experience — but first ML project.",
+  "risk_patterns": "Network device data has many gaps and noise — preprocessing critical.",
+  "pm_comment": "Choosing anomaly threshold was difficult — required 2 months of calibration with NOC team.",
+  "source": "curated"
+}

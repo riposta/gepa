@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Automatyzacja testów regresji dla systemu bilingowego. Framework testowy (Pytest + Selenium), 600 przypadków testowych dla procesów bilingowych, integracja z CI/CD (GitLab CI), testy dymne po każdym deployu, reporting (Allure), środowisko testowe z anonimizowanymi danymi produkcyjnymi.",
-  "rzeczywiste_godziny": 860,
-  "typ_projektu": "nowy",
-  "historia_klienta": "Testy regresji robione manualnie przez 6 QA engineerów — 2 tygodnie per release.",
-  "wzorce_ryzyk": "Automatyzacja testów Selenium jest krucha — każda zmiana UI może powodować flaky tests.",
-  "komentarz_pm": "Przejście na Page Object Model od początku było dobrą decyzją — testy stabilne.",
-  "zrodlo": "curated"
-}

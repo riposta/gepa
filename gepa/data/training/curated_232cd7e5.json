@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Automatyczne generowanie raportów technicznych z logów sieci. Pipeline: logi syslog/NetFlow → preprocessing → LLM (Claude) → raport PDF/Word. Szablony raportów dla NOC, działu sprzedaży, zarządu. Harmonogram automatycznych wysyłek email, feedback od odbiorców do poprawy jakości generowanych treści.",
-  "rzeczywiste_godziny": 580,
-  "typ_projektu": "ai",
-  "historia_klienta": "Raporty generowane ręcznie przez analityków — 40h/tydzień oszczędności.",
-  "wzorce_ryzyk": "Prompt engineering dla raportów technicznych wymaga iteracji z odbiorcami.",
-  "komentarz_pm": "Iteracje z odbiorcami raportów zajęły 6 tygodni — ale efekt końcowy bardzo dobry.",
-  "zrodlo": "curated"
-}

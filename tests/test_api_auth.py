@@ -7,25 +7,25 @@ import gepa.api
 
 
 def test_estimate_no_auth_when_api_key_empty():
-    """Jeśli api_key w settings jest puste — brak wymagania klucza."""
+    """If api_key in settings is empty — no key required."""
     mock_graph = MagicMock()
     mock_graph.ainvoke = AsyncMock(return_value={
-        "szacunek_godzin": 100, "uzasadnienie": "ok", "pewnosc": 0.7,
-        "typ_projektu": "nowy", "session_id": "s1",
-        "klient": "K", "opis_projektu": "o", "historia_klienta": "",
-        "wzorce_ryzyk": "", "korekta_pm": None, "komentarz_pm": None,
-        "zatwierdzone": False,
+        "estimated_hours": 100, "reasoning": "ok", "confidence": 0.7,
+        "project_type": "new", "session_id": "s1",
+        "client": "K", "project_description": "o", "client_history": "",
+        "risk_patterns": "", "pm_correction": None, "pm_comment": None,
+        "approved": False,
     })
     with patch.object(gepa.api, "_graph", mock_graph), \
          patch("gepa.api_auth.settings") as mock_settings:
         mock_settings.api_key = SecretStr("")
         client = TestClient(gepa.api.app)
-        resp = client.post("/estimate", json={"klient": "K", "opis_projektu": "o"})
+        resp = client.post("/estimate", json={"client": "K", "project_description": "o"})
         assert resp.status_code == 200
 
 
 def test_estimate_returns_401_with_wrong_key():
-    """Jeśli api_key ustawiony — zły klucz daje 401."""
+    """If api_key is set — wrong key returns 401."""
     mock_graph = MagicMock()
     with patch.object(gepa.api, "_graph", mock_graph), \
          patch("gepa.api_auth.settings") as mock_settings:
@@ -33,21 +33,21 @@ def test_estimate_returns_401_with_wrong_key():
         client = TestClient(gepa.api.app)
         resp = client.post(
             "/estimate",
-            json={"klient": "K", "opis_projektu": "o"},
+            json={"client": "K", "project_description": "o"},
             headers={"X-API-Key": "wrongkey"},
         )
         assert resp.status_code == 401
 
 
 def test_estimate_passes_with_correct_key():
-    """Poprawny klucz — 200."""
+    """Correct key — 200."""
     mock_graph = MagicMock()
     mock_graph.ainvoke = AsyncMock(return_value={
-        "szacunek_godzin": 100, "uzasadnienie": "ok", "pewnosc": 0.7,
-        "typ_projektu": "nowy", "session_id": "s1",
-        "klient": "K", "opis_projektu": "o", "historia_klienta": "",
-        "wzorce_ryzyk": "", "korekta_pm": None, "komentarz_pm": None,
-        "zatwierdzone": False,
+        "estimated_hours": 100, "reasoning": "ok", "confidence": 0.7,
+        "project_type": "new", "session_id": "s1",
+        "client": "K", "project_description": "o", "client_history": "",
+        "risk_patterns": "", "pm_correction": None, "pm_comment": None,
+        "approved": False,
     })
     with patch.object(gepa.api, "_graph", mock_graph), \
          patch("gepa.api_auth.settings") as mock_settings:
@@ -55,7 +55,7 @@ def test_estimate_passes_with_correct_key():
         client = TestClient(gepa.api.app)
         resp = client.post(
             "/estimate",
-            json={"klient": "K", "opis_projektu": "o"},
+            json={"client": "K", "project_description": "o"},
             headers={"X-API-Key": "secret123"},
         )
         assert resp.status_code == 200

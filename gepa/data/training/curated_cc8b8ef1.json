@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "System monitorowania zużycia danych dla klientów prepaid. Real-time counter zużycia MB, SMS, minut. Automatyczne powiadomienia przy 80% i 100% limitu. Agregacja danych z 3 systemów billingowych, cache Redis, API mobilne i webowe. Obciążenie: 500k aktywnych sesji jednocześnie.",
-  "rzeczywiste_godziny": 760,
-  "typ_projektu": "nowy",
-  "historia_klienta": "Klient realizował podobny system 2 lata temu (nieco mniejsza skala) — 640h.",
-  "wzorce_ryzyk": "Skalowanie do 500k sesji — testy wydajnościowe zawsze ujawniają problemy.",
-  "komentarz_pm": "Testy wydajnościowe i optymalizacja Redis zajęły 2x więcej niż planowano.",
-  "zrodlo": "curated"
-}

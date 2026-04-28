@@ -1,0 +1,9 @@
+{
+  "project_description": "Email migration (25k mailboxes) from Lotus Notes 9 to Microsoft 365 Exchange Online. Email migration (5 years archive), contacts, calendars, Lotus Notes applications (15 databases) → SharePoint + Power Apps, DNS cutover, MX configuration, DKIM/DMARC, user training.",
+  "actual_hours": 1340,
+  "project_type": "migration",
+  "client_history": "Lotus Notes since 1996 — client never had cloud.",
+  "risk_patterns": "Lotus Notes databases often contain hidden business processes — inventory critical.",
+  "pm_comment": "Inventoried 47 Notes databases instead of planned 15 — each is a separate scope.",
+  "source": "curated"
+}

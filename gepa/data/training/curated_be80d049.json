@@ -1,0 +1,9 @@
+{
+  "project_description": "Automatic technical report generation from network logs. Pipeline: syslog/NetFlow logs → preprocessing → LLM (Claude) → PDF/Word report. Report templates for NOC, sales, management. Automated email delivery schedule, recipient feedback to improve generated content quality.",
+  "actual_hours": 580,
+  "project_type": "ai",
+  "client_history": "Reports generated manually by analysts — 40h/week savings.",
+  "risk_patterns": "Prompt engineering for technical reports requires iterations with recipients.",
+  "pm_comment": "Iterations with report recipients took 6 weeks — but the final result was very good.",
+  "source": "curated"
+}

@@ -5,26 +5,26 @@ import json
 
 
 def test_faza2_imports():
-    from gepa.dspy_modules.metrics import metryka_wyceny, metryka_wyceny_z_feedbackiem
+    from gepa.dspy_modules.metrics import estimation_metric, estimation_metric_with_feedback
     from gepa.optimization.optimizer import OptimizerRunner
     from gepa.monitoring.mlflow_tracker import OptimizationTracker
     from gepa.monitoring.langfuse_config import configure_langfuse
     assert True
 
 
-def test_metryka_i_feedback_integracja():
-    from gepa.dspy_modules.metrics import metryka_wyceny, metryka_wyceny_z_feedbackiem
+def test_estimation_metric_and_feedback_integration():
+    from gepa.dspy_modules.metrics import estimation_metric, estimation_metric_with_feedback
     from unittest.mock import MagicMock
 
     gold = MagicMock()
-    gold.rzeczywiste_godziny = 100
+    gold.actual_hours = 100
     pred = MagicMock()
-    pred.szacunek_godzin = 90
-    pred.uzasadnienie = "Backend 50h, frontend 30h, testy 20h."
-    pred.pewnosc = 0.7
+    pred.estimated_hours = 90
+    pred.reasoning = "Backend 50h, frontend 30h, tests 20h."
+    pred.confidence = 0.7
 
-    score = metryka_wyceny(gold, pred)
-    score2, feedback = metryka_wyceny_z_feedbackiem(gold, pred)
+    score = estimation_metric(gold, pred)
+    score2, feedback = estimation_metric_with_feedback(gold, pred)
 
     assert 0.0 <= score <= 1.0
     assert score == score2

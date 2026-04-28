@@ -1,0 +1,9 @@
+{
+  "project_description": "Service provisioning system for B2B customers. Automatic activation of internet, telephony and TV after contract signing. Integration with 4 OSS/BSS systems, workflow engine (Camunda), status notifications, rollback on errors. SLA: provisioning in < 4 business hours. REST + SOAP API for legacy systems.",
+  "actual_hours": 1580,
+  "project_type": "new",
+  "client_history": "Client previously did manual provisioning — integrations with these systems already known.",
+  "risk_patterns": "SOAP integrations always require extra time for data mapping — +40%.",
+  "pm_comment": "Rollback logic was underestimated — turned out to be the hardest element.",
+  "source": "curated"
+}

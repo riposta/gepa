@@ -1,0 +1,9 @@
+{
+  "project_description": "Decommission and replacement of wholesale customer billing system. Old system: RPG on IBM AS/400 (iSeries), new: Java + PostgreSQL + Jasper Reports. Data migration of 15 years of history, parallel operation for 6 months, finance department training (50 people), auditor certification.",
+  "actual_hours": 3800,
+  "project_type": "legacy",
+  "client_history": "AS/400 — last programmer who knew RPG left 2 years ago.",
+  "risk_patterns": "No RPG/AS400 experts on the market — understanding logic from source code without documentation.",
+  "pm_comment": "Reverse engineering 25 years of business logic from RPG took 8 months.",
+  "source": "curated"
+}

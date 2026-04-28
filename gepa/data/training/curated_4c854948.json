@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Analityczna platforma danych klientów (Customer Data Platform). Unifikacja danych z 8 źródeł (CRM, billing, sieć, aplikacja mobilna, www), single customer view, segmentacja predyktywna, integracja z narzędziami marketingowymi, pipeline Kafka + Spark Streaming, lakehouse na S3 + Delta Lake.",
-  "rzeczywiste_godziny": 3200,
-  "typ_projektu": "nowy",
-  "historia_klienta": "Klient ma dane w silosach — pierwsza CDP implementacja.",
-  "wzorce_ryzyk": "Jakość danych z 8 źródeł: każde ma inne klucze i formaty — deduplication bardzo trudna.",
-  "komentarz_pm": "Identity resolution (łączenie rekordów klienta z różnych systemów) zajął 35% projektu.",
-  "zrodlo": "curated"
-}

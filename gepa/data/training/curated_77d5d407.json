@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Sentiment analysis dla opinii klientów z wszystkich kanałów. Integracja danych z: call center (transkrypcje ASR), email, chat, social media, ankiety NPS. Fine-tuning modelu BERT-large-polish, dashboard dla zarządu (real-time NPS, tematy, trendy), alerty przy nagłym spadku sentymentu dla produktu/regionu.",
-  "rzeczywiste_godziny": 1140,
-  "typ_projektu": "ai",
-  "historia_klienta": "Klient analizuje NPS raz na kwartał ręcznie — potrzeba real-time.",
-  "wzorce_ryzyk": "Transkrypcje call center mają niską jakość (szumy, akcenty) — preprocessing ASR trudny.",
-  "komentarz_pm": "Jakość transkrypcji ASR wymagała dodatkowego modułu korekty — nieplanowany zakres.",
-  "zrodlo": "curated"
-}

@@ -1,0 +1,9 @@
+{
+  "project_description": "Rewriting tariff rules engine from PL/SQL (40k lines) to Java microservice. Pricing rules for 200 tariff plans, receipt testing (10k test cases), shadow mode — parallel operation of old and new for 3 months with result comparison. Zero tolerance for billing errors.",
+  "actual_hours": 2800,
+  "project_type": "legacy",
+  "client_history": "Tariff engine — most important billing element. One error = million in claims.",
+  "risk_patterns": "Tariff engines: every rule has exceptions, every exception has exceptions. +50% to estimate.",
+  "pm_comment": "Discovered 35 undocumented rules in PL/SQL during code analysis.",
+  "source": "curated"
+}

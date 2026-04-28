@@ -1,0 +1,9 @@
+{
+  "project_description": "NLP pipeline for automatic classification and routing of service tickets. Classification into 45 categories, entity extraction (customer number, address, service type), sentiment analysis, automatic responses for simple tickets, BERT model fine-tuned on 200k historical tickets, interface for agents to correct predictions.",
+  "actual_hours": 960,
+  "project_type": "ai",
+  "client_history": "Client handles 50k tickets per month — manual classification is a bottleneck.",
+  "risk_patterns": "Fine-tuning BERT on telco-specific jargon requires large amounts of labeled data.",
+  "pm_comment": "Labeling training data (2000 tickets) by domain experts — 3 weeks.",
+  "source": "curated"
+}

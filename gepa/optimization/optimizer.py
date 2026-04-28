@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 import dspy
 from dspy.teleprompt import MIPROv2
-from gepa.dspy_modules.metrics import metryka_wyceny
+from gepa.dspy_modules.metrics import estimation_metric
 from gepa.optimization.trainset import load_trainset, count_examples
 from gepa.config.settings import settings
 
@@ -42,11 +42,11 @@ class OptimizerRunner:
         trainset = examples[:split]
         valset = examples[split:] or examples[:5]
 
-        # MIPROv2 z auto='light' — mała liczba iteracji, dobry baseline
-        # INTERFEJS GEPA-READY: gdy GEPA wejdzie do DSPy, podmień MIPROv2 na GEPA
-        # i zamień metric= na tuple (score, feedback) z metryka_wyceny_z_feedbackiem
+        # MIPROv2 with auto='light' — low iteration count, good baseline
+        # GEPA-READY: when GEPA lands in DSPy, swap MIPROv2 for GEPA
+        # and switch metric= to tuple (score, feedback) from estimation_metric_with_feedback
         optimizer = MIPROv2(
-            metric=metryka_wyceny,
+            metric=estimation_metric,
             auto="light",
             num_threads=1,
             verbose=True,

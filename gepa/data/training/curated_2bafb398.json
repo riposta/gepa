@@ -1,0 +1,9 @@
+{
+  "project_description": "Modernization of wholesale order management system — Oracle Forms 6i to web. Migration of 120 Oracle Forms to Angular + REST API web application. Preserving all business rules, Oracle data migration, user training (300 people), parallel operation for 3 months.",
+  "actual_hours": 2600,
+  "project_type": "legacy",
+  "client_history": "System from 1998. Never modernized. Key to operator's operations.",
+  "risk_patterns": "Oracle Forms migration — many hidden triggers and PL/SQL procedures. +60% to estimate.",
+  "pm_comment": "Discovered 200 PL/SQL procedures with business logic not in documentation.",
+  "source": "curated"
+}

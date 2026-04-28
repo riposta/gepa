@@ -1,0 +1,9 @@
+{
+  "project_description": "Simple landing page with registration form for internet service. Multi-step form (personal data → package selection → confirmation), real-time validation, integration with lead queuing system, A/B tests, Google Analytics. Stack: Next.js, Tailwind CSS.",
+  "actual_hours": 180,
+  "project_type": "new",
+  "client_history": "Client regularly commissions small web projects — good experience.",
+  "risk_patterns": "No risks — simple scope.",
+  "pm_comment": "Delivered on time and within budget.",
+  "source": "curated"
+}

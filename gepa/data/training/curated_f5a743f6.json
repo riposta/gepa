@@ -1,0 +1,9 @@
+{
+  "project_description": "Mobile customer churn prediction model. ML pipeline: feature extraction from billing and CRM data (12 months history, 500+ features), model training (XGBoost, LightGBM, ensemble), threshold optimization, explainability (SHAP), API for daily prediction for 5 million customers, retention department dashboard, A/B test with control group.",
+  "actual_hours": 1680,
+  "project_type": "ai",
+  "client_history": "Client previously had simple logistic regression scoring — wants ML with better quality.",
+  "risk_patterns": "Feature engineering on billing data — data quality usually worse than assumed.",
+  "pm_comment": "Cleaning and normalizing data from 3 different billing systems took 40% of project.",
+  "source": "curated"
+}

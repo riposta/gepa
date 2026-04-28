@@ -1,0 +1,9 @@
+{
+  "project_description": "CRM system performance optimization — page response time increased from 2s to 45s. SQL profiling (Oracle), optimization of 150 slow queries, indexes, table partitioning, introducing cache (Redis), data archival (5 years history to cold storage). Target: return to < 3s for 95% of requests.",
+  "actual_hours": 520,
+  "project_type": "legacy",
+  "client_history": "CRM running for 8 years — performance issues building up for 2 years.",
+  "risk_patterns": "Optimizing existing DB schema without rebuild — hard to predict effects before profiling.",
+  "pm_comment": "Identified 3 key N+1 queries responsible for 70% of degradation — accurate diagnosis.",
+  "source": "curated"
+}

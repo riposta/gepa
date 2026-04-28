@@ -1,0 +1,9 @@
+{
+  "project_description": "Microservice for recurring payment handling (subscriptions). Automatic monthly charge collection, failed transaction handling (retry logic), payment card management (PCI-DSS tokenization), SMS/email notifications, financial reporting, integration with 2 payment gateways (Stripe + local).",
+  "actual_hours": 780,
+  "project_type": "new",
+  "client_history": "Client offers subscriptions but payment handling is manual.",
+  "risk_patterns": "PCI-DSS compliance: audit and certification always extends project by 6-8 weeks.",
+  "pm_comment": "PCI-DSS SAQ D certification took 8 weeks — but 4 were planned.",
+  "source": "curated"
+}

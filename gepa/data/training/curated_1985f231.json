@@ -1,0 +1,9 @@
+{
+  "project_description": "Electronic contract management system for business customers. Contract generation from Word/PDF templates, electronic signature (qualified e-signature), contract repository with search, renewal reminder notifications, multi-level approval workflow, integration with CRM and ERP.",
+  "actual_hours": 840,
+  "project_type": "new",
+  "client_history": "No history with electronic signature systems.",
+  "risk_patterns": "Qualified e-signature — certification and legal testing always extend the project.",
+  "pm_comment": "Electronic signature certification took 6 weeks instead of planned 2.",
+  "source": "curated"
+}

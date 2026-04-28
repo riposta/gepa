@@ -1,0 +1,9 @@
+{
+  "project_description": "B2B portal for operator's trade partners. Wholesale order management, product catalogue with individual pricing, volume discounts, invoices, sales reports, API for partner ERP system integration. Roles and permissions (partner admin, sales rep, finance). Angular 17, Java Spring Boot, Oracle DB.",
+  "actual_hours": 1320,
+  "project_type": "new",
+  "client_history": "Two previous Java Spring Boot projects — delivered with 10% budget overrun.",
+  "risk_patterns": "Individual pricing and discounts — business logic always more complex than assumed.",
+  "pm_comment": "Discount logic turned out very complex — 4 discount types instead of planned 2.",
+  "source": "curated"
+}

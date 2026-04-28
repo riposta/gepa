@@ -41,15 +41,15 @@ app = FastAPI(title="GEPA Estimation API", lifespan=lifespan)
 
 
 class EstimateRequest(BaseModel):
-    klient: str
-    opis_projektu: str
+    client: str
+    project_description: str
 
 
 class ApproveRequest(BaseModel):
     session_id: str
-    zatwierdzone: bool
-    korekta_pm: int | None = None
-    komentarz_pm: str | None = None
+    approved: bool
+    pm_correction: int | None = None
+    pm_comment: str | None = None
 
 
 @app.post("/estimate", dependencies=[Depends(verify_api_key)])
@@ -60,25 +60,25 @@ async def estimate(req: EstimateRequest):
     config = {"configurable": {"thread_id": thread_id}}
     initial_state = {
         "session_id": thread_id,
-        "klient": req.klient,
-        "opis_projektu": req.opis_projektu,
-        "typ_projektu": "",
-        "historia_klienta": "",
-        "wzorce_ryzyk": "",
-        "szacunek_godzin": None,
-        "uzasadnienie": None,
-        "pewnosc": None,
-        "korekta_pm": None,
-        "komentarz_pm": None,
-        "zatwierdzone": False,
+        "client": req.client,
+        "project_description": req.project_description,
+        "project_type": "",
+        "client_history": "",
+        "risk_patterns": "",
+        "estimated_hours": None,
+        "reasoning": None,
+        "confidence": None,
+        "pm_correction": None,
+        "pm_comment": None,
+        "approved": False,
     }
     result = await _graph.ainvoke(initial_state, config)
     return {
         "session_id": thread_id,
-        "szacunek_godzin": result["szacunek_godzin"],
-        "uzasadnienie": result["uzasadnienie"],
-        "pewnosc": result["pewnosc"],
-        "typ_projektu": result.get("typ_projektu", "nowy"),
+        "estimated_hours": result["estimated_hours"],
+        "reasoning": result["reasoning"],
+        "confidence": result["confidence"],
+        "project_type": result.get("project_type", "new"),
     }
 
 
@@ -88,9 +88,9 @@ async def approve(req: ApproveRequest):
         raise HTTPException(status_code=503, detail="Graph not initialized")
     config = {"configurable": {"thread_id": req.session_id}}
     update = {
-        "zatwierdzone": req.zatwierdzone,
-        "korekta_pm": req.korekta_pm,
-        "komentarz_pm": req.komentarz_pm,
+        "approved": req.approved,
+        "pm_correction": req.pm_correction,
+        "pm_comment": req.pm_comment,
     }
     await _graph.aupdate_state(config, update)
     await _graph.ainvoke(None, config)
@@ -113,7 +113,7 @@ async def model_reload():
     runner = OptimizerRunner()
     latest = runner.get_latest_program()
     if latest is None:
-        return {"status": "no_program", "message": "Brak zoptymalizowanego programu."}
+        return {"status": "no_program", "message": "No optimized program available."}
 
     new_estimator = create_estimator()
     new_estimator.load(str(latest))

@@ -1,9 +1,0 @@
-{
-  "opis_projektu": "Migracja systemu monitorowania sieci (Cacti + Nagios) do Zabbix 6.4 + Grafana. 1200 monitorowanych urządzeń, migracja 800 szablonów, konfiguracja triggerów i alertów, integracja z PagerDuty do eskalacji, dashboardy Grafana per typ sieci (core, dostęp, radiowa). Działanie równoległe przez 2 miesiące.",
-  "rzeczywiste_godziny": 760,
-  "typ_projektu": "migracja",
-  "historia_klienta": "Klient używa Nagiosa od 10 lat — dobrze zdokumentowana konfiguracja.",
-  "wzorce_ryzyk": "Nagios → Zabbix: różne koncepcje szablonów — konwersja nie jest 1:1.",
-  "komentarz_pm": "Konwersja szablonów zajęła 30% więcej niż planowano — ale dashboardy Grafana bardzo dobrze odebrane.",
-  "zrodlo": "curated"
-}
