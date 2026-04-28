@@ -16,6 +16,7 @@ class Settings(BaseSettings):
     graphiti_neo4j_password: SecretStr = SecretStr("")
 
     gepa_trigger_threshold: int = 50
+    gepa_trigger_every: int = 100
     programs_dir: Path = Path("gepa/dspy_modules/programs")
 
     langfuse_public_key: str = ""

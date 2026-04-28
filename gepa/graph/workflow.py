@@ -14,9 +14,11 @@ from gepa.optimization.optimizer import OptimizerRunner
 
 logger = logging.getLogger(__name__)
 
+from gepa.config.settings import settings as _settings
+
 TRAINING_DIR = os.environ.get("TRAINING_DIR", "gepa/data/training")
 ESTIMATES_FILE = os.environ.get("ESTIMATES_FILE", "gepa/data/estimates_count.json")
-GEPA_TRIGGER_EVERY = int(os.environ.get("GEPA_TRIGGER_EVERY", "100"))
+GEPA_TRIGGER_EVERY = _settings.gepa_trigger_every
 
 
 def _save_to_trainset(state: EstimationState, actual_hours: int) -> None:
@@ -108,7 +110,10 @@ def create_graph(checkpointer=None, graphiti_client=None, estimator=None, estima
             runner = OptimizerRunner()
             try:
                 est = estimators.get("new") or list(estimators.values())[0]
-                runner.run(student=est, training_dir=TRAINING_DIR)
+                program_path = runner.run(student=est, training_dir=TRAINING_DIR)
+                for typ, typ_est in estimators.items():
+                    typ_est.load(str(program_path))
+                logger.info("[GEPA] Reloaded optimized program: %s", program_path.name)
             except Exception:
                 logger.exception("[GEPA] Optimization failed")
 
