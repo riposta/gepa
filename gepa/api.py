@@ -61,6 +61,7 @@ async def estimate(req: EstimateRequest):
         "session_id": thread_id,
         "klient": req.klient,
         "opis_projektu": req.opis_projektu,
+        "typ_projektu": "",
         "historia_klienta": "",
         "wzorce_ryzyk": "",
         "szacunek_godzin": None,
@@ -76,6 +77,7 @@ async def estimate(req: EstimateRequest):
         "szacunek_godzin": result["szacunek_godzin"],
         "uzasadnienie": result["uzasadnienie"],
         "pewnosc": result["pewnosc"],
+        "typ_projektu": result.get("typ_projektu", "nowy"),
     }
 
 

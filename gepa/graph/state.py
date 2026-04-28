@@ -5,6 +5,7 @@ class EstimationState(TypedDict):
     session_id: str
     klient: str
     opis_projektu: str
+    typ_projektu: str
     historia_klienta: str
     wzorce_ryzyk: str
     szacunek_godzin: int | None

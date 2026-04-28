@@ -14,6 +14,7 @@ def test_estimate_endpoint_returns_required_fields():
         "session_id": "test-001",
         "klient": "Klient TEST",
         "opis_projektu": "Portal webowy",
+        "typ_projektu": "nowy",
         "historia_klienta": "",
         "wzorce_ryzyk": "",
         "korekta_pm": None,
@@ -33,6 +34,7 @@ def test_estimate_endpoint_returns_required_fields():
         assert "session_id" in data
         assert "uzasadnienie" in data
         assert "pewnosc" in data
+        assert "typ_projektu" in data
 
 
 def test_approve_endpoint_returns_status():

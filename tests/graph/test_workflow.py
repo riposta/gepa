@@ -23,6 +23,7 @@ def test_estimation_state_fields():
         "session_id": "test-001",
         "klient": "Klient ABC",
         "opis_projektu": "Nowy portal",
+        "typ_projektu": "nowy",
         "historia_klienta": "",
         "wzorce_ryzyk": "",
         "szacunek_godzin": None,
@@ -33,4 +34,4 @@ def test_estimation_state_fields():
         "zatwierdzone": False,
     }
     assert state["zatwierdzone"] is False
-    assert state["szacunek_godzin"] is None
+    assert state["typ_projektu"] == "nowy"
