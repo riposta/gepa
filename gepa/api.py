@@ -6,6 +6,8 @@ import dspy
 from gepa.graph.workflow import create_graph
 from gepa.config.settings import settings
 from gepa.memory.graphiti_client import GraphitiClient
+from gepa.optimization.optimizer import OptimizerRunner
+from gepa.dspy_modules.estimator import create_estimator
 
 
 _graph = None
@@ -92,9 +94,6 @@ async def approve(req: ApproveRequest):
     return {"status": "saved", "session_id": req.session_id}
 
 
-from gepa.optimization.optimizer import OptimizerRunner
-
-
 @app.get("/model/info")
 async def model_info():
     runner = OptimizerRunner()
@@ -113,7 +112,6 @@ async def model_reload():
     if latest is None:
         return {"status": "no_program", "message": "Brak zoptymalizowanego programu."}
 
-    from gepa.dspy_modules.estimator import create_estimator
     new_estimator = create_estimator()
     new_estimator.load(str(latest))
     _graph = create_graph(

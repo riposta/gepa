@@ -1,5 +1,6 @@
 import uuid
 import json as _json
+import logging
 import os
 from pathlib import Path
 import dspy
@@ -9,6 +10,8 @@ from gepa.graph.state import EstimationState
 from gepa.memory.graphiti_client import GraphitiClient
 from gepa.dspy_modules.estimator import create_estimator
 from gepa.optimization.optimizer import OptimizerRunner
+
+logger = logging.getLogger(__name__)
 
 TRAINING_DIR = os.environ.get("TRAINING_DIR", "gepa/data/training")
 
@@ -74,7 +77,7 @@ def create_graph(checkpointer=None, graphiti_client=None, estimator=None):
             try:
                 runner.run(student=est, training_dir=TRAINING_DIR)
             except Exception as e:
-                print(f"[GEPA] Optymalizacja nie powiodła się: {e}")
+                logger.exception("[GEPA] Optymalizacja nie powiodła się")
 
         return {"zatwierdzone": True}
 
