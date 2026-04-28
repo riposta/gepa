@@ -2,6 +2,7 @@
 import pytest
 from fastapi.testclient import TestClient
 from unittest.mock import patch, MagicMock, AsyncMock
+from pydantic import SecretStr
 import gepa.api
 
 
@@ -17,7 +18,7 @@ def test_estimate_no_auth_when_api_key_empty():
     })
     with patch.object(gepa.api, "_graph", mock_graph), \
          patch("gepa.api_auth.settings") as mock_settings:
-        mock_settings.api_key = ""
+        mock_settings.api_key = SecretStr("")
         client = TestClient(gepa.api.app)
         resp = client.post("/estimate", json={"klient": "K", "opis_projektu": "o"})
         assert resp.status_code == 200
@@ -28,7 +29,7 @@ def test_estimate_returns_401_with_wrong_key():
     mock_graph = MagicMock()
     with patch.object(gepa.api, "_graph", mock_graph), \
          patch("gepa.api_auth.settings") as mock_settings:
-        mock_settings.api_key = "secret123"
+        mock_settings.api_key = SecretStr("secret123")
         client = TestClient(gepa.api.app)
         resp = client.post(
             "/estimate",
@@ -50,7 +51,7 @@ def test_estimate_passes_with_correct_key():
     })
     with patch.object(gepa.api, "_graph", mock_graph), \
          patch("gepa.api_auth.settings") as mock_settings:
-        mock_settings.api_key = "secret123"
+        mock_settings.api_key = SecretStr("secret123")
         client = TestClient(gepa.api.app)
         resp = client.post(
             "/estimate",

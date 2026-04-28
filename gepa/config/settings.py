@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     langfuse_public_key: str = ""
     langfuse_secret_key: SecretStr = SecretStr("")
     mlflow_tracking_uri: str = "mlruns"
-    api_key: str = ""
+    api_key: SecretStr = SecretStr("")
 
 
 settings = Settings()
