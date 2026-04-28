@@ -21,6 +21,13 @@ async def lifespan(app: FastAPI):
         api_key=settings.llm_api_key.get_secret_value() or None,
     )
     dspy.configure(lm=lm)
+    from gepa.monitoring.langfuse_config import configure_langfuse
+    langfuse_handler = configure_langfuse(
+        public_key=settings.langfuse_public_key,
+        secret_key=settings.langfuse_secret_key.get_secret_value(),
+    )
+    if langfuse_handler:
+        dspy.configure(callbacks=[langfuse_handler])
     _graphiti_client = GraphitiClient()
     _graph = create_graph(graphiti_client=_graphiti_client)
     yield
