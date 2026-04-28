@@ -41,8 +41,10 @@ def _build_graphiti_clients(
     cross_encoder = OpenAIRerankerClient(config=llm_config)
 
     if provider == "openai":
+        # gpt-5* models treat "minimal" reasoning effort as invalid — use "low"
+        reasoning = "low" if bare_model.startswith("gpt-5") else "minimal"
         return (
-            OpenAIClient(config=llm_config),
+            OpenAIClient(config=llm_config, reasoning=reasoning),
             OpenAIEmbedder(config=embedder_config),
             cross_encoder,
         )
