@@ -257,7 +257,7 @@ sequenceDiagram
     participant EST as estimation_node
     participant GR as Graphiti (Neo4j)
     participant STORE as store_node
-    participant OPT as OptimizerRunner
+    participant OPTIMIZER as OptimizerRunner
 
     PM->>UI: Wpisuje opis projektu + nazwę klienta
     UI->>API: POST /estimate {klient, opis_projektu}
@@ -295,7 +295,7 @@ sequenceDiagram
         UI->>API: POST /approve {session_id, korekta_pm: 320, komentarz_pm: "..."}
     end
 
-    Note over LG,OPT: Krok 4 — Zapis i samouczenie
+    Note over LG,OPTIMIZER: Krok 4 — Zapis i samouczenie
     API->>LG: aupdate_state + ainvoke (wznowienie)
     LG->>STORE: store_node
     STORE->>GR: add_episode(session_id, treść z typem projektu)
@@ -305,10 +305,10 @@ sequenceDiagram
     end
     STORE->>STORE: _increment_estimate_count()
     opt Licznik % 100 == 0
-        STORE->>OPT: runner.run(student, training_dir)
-        OPT->>OPT: MIPROv2 optymalizuje prompty
-        OPT-->>STORE: vN_miprov2.json (nowy program)
-        Note right of OPT: Program zapisany na dysk<br/>dostępny do hot-swap
+        STORE->>OPTIMIZER: runner.run(student, training_dir)
+        OPTIMIZER->>OPTIMIZER: MIPROv2 optymalizuje prompty
+        OPTIMIZER-->>STORE: vN_miprov2.json (nowy program)
+        Note right of OPTIMIZER: Program zapisany na dysk<br/>dostępny do hot-swap
     end
     STORE-->>API: {zatwierdzone: True}
     API-->>UI: {status: "saved"}
@@ -794,11 +794,15 @@ cp .env.example .env   # jeśli istnieje, lub utwórz ręcznie
 # Edytuj .env — ustaw LLM_MODEL i LLM_API_KEY
 ```
 
-### Krok 4: Wygeneruj dane syntetyczne (pierwsze uruchomienie)
+### Krok 4: Dane treningowe
+
+Repo zawiera gotowy zestaw **65 ręcznie przygotowanych przykładów** telco/IT w `gepa/data/training/curated_*.json` — pokrycie wszystkich 4 typów projektów, zakres 180h–5200h. Nie musisz nic generować na start.
+
+Opcjonalnie — generuj dodatkowe przykłady syntetyczne:
 
 ```bash
-.venv/bin/python gepa/data/generate_synthetic.py
-# Tworzy ~50 przykładów w gepa/data/training/synthetic_*.json
+.venv/bin/python gepa/data/generate_curated.py
+# Regeneruje kuratowane przykłady (rozkład: nowy 23, legacy 14, ai 14, migracja 14)
 ```
 
 Opcjonalnie — migruj dane z ace-poc:
